@@ -1,0 +1,4 @@
+interface:
+  display_name: "Letra da Lei"
+  short_description: "Pesquise legislação federal brasileira na MCP da Letra da Lei antes de responder ou redigir."
+  default_prompt: "Use $letra-da-lei-legal-research para responder a esta pergunta com a MCP da Letra da Lei e citações em nível de artigo."

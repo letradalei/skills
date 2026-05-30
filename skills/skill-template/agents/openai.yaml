@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill Modelo"
+  short_description: "Modelo inicial para criar uma nova skill da Letra da Lei."
+  default_prompt: "Use $skill-template como ponto de partida para uma nova skill neste repositório."
