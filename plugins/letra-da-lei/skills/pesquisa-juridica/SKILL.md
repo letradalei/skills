@@ -53,6 +53,14 @@ Não sabe a sigla da lei? Chame `acervo · listar` (`dominio: "legislacao"`) ant
 
 **Campos retornados:** `search_id`, `numero`, `citacao` (ex.: `"CDC, art. 14"`), `lei_slug`, `lei_titulo`, `texto`, `is_truncated`, `situacao` (`vigente`|`revogado`|`vetado`|`superada`), `score` (0–1; 1.0 = referência direta), `breadcrumb`, `section_id`, `source_url`.
 
+## Navegar a estrutura da lei e as citações — `legislacao-federal · explorar_contexto`
+
+Às vezes um artigo só faz sentido com o que está em volta. Use `explorar_contexto` para **puxar mais contexto** sem novas buscas semânticas — vale a pena quando o artigo remete a outros, abre um capítulo, ou pode ter sido alterado:
+
+- **Artigos vizinhos:** informe `norma` + `section_id` (de um resultado de `buscar_artigos`) para listar os artigos da mesma seção e subir/descer no sumário um nível por vez (`parent_id`). Bom para ler o instituto inteiro, não só o artigo isolado.
+- **Relações de um artigo:** informe o `search_id` para ver o que ele `cita`, é `citado_por` e o que o `altera` — útil para trazer dispositivos correlatos ou conferir alterações. Filtre com `direction` (`cita`/`citado_por`).
+- **Limite:** as relações vêm das remissões explícitas e alterações do texto oficial — **não** são exaustivas das remissões em prosa ("na forma do art. X"). `relacoes` vazio não significa ausência de citações; para as remissões textuais, leia o teor integral com `acervo · consultar`.
+
 ## Jurisprudência
 
 - **Federal (STF/STJ/TST/CARF):** `jurisprudencia-federal · buscar_precedentes` (amplo) ou `buscar_vinculantes` (só art. 927 CPC). Filtre por `autoridade` (`STF`,`STJ`,`TST`,`CARF` — vírgula para vários), `tipo`, `eficacia`.
