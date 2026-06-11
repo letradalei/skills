@@ -37,7 +37,7 @@ Só avance para a redação quando **todos** os itens "Informar manualmente" tiv
 2. **Diagnostique a fase processual** e mapeie qual peça é cabível (Passo 2).
 3. **Confirme o diagnóstico com o usuário** antes de redigir qualquer linha.
 4. Faça o intake específico para a peça identificada (Passo 3).
-5. **Chame `buscar_legislacao_federal` para todo dispositivo que entrar na peça** — sem exceção.
+5. **Chame `buscar_artigos` para todo dispositivo que entrar na peça** — sem exceção.
 6. Estruture e gere o `.docx` + `NOTAS.md` (Passos 4 a 6).
 
 ---
@@ -60,19 +60,20 @@ O rascunho gerado **não é peça pronta** — é andaime revisável. Quem assin
 
 ### Fonte 1 — Lei federal (MCP)
 
-**Toda citação de lei federal nesta peça vem do MCP da Letra da Lei** (`buscar_legislacao_federal`). Sem exceção.
+**Toda citação de lei federal nesta peça vem do MCP da Letra da Lei.** Sem exceção. Ferramentas (grupo · operação):
 
-- Antes de invocar art. 1.009 do CPC (apelação), chame a ferramenta. Antes de citar CLT, CC, CDC, lei especial — chame.
-- Norma estadual/municipal/infralegal → `[FORA DO CORPUS]`.
-- Resultado zero do MCP → pergunte ao usuário antes de buscar em outro lugar. Não preencha de memória.
-- **Citação sem `citation_id` e `source_url` retornados pela ferramenta é citação inválida.** Vai como `[CITAÇÃO PENDENTE]` — nunca entra na peça diretamente da memória do modelo. Leis são alteradas; a memória do modelo pode ter redação desatualizada.
+- **`legislacao-federal · buscar_artigos`** — localiza o artigo (ex.: art. 1.009 do CPC). Params: `query` (+ número se souber) e `norma` (sigla/slug: `CPC`, `CLT`, `Lei-13105-2015`, `DL-5452-1943`). Não sabe a sigla? `acervo · listar` (`dominio: "legislacao"`).
+- **`acervo · consultar`** (`dominio: "legislacao"`) — texto integral; **obrigatório** antes de citar se `is_truncated: true`.
+- **`acervo · reclame_aqui`** — registre a falha quando a busca vier vazia ou irrelevante (`category: "gap"` ou `"resultado_irrelevante"`), em vez de só seguir.
+
+Antes de colar na peça: confira `situacao` — só `vigente` entra sem ressalva (senão `[VERIFICAR VIGÊNCIA — situação: <X>]`). Citação sem `citacao` e `source_url` da ferramenta é inválida → `[CITAÇÃO PENDENTE]`; memória do modelo é proibida para citar artigo (leis mudam). Norma estadual/municipal/infralegal → `[FORA DO CORPUS]`.
 
 ### Fonte 2 — Jurisprudência (MCP)
 
 Jurisprudência verificada via MCP da Letra da Lei é uma fonte válida para **todas as peças**. Use as ferramentas conforme o escopo:
 
-- **Federal (STF/STJ/TST/CARF):** `buscar_precedentes` (busca ampla — súmulas, temas, OJs, acórdãos) ou `buscar_vinculantes` (restringe a precedentes vinculantes do art. 927 CPC: súmulas vinculantes, temas de repercussão geral, temas repetitivos).
-- **Estadual — IRDRs (TJs):** `buscar_vinculantes` com o parâmetro `localidade` (sigla da UF, ex.: `"AM"`). IRDR vincula apenas na UF que o decidiu.
+- **Federal (STF/STJ/TST/CARF):** `jurisprudencia-federal · buscar_precedentes` (busca ampla — súmulas, temas, OJs, acórdãos) ou `jurisprudencia-federal · buscar_vinculantes` (restringe a precedentes vinculantes do art. 927 CPC: súmulas vinculantes, temas de repercussão geral, temas repetitivos). Filtre por `autoridade` (`STF`, `STJ`, `TST`, `CARF`).
+- **Estadual — IRDRs (TJs):** `jurisprudencia-estadual · buscar_vinculantes` (ferramenta distinta) com o parâmetro **obrigatório** `localidade` (sigla da UF, ex.: `"AM"`, ou `"BR"` para busca nacional). IRDR vincula apenas na UF que o decidiu.
 
 **Força do precedente — campo `eficacia` retornado pelo MCP:**
 - `vinculante` = observância obrigatória (art. 927 CPC) — citar em qualquer peça sem restrição adicional.
@@ -89,11 +90,11 @@ Jurisprudência verificada via MCP da Letra da Lei é uma fonte válida para **t
 [Linha em branco — texto principal retoma aqui]
 ```
 
-Se o MCP retornar enunciado truncado (`is_truncated: true`), chamar `consultar_precedente` para obter o texto integral antes de citar.
+Se o MCP retornar enunciado truncado (`is_truncated: true`), chamar `acervo · consultar` (`dominio: "jurisprudencia"`, `esfera: "federal"` ou `"estadual"`, com os `search_ids` da busca ou uma `citacao` conhecida) para obter o texto integral antes de citar.
 
 **Resultado zero ou precedente não pertinente:** inserir `[JURISPRUDÊNCIA — a ser inserida pelo(a) advogado(a)]`. Nunca copiar enunciado de memória.
 
-**Para o Recurso Extraordinário (RE ao STF):** jurisprudência do STF é estruturalmente necessária. Use `buscar_precedentes` com `autoridade: "STF"` para localizar o Tema de Repercussão Geral aplicável. Se o MCP retornar resultado pertinente, cite com o formato acima (sem marcador adicional se `eficacia: vinculante`). Se não retornar, inserir `[JURISPRUDÊNCIA — confirmar Tema e tese antes do protocolo]` em vermelho no .docx.
+**Para o Recurso Extraordinário (RE ao STF):** jurisprudência do STF é estruturalmente necessária. Use `jurisprudencia-federal · buscar_precedentes` com `autoridade: "STF"` para localizar o Tema de Repercussão Geral aplicável. Se o MCP retornar resultado pertinente, cite com o formato acima (sem marcador adicional se `eficacia: vinculante`). Se não retornar, inserir `[JURISPRUDÊNCIA — confirmar Tema e tese antes do protocolo]` em vermelho no .docx.
 
 ### Fonte 3 — Autos do processo (petições anteriores)
 
@@ -120,7 +121,7 @@ Regras para uso de fonte dos autos:
 ```
     [Texto literal retornado pelo MCP — sem aspas, recuado 1,25 cm à esquerda,
      alinhamento justificado, fonte 1pt menor que o corpo do texto]
-    Fonte: [citation_id] | [source_url] | query: "[query usada]" | corpus: [law_key]
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: [lei_slug]
 
 [Linha em branco — texto principal retoma aqui, com formatação normal]
 ```
@@ -133,7 +134,7 @@ Regras de formatação da citação no .docx:
 - **Fonte abaixo:** a linha "Fonte: ..." vem imediatamente após o texto da lei, na mesma formatação recuada e menor. Não vem antes.
 - **Linha em branco após:** após o bloco citação + fonte, uma linha em branco separa do próximo parágrafo de texto principal.
 
-Se o bloco `Fonte:` não puder ser preenchido (citation_id ou source_url ausentes), o artigo não foi buscado via MCP — não entra na peça.
+Se o bloco `Fonte:` não puder ser preenchido (citacao ou source_url ausentes), o artigo não foi buscado via MCP — não entra na peça.
 
 ## Passo 1 — Guardrail: sem fase, sem peça
 
@@ -234,7 +235,7 @@ I — DAS PRELIMINARES ARGUIDAS PELA DEFESA   (omitir se não houver)
 I.1 — [Preliminar arguida — refutação com texto literal via MCP + subsunção ao caso]
 
     [texto literal do art. 337, [inciso], do CPC via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "[query]" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 [Aplicação ao caso. Por que a preliminar não se sustenta.]
 
@@ -247,7 +248,7 @@ o usuário não numerou os documentos.]
 III — DOS DOCUMENTOS NOVOS  (se aplicável — buscar art. 435 via MCP)
 
     [texto literal do art. 435 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "documentos novos réplica art 435" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 [Justificar tempestividade ou razão de terem surgido após a inicial.]
 
@@ -297,7 +298,7 @@ em face de [NOME DO RÉU], [qualificação completa], com fundamento no art. 303
 do Código de Processo Civil:
 
     [texto literal do art. 303, caput, via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-303 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "tutela antecipada antecedente art 303 petição inicial" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
 pelos fundamentos a seguir.
 
@@ -326,7 +327,7 @@ será aditada no prazo legal para apresentação plena da argumentação e docum
 (art. 303, §1º, I):
 
     [texto literal do art. 303, §1º, I, via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-303 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "tutela antecipada antecedente art 303 petição inicial" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
 III — DOS PEDIDOS
 
@@ -391,7 +392,7 @@ em face de [NOME DO REQUERIDO], [qualificação completa], com fundamento no
 art. 305 do Código de Processo Civil:
 
     [texto literal do art. 305 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-305 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "tutela cautelar antecedente art 305 306 307 308 309 310" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
 pelos fundamentos a seguir.
 
@@ -432,14 +433,14 @@ Requer o(a) requerente:
      no prazo de 5 dias (art. 306 do CPC):
 
     [texto literal do art. 306 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-306 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "tutela cautelar antecedente indeferimento contestação réu art 306 307" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
   c) ao final, a procedência do pedido e a manutenção da medida cautelar até
      o julgamento do pedido principal, que será formulado nos mesmos autos no
      prazo de 30 dias contados da efetivação da cautelar (art. 308 do CPC):
 
     [texto literal do art. 308, caput, via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-308 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "tutela cautelar antecedente efetivação conversão ação principal art 308 309 310" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
 ⚠️ [VERIFICAR: lembrar o(a) advogado(a) que o pedido principal deve ser
 formulado nos mesmos autos em 30 dias após a efetivação da cautelar (art. 308).
@@ -490,7 +491,7 @@ I — DA TEMPESTIVIDADE E DO PREPARO
 A sentença foi publicada em [data]. Prazo de 15 dias úteis (art. 1.003, §5º do CPC):
 
     [texto literal do art. 1.003, §5º via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "prazo apelação 15 dias úteis art 1003" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 [VERIFICAR: data-limite exata no sistema do tribunal — feriados forenses e
 recesso (art. 220 do CPC) são fora do corpus desta skill.]
@@ -506,7 +507,7 @@ II.1 — DA SÍNTESE DA SENTENÇA RECORRIDA
 II.2 — DAS PRELIMINARES  (art. 1.009, §1º — omitir se não houver)
 
     [texto literal do art. 1.009, §1º via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "apelação questões interlocutórias §1 art 1009" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 [Questões resolvidas interlocutoriamente sem agravo cabível — trazer aqui.]
 
@@ -515,14 +516,14 @@ II.3 — DO MÉRITO — ERROR IN JUDICANDO   (se erro de direito ou de fato)
 Dispõe o art. 1.009, caput, do CPC:
 
     [texto literal do art. 1.009 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "apelação cabimento art 1009" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 II.3.1 — [Tese de erro 1 — ex.: Da equivocada aplicação do art. X]
 
 Dispõe o art. [...] do [...]:
 
     [texto literal via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "[query]" | corpus: [law_key]
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: [lei_slug]
 
 [Aplicação: como a sentença errou ao aplicar ou não aplicar esse dispositivo
 ao caso. Subsunção correta que o(a) apelante propõe. 2-4 parágrafos.]
@@ -537,7 +538,7 @@ Citar o artigo violado via MCP.]
 III — DO EFEITO SUSPENSIVO   (se aplicável — art. 1.012 — omitir se não for o caso)
 
     [texto literal do art. 1.012 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "apelação efeito suspensivo art 1012" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 [Requerer efeito suspensivo se a hipótese do §1º for aplicável; ou registrar
 que a apelação tem efeito suspensivo automático pela regra geral.]
@@ -552,7 +553,7 @@ Requer o(a) apelante:
      §11, do CPC):
 
     [texto literal do art. 85, §11, via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "honorários recursais art 85 §11" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
   d) [se efeito suspensivo] a concessão de efeito suspensivo na forma do art. 1.012.
 
@@ -591,12 +592,12 @@ em face da decisão interlocutória proferida em [data], com fundamento no
 art. 1.015, [inciso], do CPC:
 
     [texto literal do art. 1.015, [inciso], via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "agravo instrumento art 1015 [inciso]" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 I — DA TEMPESTIVIDADE
 
     [texto literal do art. 1.016 + art. 1.003, §5º via MCP]
-    Fonte: [citation_id] | [source_url] | query: "prazo agravo instrumento 15 dias art 1016" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 [VERIFICAR: data-limite — feriados forenses são [FORA DO CORPUS].]
 
@@ -611,7 +612,7 @@ III — DAS RAZÕES
 IV — DA TUTELA RECURSAL   (art. 1.019, I — omitir se não houver)
 
     [texto literal do art. 1.019, I, via MCP]
-    Fonte: [citation_id] | [source_url] | query: "tutela recursal agravo instrumento art 1019" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 [Demonstrar probabilidade do direito + perigo de dano, se aplicável.]
 
@@ -658,14 +659,14 @@ Embargado(a): [...]
 com fundamento no art. 1.022 do CPC:
 
     [texto literal do art. 1.022 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "embargos declaração omissão contradição art 1022" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 I — DA TEMPESTIVIDADE
 
 Prazo de 5 dias úteis (art. 1.023 do CPC):
 
     [texto literal do art. 1.023 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "prazo embargos declaração 5 dias art 1023" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 II — DA [OMISSÃO / CONTRADIÇÃO / OBSCURIDADE / ERRO MATERIAL]
 
@@ -678,7 +679,7 @@ Requer o(a) embargante o acolhimento dos embargos para, nos termos do art. 1.024
 do CPC:
 
     [texto literal do art. 1.024 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "acolhimento embargos declaração art 1024" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 [suprir a omissão de [argumento] / sanar a contradição entre [trecho A] e
 [trecho B] / esclarecer a obscuridade em [ponto] / corrigir o erro material
@@ -720,7 +721,7 @@ em face da sentença proferida em [data] pela [Nª] Vara do Trabalho de [Comarca
 com fundamento no art. 895, I, da CLT:
 
     [texto literal do art. 895, I, da CLT via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "recurso ordinário trabalhista CLT art 895" | corpus: DL-5452-1943
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: DL-5452-1943
 
 I — DA TEMPESTIVIDADE
 
@@ -732,7 +733,7 @@ são [FORA DO CORPUS].]
 [Se empregador] Depósito recursal recolhido nos termos do art. 899 da CLT:
 
     [texto literal do art. 899 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "depósito recursal CLT art 899" | corpus: DL-5452-1943
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: DL-5452-1943
 
 Valor do depósito: [FORA DO CORPUS — conferir tabela vigente do TST].
 
@@ -747,7 +748,7 @@ II.2 — [TESE DE ERRO 1 — ex.: Da inexistência de vínculo empregatício (CL
 Dispõe o art. 3º da CLT:
 
     [texto literal via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "empregado definição CLT art 3" | corpus: DL-5452-1943
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: DL-5452-1943
 
 [Aplicação ao caso. Como a sentença errou ao subsumir os fatos ao art. 3º.
 2-4 parágrafos de subsunção correta.]
@@ -840,7 +841,7 @@ I — DA TEMPESTIVIDADE
 publicado em [data]. Prazo de 15 dias úteis (art. 1.003, §5º, do CPC):
 
     [texto literal do art. 1.003, §5º via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "prazo recurso ordinário 15 dias úteis art 1003" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 [Exceção — HC ao STJ (CF art. 105, II, "a"):] O acórdão foi publicado em [data].
 Prazo de 5 dias (Lei 8.038/1990, art. 30).
@@ -858,10 +859,10 @@ O presente recurso é cabível com fundamento no art. [102, II, "a" / 105, II,
 decidido em única instância pelo [Tribunal]:
 
     [texto literal do art. 102, II ou 105, II via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "[query]" | corpus: CF-1988
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: CF-1988
 
     [texto literal do art. 1.027 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "recurso ordinário STF STJ art 1027" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 São preenchidos os dois requisitos de cabimento: (i) a decisão é DENEGATÓRIA, e
 (ii) foi proferida em competência originária ([única instância]) do [Tribunal].
@@ -882,7 +883,7 @@ IV.1 — [Tese 1 — ex.: Do direito líquido e certo violado / Da ilegalidade d
 ato coator]
 
     [texto literal do dispositivo legal violado via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "[query]" | corpus: [law_key]
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: [lei_slug]
 
 [Subsunção: por que o ato impugnado é ilegal/abusivo e por que a denegação
 errou. Revolver os fatos e as provas dos autos livremente. 2-4 parágrafos.]
@@ -950,7 +951,7 @@ proferida em [data], nos termos a seguir.
 I — DA TEMPESTIVIDADE
 
     [texto literal do art. 1.021, §2º via MCP]
-    Fonte: [citation_id] | [source_url] | query: "agravo interno prazo 15 dias art 1021" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 [VERIFICAR: data-limite — 15 dias úteis a partir de [data+1].]
 
@@ -962,7 +963,7 @@ A decisão agravada é monocrática, proferida pelo(a) Exmo(a). Sr(a).
 para submeter ao colegiado qualquer decisão monocrática do relator:
 
     [texto literal do art. 1.021, caput, via MCP]
-    Fonte: [citation_id] | [source_url] | query: "agravo interno decisão monocrática relator art 1021" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 [Hipótese 2 — decisão do Presidente/VP por conformidade com repetitivos:]
 A decisão agravada foi proferida pelo(a) Presidente/Vice-Presidente do [Tribunal]
@@ -972,10 +973,10 @@ sobrestamento indevido]. O art. 1.030, §2º, do CPC prevê que desta decisão
 cabe Agravo Interno:
 
     [texto literal do art. 1.030, §2º via MCP]
-    Fonte: [citation_id] | [source_url] | query: "agravo interno presidente tribunal conformidade repetitivos art 1030 §2" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
     [texto literal do art. 1.021, caput, via MCP]
-    Fonte: [citation_id] | [source_url] | query: "agravo interno decisão monocrática relator art 1021" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 III — DA DECISÃO AGRAVADA
 
@@ -1057,7 +1058,7 @@ O acórdão [ou "o acórdão que rejeitou os embargos de declaração"] foi publ
 em [data]. Prazo de 15 dias úteis (art. 1.003, §5º do CPC):
 
     [texto literal do art. 1.003, §5º via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "prazo recurso extraordinário 15 dias úteis art 1003" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 [VERIFICAR: data-limite exata — contar 15 dias úteis a partir de [data+1], descontando
 feriados forenses nacionais e locais. Confirmar no sistema do tribunal antes do protocolo.]
@@ -1071,7 +1072,7 @@ nº [deixar em branco — mesma petição/data], nos termos do art. 1.031 do Có
 Processo Civil:
 
     [texto literal do art. 1.031 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "interposição simultânea recurso extraordinário recurso especial art 1031" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 O Recurso Especial será processado primeiro pelo Superior Tribunal de Justiça;
 somente após a decisão do STJ — ou após a remessa por inadmissibilidade — os
@@ -1085,12 +1086,12 @@ alínea "a", da Constituição Federal, pois o acórdão recorrido contraria dir
 os seguintes dispositivos constitucionais:
 
     [texto literal de cada dispositivo constitucional via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "[query]" | corpus: CF-1988
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: CF-1988
 
 Os requisitos do art. 1.029 do CPC estão presentes:
 
     [texto literal do art. 1.029 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "recurso extraordinário requisitos admissibilidade art 1029" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 III — DO PREQUESTIONAMENTO
 
@@ -1131,7 +1132,7 @@ A matéria constitucional debatida nestes autos é objeto do RE [número]/[UF]
 nos termos do art. 1.035, §1º, do CPC:
 
     [texto literal do art. 1.035 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "repercussão geral recurso extraordinário art 1035" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 [VERIFICAR: confirmar o status atual do Tema [N] antes do protocolo — se pendente,
 manter pedido de sobrestamento; se julgado, adaptar pedido para aplicação do resultado.]
@@ -1150,7 +1151,7 @@ VI.[A] — VIOLAÇÃO AO [ART. X, INCISO Y, DA CF] — [NOME DA GARANTIA/PRINCÍ
 [Citar o dispositivo constitucional via MCP.]
 
     [texto literal do dispositivo constitucional via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "[query]" | corpus: CF-1988
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: CF-1988
 
 [Explicar o que o dispositivo garante e como o acórdão recorrido o violou.
 2-4 parágrafos de subsunção: (i) o que a CF diz, (ii) o que o tribunal decidiu,
@@ -1170,7 +1171,7 @@ Requer a Recorrente o sobrestamento do presente recurso até o julgamento defini
 RE [número]/[UF] (Tema [N] da Repercussão Geral), nos termos do art. 1.037, II, do CPC:
 
     [texto literal do art. 1.037, II via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "sobrestamento recurso repetitivo aguardar julgamento art 1037" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 VIII — DO PEDIDO
 
@@ -1229,7 +1230,7 @@ e nos arts. 1.029 a 1.032 do Código de Processo Civil.
 I — DA TEMPESTIVIDADE
 
     [texto literal do art. 1.003, §5º via MCP]
-    Fonte: [citation_id] | [source_url] | query: "prazo recurso especial 15 dias úteis art 1003" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 [VERIFICAR: data-limite — 15 dias úteis a partir de [data+1], desconto de feriados.]
 Preparo: [FORA DO CORPUS — conferir tabela do STJ e do tribunal de origem.]
@@ -1240,7 +1241,7 @@ nº [deixar em branco — mesma petição/data], nos termos do art. 1.031 do Có
 Processo Civil:
 
     [texto literal do art. 1.031 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "interposição simultânea recurso extraordinário recurso especial art 1031" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 O Superior Tribunal de Justiça examinará o presente Recurso Especial em primeiro
 lugar; somente após o julgamento — ou remessa por inadmissibilidade — os autos
@@ -1282,7 +1283,7 @@ VI — DAS RAZÕES
 VI.[A] — VIOLAÇÃO AO ART. [X] DA [LEI FEDERAL]
 
     [texto literal do dispositivo legal via MCP]
-    Fonte: [citation_id] | [source_url] | query: "[query]" | corpus: [law_key]
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: [lei_slug]
 
 [Explicar o que a norma determina e como o acórdão a contrariou.
 2-4 parágrafos de subsunção: (i) o que a lei diz, (ii) o que o tribunal decidiu,
@@ -1299,7 +1300,7 @@ Requer o(a) Recorrente:
      (art. 85, §11, CPC):
 
     [texto literal do art. 85, §11, via MCP]
-    Fonte: [citation_id] | [source_url] | query: "honorários recursais art 85 §11" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 Termos em que pede deferimento.
 [Cidade], [data].
@@ -1340,7 +1341,7 @@ inadmitiu o Recurso [Extraordinário / Especial] interposto nestes autos.
 I — DA TEMPESTIVIDADE
 
     [texto literal do art. 1.003, §5º via MCP]
-    Fonte: [citation_id] | [source_url] | query: "prazo agravo recurso especial extraordinário art 1003" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 [VERIFICAR: data-limite — 15 dias úteis a partir de [data+1].]
 
@@ -1350,10 +1351,10 @@ A decisão agravada inadmitiu o Recurso [Extraordinário / Especial] com fundame
 no art. 1.030, inciso V, do Código de Processo Civil:
 
     [texto literal do art. 1.042 via MCP]
-    Fonte: [citation_id] | [source_url] | query: "agravo recurso especial extraordinário inadmissão art 1042" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
     [texto literal do art. 1.030, V via MCP]
-    Fonte: [citation_id] | [source_url] | query: "admissibilidade recurso extraordinário especial presidente tribunal art 1030" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 III — DO ACÓRDÃO INADMISSOR
 
@@ -1447,7 +1448,7 @@ DO CORPUS] desta skill. Data-limite estimada: [data].]
 II — DO CABIMENTO — DA DIVERGÊNCIA (art. 1.043)
 
     [texto literal do art. 1.043, caput e inciso aplicável, via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-1043 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "embargos de divergência cabimento turma diverge art 1043" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
 O acórdão embargado diverge do acórdão paradigma nos seguintes termos:
 
@@ -1475,7 +1476,7 @@ paradigma ou uma síntese que harmonize os entendimentos. Buscar via MCP os
 dispositivos legais/constitucionais pertinentes à questão de fundo.]
 
     [texto literal do dispositivo legal/constitucional pertinente via MCP]
-    Fonte: [citation_id] | [source_url] | query: "[query]" | corpus: [law_key]
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: [lei_slug]
 
 [Aplicação: por que o acórdão paradigma acertou e o acórdão embargado errou.
 2-4 parágrafos.]
@@ -1483,7 +1484,7 @@ dispositivos legais/constitucionais pertinentes à questão de fundo.]
 IV — DA INTERRUPÇÃO DO PRAZO PARA RE (se interposto no STJ — art. 1.044, §1º)
 
     [texto literal do art. 1.044, §1º via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-1044 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "embargos de divergência processamento prazo julgamento art 1044" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
 [Incluir este item apenas quando o embargante (ou a parte contrária) pretende
 também interpor RE: registrar a interrupção para não perder o prazo do RE.]
@@ -1538,7 +1539,7 @@ A sentença transitou em julgado em [data] (certidão — doc. [X]).
 Nos termos do art. 523 do CPC:
 
     [texto literal do art. 523 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "cumprimento sentença quantia art 523 prazo 15 dias" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 II — DO VALOR ATUALIZADO
 
@@ -1559,7 +1560,7 @@ III — DA MULTA E DOS HONORÁRIOS DE CUMPRIMENTO
 Não tendo ocorrido pagamento espontâneo no prazo de 15 dias:
 
     [texto literal do art. 523, §1º via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "multa 10% honorários cumprimento art 523 §1" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 IV — DOS PEDIDOS
 
@@ -1595,7 +1596,7 @@ Termos em que pede deferimento.
 com fundamento no art. 536 do CPC:
 
     [texto literal do art. 536 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "cumprimento obrigação fazer art 536" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 I — DA OBRIGAÇÃO E DO INADIMPLEMENTO
 
@@ -1605,7 +1606,7 @@ cumpriu até a presente data, conforme comprovam os docs. [X].]
 II — DAS ASTREINTES  (art. 536, §1º)
 
     [texto literal do art. 536, §1º, e art. 537 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "astreintes multa periódica art 536 537" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 [Propor valor das astreintes com critério fundamentado.]
 
@@ -1657,7 +1658,7 @@ vem apresentar, no prazo legal, a presente
 com fundamento no art. 525 do Código de Processo Civil:
 
     [texto literal do art. 525, caput, via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-525 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "impugnação ao cumprimento de sentença art 525" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
 I — DA TEMPESTIVIDADE
 
@@ -1670,7 +1671,7 @@ são [FORA DO CORPUS].]
 II — DAS MATÉRIAS DA IMPUGNAÇÃO (art. 525, §1º)
 
     [texto literal do art. 525, §1º, via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-525 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "impugnação ao cumprimento de sentença art 525" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
 II.1 — [MATÉRIA DO INCISO X — ex.: Do excesso de execução (art. 525, §1º, V)]
 
@@ -1688,12 +1689,12 @@ A obrigação restou extinta por [pagamento / novação / prescrição superveni
 ocorrido(a) em [data], conforme comprovam os docs. [X] e [Y] (art. 525, §1º, VII).
 
     [texto literal do art. 525, §1º, VII via MCP]
-    Fonte: Lei-13105-2015-Art-525 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "impugnação ao cumprimento de sentença art 525" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
 III — DO EFEITO SUSPENSIVO   (art. 525, §6º — omitir se não requerido)
 
     [texto literal do art. 525, §6º via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-525 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "impugnação ao cumprimento de sentença art 525" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
 O juízo está garantido por [penhora / caução / depósito] suficiente (doc. [X]).
 Os fundamentos da impugnação são relevantes e o prosseguimento da execução é
@@ -1757,7 +1758,7 @@ oferecer os presentes
 com fundamento no art. 914 c/c arts. 915 e 917 do CPC:
 
     [texto literal do art. 914 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-914 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "embargos à execução art 914 915 917" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
 I — DA TEMPESTIVIDADE (art. 915)
 
@@ -1765,7 +1766,7 @@ A citação do(a) executado(a) foi juntada aos autos em [data]. O prazo de 15 di
 para embargar tem início em [data+1] e vencimento em [data]:
 
     [texto literal do art. 915, caput, via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-915 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "embargos execução prazo quinze dias art 915 matérias alegáveis art 917" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
 [VERIFICAR: data-limite exata — feriados forenses são [FORA DO CORPUS]. Confirmar
 que não se aplica o prazo em dobro do art. 229 (art. 915, §3º veda expressamente).]
@@ -1779,7 +1780,7 @@ R$ [...]. [Resumir o que está sendo executado — 1-2 parágrafos.]
 III — DAS MATÉRIAS DOS EMBARGOS (art. 917)
 
     [texto literal do art. 917, caput e incisos aplicáveis, via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-917 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "embargos execução matérias alegáveis inexequibilidade penhora excesso art 917" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
 III.1 — [MATÉRIA DO INCISO X — ex.: Da inexequibilidade do título (art. 917, I)]
 
@@ -1801,7 +1802,7 @@ Buscar os dispositivos do CC ou lei especial aplicável via MCP.]
 IV — DO PEDIDO DE EFEITO SUSPENSIVO   (art. 919, §1º — omitir se não requerido)
 
     [texto literal do art. 919, §1º via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-919 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "embargos execução efeito suspensivo garantia juízo art 919" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
 A execução encontra-se garantida por [penhora / depósito / caução] nos termos
 do doc. [X]. Os requisitos da tutela provisória estão presentes: probabilidade
@@ -1854,7 +1855,7 @@ Matérias típicas admitidas: nulidade absoluta da execução (art. 803 do CPC),
 O parágrafo único do art. 803 é a base legal mais sólida para requerer o reconhecimento de nulidades da execução independentemente de embargos — e portanto independentemente de penhora:
 
     Art. 803. [...] Parágrafo único. A nulidade de que cuida este artigo será pronunciada pelo juiz, de ofício ou a requerimento da parte, independentemente de embargos à execução.
-    Fonte: Lei-13105-2015-Art-803 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "nulidade execução art 803 título vício formal" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
 Para matérias além das nulidades do art. 803 (ex.: prescrição), a âncora é exclusivamente a construção pretoriana — marcador obrigatório.
 
@@ -1895,7 +1896,7 @@ A matéria ora arguida é de **ordem pública**, conhecível de ofício pelo ju�
 — sem necessidade de dilação probatória:
 
     [texto literal do art. 803, parágrafo único, via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-803 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "nulidade execução art 803 título vício formal" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
 II — DA [MATÉRIA DE ORDEM PÚBLICA ARGUIDA]
 
@@ -1907,7 +1908,7 @@ aplicável é de [N] anos (art. [X] do [CC/lei especial] — buscar via MCP). Tr
 o prazo sem interrupção:
 
     [texto literal do dispositivo de prescrição via MCP]
-    Fonte: [citation_id] | [source_url] | query: "[query]" | corpus: [law_key]
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: [lei_slug]
 
 [Demonstrar: data do vencimento da obrigação + ausência de causa interruptiva
 + data do ajuizamento = prescrição consumada. Documentar com o próprio título.]
@@ -1918,7 +1919,7 @@ O título apresentado não corresponde a obrigação certa, líquida e exigível
 não implementada; ausência de data de vencimento.]
 
     [texto literal do art. 803, I, via MCP]
-    Fonte: Lei-13105-2015-Art-803 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "nulidade execução art 803 título vício formal" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
 [Se ilegitimidade passiva:]
 O(a) executado(a) não é parte na relação obrigacional que deu origem ao título.
@@ -1940,7 +1941,7 @@ Requer o(a) executado(a) que Vossa Excelência:
   b) declare extinta a execução nos termos do art. 924 do CPC:
 
     [texto literal do art. 924, inciso aplicável, via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-924 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "extinção execução art 924 pagamento prescrição" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
   [ou, se nulidade sem extinção total:]
   b) declare a nulidade [parcial/total] da execução e determine [a medida adequada],
@@ -2013,7 +2014,7 @@ A presente reclamação é cabível com fundamento no art. 988, inciso [I/II/III
 do CPC:
 
     [texto literal do art. 988, caput e inciso aplicável, via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "reclamação preservar competência autoridade súmula vinculante art 988" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 [Identificar com precisão o inciso e por que ele se aplica.]
 
@@ -2037,7 +2038,7 @@ III — DO ATO RECLAMADO
 IV — DA ADERÊNCIA ESTRITA (art. 988, §4º)
 
     [texto literal do art. 988, §4º via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "reclamação aplicação indevida tese não aplicação art 988 §4" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 [Demonstrar ponto a ponto a identidade entre o caso e o paradigma — por que o
 ato reclamado [usurpou a competência / desautorou a decisão / contrariou a súmula
@@ -2053,7 +2054,7 @@ nos termos do art. 988, §5º, II.
 VI — DO PEDIDO LIMINAR DE SUSPENSÃO   (art. 989, II — omitir se não houver urgência)
 
     [texto literal do art. 989, II via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "reclamação suspensão ato impugnado dano irreparável art 989" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 [Demonstrar o risco de dano irreparável que justifica a suspensão liminar do
 ato/processo.]
@@ -2071,7 +2072,7 @@ Requer o(a) Reclamante:
      (art. 992):
 
     [texto literal do art. 992 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "reclamação procedente cassar decisão medida adequada art 992" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 Instrui esta reclamação a prova documental anexa (art. 988, §2º): [listar docs].
 
@@ -2146,7 +2147,7 @@ A decisão rescindenda transitou em julgado em [data] (certidão — doc. [X]).
 O prazo decadencial é de 2 anos (art. 975 do CPC):
 
     [texto literal do art. 975 (caput e §§ aplicáveis) via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "ação rescisória prazo decadencial dois anos trânsito em julgado art 975" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 [Se inciso VII — prova nova:] O termo inicial é a data da descoberta da prova
 ([data]), observado o teto de 5 anos (art. 975, §2º).
@@ -2167,7 +2168,7 @@ O(a) Autor(a) é [parte vencida / terceiro juridicamente interessado / Ministér
 Público], com legitimidade nos termos do art. 967, inciso [...]:
 
     [texto literal do art. 967, inciso aplicável, via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "legitimidade ação rescisória parte terceiro ministério público art 967" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 IV — DO DEPÓSITO DE 5% (art. 968, II)   [ou: DA ISENÇÃO DE DEPÓSITO]
 
@@ -2176,7 +2177,7 @@ IV — DO DEPÓSITO DE 5% (art. 968, II)   [ou: DA ISENÇÃO DE DEPÓSITO]
 do tribunal; limite de 1.000 salários mínimos, art. 968, §2º].
 
     [texto literal do art. 968, II e §1º via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "ação rescisória depósito 5% valor da causa multa art 968" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 [Se isento:] O(a) Autor(a) é isento(a) do depósito, por ser [União/Estado/
 Município/autarquia/MP/Defensoria/beneficiário de gratuidade] (art. 968, §1º).
@@ -2194,7 +2195,7 @@ VI — DO JUÍZO RESCINDENS — DO FUNDAMENTO DA RESCISÃO
 VI.[A] — DA [HIPÓTESE DO ART. 966, INCISO X]
 
     [texto literal do art. 966, inciso aplicável (e §§ 1º/5º/6º se cabível) via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "ação rescisória [hipótese] art 966" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 [Demonstrar a configuração da hipótese:
  - inciso II → impedimento/incompetência absoluta concreta;
@@ -2217,12 +2218,12 @@ termos do art. 968, I, do CPC, para que o Tribunal decida [o que deve ser
 decidido no lugar da decisão rescindida].
 
     [texto literal do art. 968, I via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "ação rescisória cumular pedido novo julgamento art 968" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 VIII — DA TUTELA PROVISÓRIA   (art. 969 — omitir se não houver urgência)
 
     [texto literal do art. 969 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "ação rescisória tutela provisória suspender cumprimento art 969" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 [A propositura não impede o cumprimento da decisão rescindenda; requerer tutela
 provisória para suspendê-lo, demonstrando probabilidade do direito e perigo de dano.]
@@ -2284,7 +2285,7 @@ em face de [NOME DO OPOSTO 1 — autor originário] e [NOME DO OPOSTO 2 —
 réu originário], com fundamento nos arts. 682 a 686 do Código de Processo Civil:
 
     [texto literal do art. 682 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-682 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "oposição art 682 683 684 685 686" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
 pelos fundamentos a seguir.
 
@@ -2304,7 +2305,7 @@ e os opostos serão citados na pessoa de seus advogados para contestar em
 prazo comum de 15 dias:
 
     [texto literal do art. 683 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-683 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "oposição art 682 683 684 685 686" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
 II — DOS FATOS
 
@@ -2320,7 +2321,7 @@ dispositivos aplicáveis (ex.: CC arts. de propriedade, posse, contrato,
 etc.). Estrutura padrão: texto literal via MCP + subsunção ao caso.]
 
     [texto literal do dispositivo legal aplicável via MCP]
-    Fonte: [citation_id] | [source_url] | query: "[query]" | corpus: [law_key]
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: [lei_slug]
 
 [Aplicação ao caso: demonstrar que o opoente é o verdadeiro titular do
 direito ou proprietário da coisa. 2-4 parágrafos.]
@@ -2336,7 +2337,7 @@ Requer o(a) opoente:
   c) ao final, o julgamento da oposição em primeiro lugar (art. 686 do CPC):
 
     [texto literal do art. 686 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-686 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "oposição julgamento conjunto sentença art 685 686" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
   d) a procedência da oposição para declarar que a coisa/o direito disputado
      nos autos pertence ao(à) opoente, e não a nenhum dos opostos;
@@ -2403,7 +2404,7 @@ profissão, RG, CPF, endereço], por seu(sua) advogado(a) infra-assinado(a)
 com fundamento nos arts. 674 a 681 do Código de Processo Civil:
 
     [texto literal do art. 674, caput e §§1º-2º via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-674 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "embargos de terceiro art 674 675 676 cabimento legitimidade" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
 pelos fundamentos a seguir.
 
@@ -2419,7 +2420,7 @@ inciso [I/II/III/IV], é considerado(a) terceiro(a) para fins dos presentes emba
 I.2 — Da tempestividade (art. 675)
 
     [texto literal do art. 675 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-675 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "embargos de terceiro prazo cinco dias antes da arrematação art 675" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
 [Fase de conhecimento:] A sentença no processo principal ainda não transitou em
 julgado — embargos tempestivos.
@@ -2433,7 +2434,7 @@ embargos são inadmissíveis.]
 II — DO DOMÍNIO / DA POSSE — PROVA SUMÁRIA (art. 677)
 
     [texto literal do art. 677, caput e §§ aplicáveis via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-677 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "embargos de terceiro distribuição dependência competência art 676 677" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
 O(a) embargante é [proprietário(a) / possuidor(a)] do bem descrito no auto de
 [penhora / arresto / apreensão] (doc. [X]), conforme comprovam:
@@ -2453,7 +2454,7 @@ O(a) embargante adquiriu o bem em [data], de boa-fé, antes de qualquer averbaç
 de constrição ou de fraude à execução nos termos do art. 792 do CPC:
 
     [texto literal do art. 792 via MCP]
-    Fonte: Lei-13105-2015-Art-792 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "fraude execução presunção alienação art 792 793" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
 [Demonstrar: (a) a averbação ou ciência da execução é posterior à aquisição; ou
 (b) o bem não estava sujeito a registro e o embargante adotou as cautelas do art.
@@ -2468,7 +2469,7 @@ posse do(a) embargante porque [demonstrar a incompatibilidade].
 IV — DO PEDIDO LIMINAR DE SUSPENSÃO DA CONSTRIÇÃO (art. 678)
 
     [texto literal do art. 678 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-678 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "embargos de terceiro prazo procedimento art 678 679 680 681" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
 O domínio/a posse está suficientemente comprovado(a) pelos documentos acima.
 Requer o(a) embargante a suspensão liminar da constrição sobre o bem [descrever],
@@ -2486,7 +2487,7 @@ Requer o(a) embargante:
   d) ao final, o acolhimento dos embargos para, nos termos do art. 681 do CPC:
 
     [texto literal do art. 681 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-681 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "embargos de terceiro procedência desfazimento constrição art 680 681" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
      cancelar o ato de constrição judicial indevida e reconhecer o [domínio /
      manutenção da posse / reintegração definitiva] do bem ao(à) embargante;
@@ -2552,7 +2553,7 @@ com fundamento no art. 15 da Lei nº 12.016/2009 [e/ou no art. 4º da Lei nº
 8.437/1992 — se a ação não for mandado de segurança]:
 
     [texto literal do art. 15 da Lei 12.016/2009 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-12016-2009-Art-15 | https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2009/lei/l12016.htm | query: "suspensão de segurança mandado de segurança presidente do tribunal grave lesão ordem saúde" | corpus: Lei-12016-2009
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2009/lei/l12016.htm | situação: [situacao] | lei: Lei-12016-2009
 
 [Se a decisão impugnada não é de MS:]
     [FORA DO CORPUS: art. 4º da Lei nº 8.437/1992 — verificar texto atual. Transcrever
@@ -2581,7 +2582,7 @@ de [órgão de origem].
 §1º, da Lei 12.016/2009, cabe novo pedido ao presidente deste [STJ/STF]:
 
     [texto literal do art. 15, §1º via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-12016-2009-Art-15 | https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2009/lei/l12016.htm | query: "suspensão de segurança mandado de segurança presidente do tribunal grave lesão ordem saúde" | corpus: Lei-12016-2009
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2009/lei/l12016.htm | situação: [situacao] | lei: Lei-12016-2009
 
 II — DA DECISÃO IMPUGNADA
 
@@ -2622,7 +2623,7 @@ que impede ato de controle de fronteiras. 2-3 parágrafos concretos.]
 IV — DO PEDIDO LIMINAR (art. 15, §4º — omitir se não houver urgência imediata)
 
     [texto literal do art. 15, §4º via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-12016-2009-Art-15 | https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2009/lei/l12016.htm | query: "suspensão de segurança mandado de segurança presidente do tribunal grave lesão ordem saúde" | corpus: Lei-12016-2009
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2009/lei/l12016.htm | situação: [situacao] | lei: Lei-12016-2009
 
 A plausibilidade do direito invocado decorre da grave lesão demonstrada no item III.
 A urgência reside em [demonstrar: quando a decisão começa a ser executada; qual
@@ -2716,7 +2717,7 @@ com fundamento nos arts. 976 a 987 do CPC, pelos fundamentos a seguir.
 I — DO CABIMENTO — DOS PRESSUPOSTOS (art. 976)
 
     [texto literal do art. 976, incisos I e II, via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-976 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "incidente resolução demandas repetitivas IRDR pressupostos art 976 977 978" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
 I.1 — Da efetiva repetição de processos (art. 976, I)
 
@@ -2762,7 +2763,7 @@ II — DA QUESTÃO DE DIREITO — FUNDAMENTO JURÍDICO
 legais pertinentes:]
 
     [texto literal do dispositivo legal controverso via MCP]
-    Fonte: [citation_id] | [source_url] | query: "[query]" | corpus: [law_key]
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: [lei_slug]
 
 [Explicar a controvérsia: quais interpretações divergentes estão em disputa;
 qual é a tese que o requerente sustenta como correta; por que a tese correta
@@ -2771,7 +2772,7 @@ qual é a tese que o requerente sustenta como correta; por que a tese correta
 III — DA LEGITIMIDADE (art. 977)
 
     [texto literal do art. 977 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-977 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "IRDR legitimados suscitar juiz relator partes Ministério Público art 977" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
 O(a) requerente é [parte no processo nº [...] / Ministério Público / Defensoria
 Pública], com legitimidade para suscitar o IRDR nos termos do art. 977, inciso
@@ -2784,12 +2785,12 @@ pendentes que versem sobre a mesma questão na área de jurisdição deste tribu
 nos termos do art. 982, I, do CPC:
 
     [texto literal do art. 982, inciso I, via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-982 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "IRDR suspensão processos pendentes relator art 982" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
 O julgamento deverá ocorrer no prazo de 1 ano (art. 980):
 
     [texto literal do art. 980 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-980 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "IRDR prazo julgamento um ano suspensão processos art 980 982" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
 V — DA TESE JURÍDICA A SER FIXADA
 
@@ -2803,7 +2804,7 @@ A adoção dessa tese promoverá a isonomia e a segurança jurídica nos termos 
 art. 985 do CPC:
 
     [texto literal do art. 985 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-985 | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | query: "IRDR eficácia vinculante tese jurídica art 985 986 987" | corpus: Lei-13105-2015
+    Fonte: [citacao] | https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm | situação: [situacao] | lei: Lei-13105-2015
 
 VI — DOS PEDIDOS
 
@@ -2830,13 +2831,13 @@ Termos em que pede deferimento.
 Para cada dispositivo identificado no diagnóstico e na estrutura:
 
 1. Identifique a norma (CPC, CLT, CC, lei especial).
-2. Chame `buscar_legislacao_federal` com query precisa + `corpus`.
+2. Chame `buscar_artigos` com query precisa + `norma`.
 3. Registre o bloco completo no formato padrão de citação.
 4. Norma fora do corpus → `[FORA DO CORPUS]`.
 
 **Prioridades de busca por tipo de peça:**
 
-| Peça | Dispositivos essenciais | corpus |
+| Peça | Dispositivos essenciais | norma (sigla/slug) |
 |---|---|---|
 | Réplica | arts. 350, 351, 435 | Lei-13105-2015 |
 | Tutela antecipada antecedente | arts. 303 (caput e §§1º-6º), 304 (estabilização) | Lei-13105-2015 |
@@ -2851,7 +2852,7 @@ Para cada dispositivo identificado no diagnóstico e na estrutura:
 | Exceção de pré-executividade | art. 803 (caput e par. único — base normativa mais próxima), art. 924 (extinção da execução); dispositivo de prescrição/decadência aplicável à obrigação via MCP; cabimento é pretoriano — marcador obrigatório | Lei-13105-2015 + lei especial da obrigação |
 | Embargos de terceiro | arts. 674 (caput e §§1º-2º), 675 (caput e par. único), 676, 677 (caput e §§1º-4º), 678 (caput e par. único), 679, 681; art. 792 se fraude à execução | Lei-13105-2015 |
 | Recurso ordinário trabalhista | CLT arts. 895, 899 | DL-5452-1943 |
-| Recurso inominado JEC | Lei 9.099 arts. 41, 42 | [verificar corpus] |
+| Recurso inominado JEC | Lei 9.099 arts. 41, 42 | [verificar norma — provável Lei-9099-1995] |
 | Recurso Extraordinário | CF art. 102 III "a"; CPC arts. 1.029, 1.003 §5º, 1.035, 1.037; dispositivos constitucionais violados; art. 1.031 se simultâneo com REsp | CF-1988 + Lei-13105-2015 |
 | Recurso Especial | CF art. 105 III; CPC arts. 1.029, 1.003 §5º, 1.032, 85 §11; dispositivos de lei federal violados; art. 1.031 se simultâneo com RE | CF-1988 + Lei-13105-2015 |
 | Agravo em RE / Agravo em REsp | CPC arts. 1.042, 1.030 V, 1.003 §5º | Lei-13105-2015 |
@@ -2871,7 +2872,7 @@ Para cada dispositivo identificado no diagnóstico e na estrutura:
 1. **Diagnóstico confirmado.** O tipo de peça foi confirmado pelo usuário antes de redigir?
 2. **Prazo buscado via MCP.** O prazo aplicável foi verificado com o texto literal da lei (não de memória)? O texto está nas notas?
 3. **Cabimento verificado.** Para agravo: o inciso do art. 1.015 está explícito? Para recurso ordinário trabalhista: o prazo é de 8 dias corridos (não úteis)?
-4. **Auditoria de MCP — obrigatória.** Para cada dispositivo citado na peça, o bloco `citation_id / source_url` está presente? Citação sem esses campos = foi de memória = **inválida**. Remova ou converta em `[CITAÇÃO PENDENTE]`.
+4. **Auditoria de MCP — obrigatória.** Para cada dispositivo citado na peça, o bloco `citacao / source_url` está presente? Citação sem esses campos = foi de memória = **inválida**. Remova ou converta em `[CITAÇÃO PENDENTE]`.
 5. **Auditoria de jurisprudência — obrigatória.** Há alguma súmula, acórdão, REsp, RE, OJ ou qualquer referência a decisão judicial na peça?
    - **Peças ordinárias:** Se sim, remova imediatamente e substitua por `[JURISPRUDÊNCIA — a ser inserida pelo(a) advogado(a)]`.
    - **Recurso Extraordinário:** Toda jurisprudência deve estar marcada com `[JURISPRUDÊNCIA NÃO VERIFICADA VIA MCP — confirmar número, data e texto exato do julgado antes do protocolo]`. Se houver referência a precedente **sem esse marcador**, adicione imediatamente. Referências a Temas de Repercussão Geral sem marcador = falha grave.
@@ -2923,7 +2924,7 @@ O script sobrescreve o arquivo no mesmo caminho. Se o script não estiver dispon
 
 ### Prazo
 - Prazo legal: [N] dias [úteis/corridos] (art. [X] do [diploma])
-  Fonte MCP: [citation_id] | [source_url]
+  Fonte MCP: [citacao] | [source_url]
 - Data de publicação/intimação: [data]
 - Data-limite estimada: [VERIFICAR — confirmar no sistema do tribunal,
   considerando feriados forenses e suspensões locais — fora do corpus desta skill]
@@ -2937,7 +2938,7 @@ O script sobrescreve o arquivo no mesmo caminho. Se o script não estiver dispon
 - `[DOC. A NUMERAR]` — N
 
 ### Dispositivos citados (todos verificados via MCP)
-- [law_key]-[Art-N] — [source_url]
+- [lei_slug]-[Art-N] — [source_url]
 - ...
 
 ### Pontos abertos para a(o) advogado(a)

@@ -87,14 +87,16 @@ This repo should not:
 
 ### `letra-da-lei-legal-research`
 
-Primary legal research skill for Brazilian federal law.
+Primary legal research skill for Brazilian federal law and jurisprudence.
 
 It tells the agent to:
 
-- call `listar_legislacao_federal` when coverage or `law_key` discovery is needed
-- call `buscar_legislacao_federal` before answering statutory questions
-- cite authoritative source URLs returned by the MCP
-- acknowledge coverage gaps instead of guessing
+- call `acervo · listar` when coverage or `norma` (sigla/slug) discovery is needed
+- call `legislacao-federal · buscar_artigos` before answering statutory questions
+- confirm verbatim text with `acervo · consultar` and check `situacao` before citing
+- use `jurisprudencia-federal · buscar_precedentes` / `buscar_vinculantes` (and `jurisprudencia-estadual · buscar_vinculantes` for IRDRs) for case law
+- cite the `citacao` + authoritative `source_url` returned by the MCP
+- acknowledge coverage gaps instead of guessing, and register them via `acervo · reclame_aqui`
 
 ### `skill-template`
 

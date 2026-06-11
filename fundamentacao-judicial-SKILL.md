@@ -43,7 +43,7 @@ Só avance para a redação quando **todos** os itens "Informar manualmente" tiv
 1. **Leia os autos** — pelo menos a inicial, a contestação e as provas relevantes. Sem isso, fundamentação é genérica e cai no inciso III do § 1º do art. 489.
 2. Defina o tipo de pronunciamento (sentença, decisão interlocutória, despacho fundamentado).
 3. Identifique cada tese das partes que precisa ser enfrentada (gatilho do art. 489, § 1º, IV).
-4. **Para cada dispositivo legal aplicado, chame `buscar_legislacao_federal`.** Citação de memória é proibida.
+4. **Para cada dispositivo legal aplicado, chame `buscar_artigos`.** Citação de memória é proibida.
 5. Estruture relatório + fundamentação + dispositivo. Em cada item, checagem contra o § 1º (Passo 5).
 6. Output: rascunho `.docx` + bloco de notas com cada `[A REVISAR]` e `[DECISÃO PESSOAL]` listado.
 
@@ -71,11 +71,13 @@ O que **não** resolve:
 
 ### Fonte 1 — Lei federal (MCP)
 
-Toda lei federal citada na fundamentação vem do MCP da Letra da Lei (`buscar_legislacao_federal`). Sem exceção:
+Toda lei federal citada na fundamentação vem do MCP da Letra da Lei. Sem exceção. Ferramentas (grupo · operação):
 
-- Antes de invocar art. 489 do CPC, chame a ferramenta. Antes de citar Código Civil, CDC, CLT, lei especial — chame.
-- Norma estadual (Constituição estadual, lei orgânica do tribunal), regimento interno, resolução de CNJ/CNMP → **fora do corpus**. Marca `[FORA DO CORPUS]`.
-- Resultado zero do MCP → pergunte ao usuário; não preencha de memória.
+- **`legislacao-federal · buscar_artigos`** — localiza o artigo (ex.: art. 489 do CPC). Params: `query` (+ número se souber) e `norma` (sigla/slug: `CPC`, `CC`, `Lei-8078-1990`). Não sabe a sigla? `acervo · listar` (`dominio: "legislacao"`).
+- **`acervo · consultar`** (`dominio: "legislacao"`) — texto integral; **obrigatório** antes de citar se `is_truncated: true`.
+- **`acervo · reclame_aqui`** — registre a falha quando a busca vier vazia ou irrelevante (`category: "gap"` ou `"resultado_irrelevante"`).
+
+Antes de citar: confira `situacao` — só `vigente` entra sem ressalva (senão `[VERIFICAR VIGÊNCIA — situação: <X>]`). Sem memória do modelo para número ou redação de artigo. Norma estadual, regimento interno, resolução de CNJ/CNMP → `[FORA DO CORPUS]`.
 
 Por quê: decisão judicial que cita artigo errado ou parágrafo inexistente é embargo declaratório certo, e em casos sérios é cassação no tribunal. O custo individual (retrabalho), institucional (autoridade do gabinete) e sistêmico (confiança no Judiciário) é alto demais para depender de memória de modelo.
 
@@ -83,8 +85,9 @@ Por quê: decisão judicial que cita artigo errado ou parágrafo inexistente é 
 
 Súmulas, temas de repercussão geral e repetitivos verificados via MCP da Letra da Lei são fontes válidas para a fundamentação. Use as ferramentas conforme o escopo:
 
-- **Federal (STF/STJ/TST/CARF):** `buscar_precedentes` (busca ampla) ou `buscar_vinculantes` (restringe a vinculantes do art. 927 CPC).
-- **Estadual — IRDRs (TJs):** `buscar_vinculantes` com o parâmetro `localidade` (sigla da UF).
+- **Federal (STF/STJ/TST/CARF):** `jurisprudencia-federal · buscar_precedentes` (busca ampla) ou `jurisprudencia-federal · buscar_vinculantes` (restringe a vinculantes do art. 927 CPC). Filtre por `autoridade` (`STF`, `STJ`, `TST`, `CARF`).
+- **Estadual — IRDRs (TJs):** `jurisprudencia-estadual · buscar_vinculantes` (ferramenta distinta) com o parâmetro **obrigatório** `localidade` (sigla da UF, ou `"BR"` para busca nacional).
+- **Texto truncado (`is_truncated: true`):** chame `acervo · consultar` (`dominio: "jurisprudencia"`, `esfera: "federal"`/`"estadual"`) antes de citar.
 
 **Força do precedente — campo `eficacia` retornado pelo MCP:**
 - `vinculante` = observância obrigatória (art. 927 CPC) — citar com texto literal e identificar os fundamentos determinantes (exigência do art. 489, § 1º, V do CPC).
@@ -156,7 +159,7 @@ Busque art. 203 do CPC via MCP e cole o texto na sua nota interna — não na de
 Para **cada norma** que vai aparecer na fundamentação:
 
 1. Identifique o instituto (e.g., "responsabilidade civil objetiva do fornecedor", "ônus da prova", "boa-fé objetiva").
-2. `buscar_legislacao_federal` com query precisa + `corpus` filtrado (e.g., `Lei-8078-1990` para CDC, `Lei-10406-2002` para CC).
+2. `buscar_artigos` com query precisa + o parâmetro `norma` (sigla/slug, e.g., `CDC` ou `Lei-8078-1990`; `CC` ou `Lei-10406-2002`).
 3. Cole o texto literal — entre aspas — na fundamentação, com `source_url` em nota de rodapé ou ao final.
 4. Norma fora do corpus: `[FORA DO CORPUS — verificar manualmente]`.
 
@@ -347,7 +350,7 @@ O script sobrescreve o arquivo no mesmo caminho. Se o script não estiver dispon
 - VI: OK
 
 ### Dispositivos citados (todos verificados via MCP)
-- [law_key]-[Art-N] — [source_url]
+- [lei_slug]-[Art-N] — [source_url]
 - ...
 
 ### Marcadores que exigem decisão judicial
