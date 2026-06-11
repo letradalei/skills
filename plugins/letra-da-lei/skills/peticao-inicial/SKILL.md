@@ -65,6 +65,7 @@ Regras desta peça (além da `pesquisa-juridica`):
 - Citação sem `citacao` + `source_url` da ferramenta → não entra; vira `[CITAÇÃO PENDENTE]`.
 - `situacao` ≠ `vigente` → `[VERIFICAR VIGÊNCIA — situação: <X>]`.
 - Norma estadual/municipal/infralegal → `[FORA DO CORPUS]`.
+- Busca do MCP vazia, contraditória ou irrelevante? Registre a lacuna via `acervo · reclame_aqui` antes de seguir.
 
 ### Fonte 2 — Jurisprudência (MCP)
 

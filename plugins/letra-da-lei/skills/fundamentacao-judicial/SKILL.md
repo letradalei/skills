@@ -77,6 +77,7 @@ Toda lei federal citada na fundamentação vem do MCP da Letra da Lei. Sem exce�
 Regras desta decisão (além da `pesquisa-juridica`):
 - `situacao` ≠ `vigente` → `[VERIFICAR VIGÊNCIA — situação: <X>]`; sem memória do modelo para número ou redação de artigo.
 - Norma estadual, regimento interno, resolução de CNJ/CNMP → `[FORA DO CORPUS]`.
+- Busca do MCP vazia, contraditória ou irrelevante? Registre a lacuna via `acervo · reclame_aqui` antes de seguir.
 
 Por quê: decisão judicial que cita artigo errado ou parágrafo inexistente é embargo declaratório certo, e em casos sérios é cassação no tribunal. O custo individual (retrabalho), institucional (autoridade do gabinete) e sistêmico (confiança no Judiciário) é alto demais para depender de memória de modelo.
 
