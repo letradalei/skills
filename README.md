@@ -42,7 +42,7 @@ As skills de redação produzem **rascunhos revisáveis**, não peças prontas. 
 
 ## Pré-requisito: o MCP
 
-As skills consultam o servidor MCP `letra-da-lei` para obter texto autoritativo de lei e jurisprudência — **nunca a memória do modelo**. Sem o MCP conectado, a skill avisa e para. A `pesquisa-juridica` é a skill-base que centraliza o uso do MCP (ferramentas, parâmetros, verificação de vigência e citação); as peças a carregam em vez de repetir o contrato.
+As skills consultam o servidor MCP `letra-da-lei` para obter texto autoritativo de lei e jurisprudência — **nunca a memória do modelo**. Sem o MCP conectado, a skill avisa e para. A conexão é autenticada via OAuth (login no primeiro uso). A `pesquisa-juridica` é a skill-base que centraliza o uso do MCP (ferramentas, parâmetros, verificação de vigência e citação); as peças a carregam em vez de repetir o contrato.
 
 ## Como contribuir
 
