@@ -1,30 +1,24 @@
 ---
 name: skill-template
-description: Skill modelo com a estrutura mínima para uma skill portátil neste repositório.
-version: 0.1.0
-authors:
-  - letradalei
-tags:
-  - template
-  - agent-skills
-license: Proprietary
-repository: https://github.com/letradalei/skills
+description: Modelo mínimo para uma nova skill da Letra da Lei. Substitua por uma descrição real — o que a skill faz, gatilhos de uso e quando não usar.
+argument-hint: "[descrição curta do argumento, se houver]"
 ---
 
 # Skill Modelo
 
-Use este modelo ao criar uma nova skill neste repositório.
+Use este modelo ao criar uma nova skill. Copie esta pasta para `plugins/letra-da-lei/skills/<slug>/` e reescreva.
 
-## Regras
+## Convenções
 
-- Mantenha o fluxo principal neste arquivo.
-- Mova material de apoio extenso para `references/` apenas quando necessário.
-- Adicione auxiliares determinísticos em `scripts/` quando repetição ou confiabilidade importarem.
-- Remova o texto de modelo antes de publicar uma skill real.
+- `name` em **kebab-case puro** (sem `:` — o prefixo `letra-da-lei:` é aplicado automaticamente).
+- Corpo em **português**.
+- Para consultar lei ou jurisprudência, **carregue a skill `letra-da-lei:pesquisa-juridica`** em vez de repetir o contrato do MCP.
+- Material de apoio extenso vai em `references/` ao lado, carregado sob demanda.
 
 ## Fluxo de autoria
 
 1. Renomeie a pasta para o slug final da skill.
-2. Substitua o frontmatter pelo nome, descrição e tags reais.
-3. Reescreva as instruções em torno de uma tarefa concreta.
-4. Adicione `agents/openai.yaml` quando a skill precisar aparecer corretamente nas interfaces dos agentes.
+2. Ajuste o frontmatter (`name` kebab puro, `description` curta e específica).
+3. Reescreva as instruções em torno de **uma** tarefa concreta.
+4. Remova este texto de modelo.
+5. Valide: `bash ./scripts/validate-skills.sh`.

@@ -1,82 +1,67 @@
-# letradalei/skills
+# Letra da Lei — Skills
 
-Claude Code **plugin marketplace** for the Letra da Lei legal skills.
+Marketplace de plugins do [Claude Code](https://claude.com/claude-code) com as skills jurídicas da **Letra da Lei**: pesquisa de legislação e jurisprudência brasileiras (via MCP) e redação de peças processuais com fundamentação verificada.
 
-This repo is the source of truth for the `letra-da-lei` plugin — a bundle of Brazilian legal skills (statute + case-law research and processual drafting) that connect to the Letra da Lei MCP for authoritative, citable sources. It is installable directly from GitHub.
+> Projeto open source sob licença [MIT](LICENSE). Contribuições são bem-vindas — veja o [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## Install (Claude Code)
+## Instalação (Claude Code)
 
 ```bash
 /plugin marketplace add letradalei/skills
 /plugin install letra-da-lei@letradalei
 ```
 
-After install, the skills are available namespaced by the plugin, e.g. `/letra-da-lei:pesquisa-juridica`, `/letra-da-lei:peticao-inicial`. The bundled `.mcp.json` connects the `letradalei` MCP server (`https://mcp.letradalei.com/mcp`) automatically.
+Após instalar, as skills ficam disponíveis com o prefixo do plugin, ex.: `/letra-da-lei:pesquisa-juridica`, `/letra-da-lei:peticao-inicial`. O `.mcp.json` do plugin conecta automaticamente o servidor MCP `letradalei` (`https://mcp.letradalei.com/mcp`).
 
-## Repository structure
+## As skills
 
-This repo follows the Claude Code marketplace layout: a root marketplace manifest points at the bundled plugin, whose skills each live in their own `SKILL.md` directory.
+| Skill | O que faz |
+|---|---|
+| `pesquisa-juridica` | Pesquisa e cita legislação e jurisprudência pelo MCP. **Skill-base** — as demais a carregam. |
+| `peticao-inicial` | Redige petição inicial (CPC art. 319). |
+| `contestacao` | Redige contestação cível (CPC arts. 335–342). |
+| `fundamentacao-judicial` | Estrutura a fundamentação judicial conforme o art. 489, § 1º do CPC. |
+| `analise-processual-minuta` | Diagnostica a fase processual e redige a peça cabível (réplica, recursos, cumprimento, embargos, ações autônomas etc.). |
+
+As skills de redação produzem **rascunhos revisáveis**, não peças prontas. Quem assina, decide estratégia e protocola é o(a) advogado(a) ou magistrado(a) habilitado(a).
+
+## Estrutura do repositório
 
 ```text
 .
-├── .claude-plugin/
-│   └── marketplace.json              ← catalog: lists the letra-da-lei plugin
-├── plugins/
-│   └── letra-da-lei/
-│       ├── .claude-plugin/plugin.json
-│       ├── .mcp.json                 ← bundles the letradalei MCP server
-│       ├── README.md
-│       └── skills/
-│           ├── pesquisa-juridica/SKILL.md        ← MCP research (skill-base)
-│           ├── peticao-inicial/SKILL.md
-│           ├── contestacao/SKILL.md
-│           ├── fundamentacao-judicial/SKILL.md
-│           └── analise-processual-minuta/SKILL.md
-├── skills/
-│   └── skill-template/SKILL.md       ← authoring template (not shipped in the plugin)
+├── .claude-plugin/marketplace.json     ← catálogo (lista o plugin letra-da-lei)
+├── plugins/letra-da-lei/
+│   ├── .claude-plugin/plugin.json
+│   ├── .mcp.json                       ← conecta o MCP letradalei
+│   ├── README.md
+│   └── skills/<slug>/SKILL.md          ← uma pasta por skill
+├── skills/skill-template/SKILL.md      ← modelo para novas skills
 ├── scripts/validate-skills.sh
 └── .github/workflows/validate.yml
 ```
 
-## The plugin
+## Pré-requisito: o MCP
 
-`letra-da-lei` bundles five skills. **`pesquisa-juridica`** is the skill-base: it documents how to use the MCP (legislation + jurisprudence tools, parameters, vigência/`situacao` checks, integral-text retrieval, gap reporting). The four drafting skills **load `pesquisa-juridica`** for every legal lookup instead of repeating the MCP contract.
+As skills consultam o servidor MCP `letradalei` para obter texto autoritativo de lei e jurisprudência — **nunca a memória do modelo**. Sem o MCP conectado, a skill avisa e para. A `pesquisa-juridica` é a skill-base que centraliza o uso do MCP (ferramentas, parâmetros, verificação de vigência e citação); as peças a carregam em vez de repetir o contrato.
 
-| Skill | Does |
-|---|---|
-| `pesquisa-juridica` | Search and cite legislation + jurisprudence via the MCP. Loaded by the others. |
-| `peticao-inicial` | Drafts a petição inicial (CPC art. 319). |
-| `contestacao` | Drafts a contestação (CPC arts. 335–342). |
-| `fundamentacao-judicial` | Structures judicial reasoning against CPC art. 489, § 1º. |
-| `analise-processual-minuta` | Diagnoses the procedural stage and drafts the fitting peça. |
+## Como contribuir
 
-## Skill layout
+Leia o [CONTRIBUTING.md](CONTRIBUTING.md). Em resumo:
 
-Each skill lives at `plugins/letra-da-lei/skills/<slug>/SKILL.md`.
+- Skills ficam em `plugins/letra-da-lei/skills/<slug>/SKILL.md`.
+- `name` no frontmatter é **kebab-case puro** (o prefixo `letra-da-lei:` é aplicado automaticamente).
+- Corpo das skills em **português**.
+- Para acesso ao MCP, **carregue a skill `pesquisa-juridica`** em vez de repetir o contrato das ferramentas.
+- Valide antes de abrir PR: `bash ./scripts/validate-skills.sh`.
 
-- **`name:` must be bare kebab-case** (e.g. `peticao-inicial`) — Claude Code applies the `letra-da-lei:` namespace automatically. A colon in `name:` is invalid.
-- `description:` is recommended; Claude uses it to decide when to invoke the skill.
-- Optional `references/` holds material the agent reads only when needed.
-
-## Authoring principles
-
-- Skill bodies are in Portuguese (Brazilian legal practice).
-- Keep the core procedure inside `SKILL.md`; move long material to `references/`.
-- Ground legal output in retrieved law/precedents, never model memory; route through `pesquisa-juridica`.
-- Preserve the boundary between retrieved source, synthesis, and legal advice. The MCP remains the source of truth for coverage, article text, and source URLs.
-- Signal over noise: don't repeat the MCP contract per skill — load `pesquisa-juridica`.
-
-## Validation
+## Validação
 
 ```bash
 bash ./scripts/validate-skills.sh
 ```
 
-Checks that `marketplace.json` exists and is valid JSON, that any `plugin.json` is valid JSON, and that every `SKILL.md` has `name:` + `description:` frontmatter with a bare (colon-free) name. The GitHub Actions workflow runs the same validation on pushes and pull requests.
+Verifica o `marketplace.json`, os `plugin.json` e o frontmatter de cada `SKILL.md` (campos `name`/`description` e nome sem dois-pontos). O GitHub Actions roda a mesma validação em pushes e pull requests.
 
-## Creating a new skill
+## Licença
 
-1. Copy `skills/skill-template/` into `plugins/letra-da-lei/skills/<slug>/`.
-2. Rewrite `SKILL.md` around one concrete job; set `name:` to the bare slug.
-3. If it needs the MCP, tell it to load `letra-da-lei:pesquisa-juridica` rather than re-documenting the tools.
-4. Run `bash ./scripts/validate-skills.sh` before committing.
+[MIT](LICENSE) © Letra da Lei.
