@@ -1,7 +1,7 @@
 ---
 name: fundamentacao-judicial
 version: 0.1.0
-description: Auxilia magistrado(a) a estruturar a fundamentação de sentença, decisão interlocutória ou despacho conforme o art. 489 do CPC (esp. § 1º), com dispositivos verificados via MCP da Letra da Lei. Use para "monta a fundamentação", "fundamentar a sentença", "estrutura a decisão sobre [tese]". Não use para peças de parte ou parecer ministerial.
+description: Estrutura a fundamentação de sentença, decisão interlocutória ou despacho conforme o art. 489 do CPC (esp. § 1º), com dispositivos verificados via MCP. Use para "monta a fundamentação", "fundamentar a sentença", "estrutura a decisão sobre [tese]". Não use para peças de parte ou parecer ministerial.
 argument-hint: "[tipo de decisão — ex.: 'sentença em ação de cobrança' ou 'decisão sobre tutela de urgência']"
 ---
 

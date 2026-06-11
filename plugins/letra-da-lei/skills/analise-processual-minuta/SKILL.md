@@ -1,7 +1,7 @@
 ---
 name: analise-processual-minuta
 version: 0.1.0
-description: Diagnostica a fase de um processo cível ou trabalhista e redige a peça cabível — réplica, tutela antecedente, recursos (apelação, agravo, embargos de declaração, RE/REsp, agravo interno, recurso ordinário/inominado/trabalhista, embargos de divergência), cumprimento de sentença, impugnação, embargos à execução, exceção de pré-executividade, embargos de terceiro, oposição, reclamação, ação rescisória, suspensão de segurança e IRDR — fundamentada via MCP da Letra da Lei. Use para "o que faço agora?", "recebi a contestação", "perdi a sentença, como recorro?", "quero apelar/executar/embargar", "cabe [peça/recurso]?". Não use para petição inicial, contestação ou fundamentação judicial — há skills próprias.
+description: Diagnostica a fase de um processo cível ou trabalhista e redige a peça cabível (réplica, recursos, cumprimento de sentença, embargos, ações autônomas etc.), fundamentada via MCP. Use para "o que faço agora?", "perdi a sentença, como recorro?", "cabe [peça/recurso]?". Não use para petição inicial, contestação ou fundamentação judicial — há skills próprias.
 argument-hint: "[fase do processo ou documento recebido — ex.: 'recebi a contestação' ou caminho do PDF da sentença]"
 ---
 
