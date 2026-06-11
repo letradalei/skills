@@ -1,6 +1,7 @@
 ---
 name: peticao-inicial
-description: Redige uma petição inicial brasileira seguindo os requisitos do CPC (art. 319), com toda a fundamentação jurídica buscada e citada literalmente via MCP da Letra da Lei (texto autoritativo do Planalto). Use quando o usuário disser "redige uma inicial", "petição inicial sobre", "vou ajuizar [ação]", "monta a inicial para", "preciso entrar com [ação] de", ou solicitar qualquer peça inaugural de processo cível, trabalhista, do consumidor, juizado especial, ação de família, mandado de segurança ou similar. Não use para contestação, recurso ou outras peças de defesa/impugnação.
+version: 0.1.0
+description: Redige petição inicial brasileira (CPC art. 319) com fundamentação verificada via MCP da Letra da Lei. Use para "redige uma inicial", "vou ajuizar [ação]", "monta a inicial", "preciso entrar com [ação]", ou qualquer peça inaugural cível, trabalhista, do consumidor, juizado, família ou mandado de segurança. Não use para contestação, recurso ou defesa.
 argument-hint: "[tipo de ação ou descrição curta — ex.: 'indenizatória por dano moral']"
 ---
 
@@ -42,7 +43,7 @@ Só avance para a redação quando **todos** os itens "Informar manualmente" tiv
 ---
 
 1. Faça a entrevista de intake (Passo 1 abaixo) — partes, fatos, pedido, juízo, rito.
-2. **Chame `buscar_legislacao_federal` para todo dispositivo legal que entrar na peça.** Sem exceção. Memória do modelo é proibida para citar artigo.
+2. **Chame `buscar_artigos` para todo dispositivo legal que entrar na peça.** Sem exceção. Memória do modelo é proibida para citar artigo.
 3. Monte a peça na estrutura do CPC art. 319 (Passo 3).
 4. Output: rascunho `.docx` em `outputs/peticao-inicial-[slug]-[YYYY-MM-DD].docx` + bloco de notas para o(a) advogado(a) revisor(a) com cada marcador `[VERIFICAR]` e `[CITAÇÃO PENDENTE]` que sobrou.
 
@@ -58,19 +59,19 @@ A inicial é o documento que abre o processo. Tudo que vier depois — saneament
 
 ### Fonte 1 — Lei federal (MCP)
 
-**Toda e qualquer citação de lei federal nesta peça vem do MCP da Letra da Lei** (`buscar_legislacao_federal`). Sem exceções:
+**Toda e qualquer citação de lei federal nesta peça vem do MCP da Letra da Lei.** Sem exceções. **Carregue a skill `letra-da-lei:pesquisa-juridica` e siga-a** para qualquer busca — ela define as ferramentas (`buscar_artigos`, `acervo · consultar`, `acervo · listar`, `reclame_aqui`), os parâmetros (`query`, `norma`), os campos retornados e as verificações de vigência (`situacao`) e de texto integral (`is_truncated` → `consultar`). Memória do modelo é proibida para citar artigo — leis mudam (ex.: Lei 14.905/2024 alterou CC arts. 389 e 406).
 
-- Antes de escrever "CPC, art. 319", **chame `buscar_legislacao_federal` com query `art 319 CPC` e corpus `Lei-13105-2015`** e cole o texto literal retornado.
-- Antes de invocar o CDC art. 14, chame a ferramenta. Antes de citar a CLT, chame a ferramenta.
-- Se a ferramenta retornar zero resultados, **não invente o artigo**. Diga ao usuário: "O MCP não encontrou [X]. Opções: (a) reformular a query; (b) verificar se a norma é federal (estadual/municipal está fora do corpus); (c) deixar `[CITAÇÃO PENDENTE]` e seguir." Não preencha de memória.
-- **Citação sem `citation_id` e `source_url` retornados pela ferramenta é citação inválida.** Se esses campos não estiverem presentes no resultado do MCP, a citação não entra na peça — vai como `[CITAÇÃO PENDENTE]`.
+Regras desta peça (além da `pesquisa-juridica`):
+- Citação sem `citacao` + `source_url` da ferramenta → não entra; vira `[CITAÇÃO PENDENTE]`.
+- `situacao` ≠ `vigente` → `[VERIFICAR VIGÊNCIA — situação: <X>]`.
+- Norma estadual/municipal/infralegal → `[FORA DO CORPUS]`.
 
 ### Fonte 2 — Jurisprudência (MCP)
 
 Jurisprudência verificada via MCP da Letra da Lei é uma fonte válida. Use as ferramentas conforme o escopo:
 
-- **Federal (STF/STJ/TST/CARF):** `buscar_precedentes` (busca ampla — súmulas, temas, OJs, acórdãos) ou `buscar_vinculantes` (restringe a precedentes vinculantes do art. 927 CPC: súmulas vinculantes, temas de repercussão geral, temas repetitivos).
-- **Estadual — IRDRs (TJs):** `buscar_vinculantes` com o parâmetro `localidade` (sigla da UF, ex.: `"SP"`). IRDR vincula apenas na UF que o decidiu.
+- **Federal (STF/STJ/TST/CARF):** `jurisprudencia-federal · buscar_precedentes` (busca ampla — súmulas, temas, OJs, acórdãos) ou `jurisprudencia-federal · buscar_vinculantes` (restringe a precedentes vinculantes do art. 927 CPC: súmulas vinculantes, temas de repercussão geral, temas repetitivos). Filtre por `autoridade` (`STF`, `STJ`, `TST`, `CARF`).
+- **Estadual — IRDRs (TJs):** `jurisprudencia-estadual · buscar_vinculantes` (ferramenta distinta) com o parâmetro **obrigatório** `localidade` (sigla da UF, ex.: `"SP"`, ou `"BR"` para busca nacional). IRDR vincula apenas na UF que o decidiu.
 
 **Força do precedente — campo `eficacia` retornado pelo MCP:**
 - `vinculante` = observância obrigatória (art. 927 CPC) — citar sem restrição adicional.
@@ -87,7 +88,7 @@ Jurisprudência verificada via MCP da Letra da Lei é uma fonte válida. Use as 
 [Linha em branco — texto principal retoma aqui]
 ```
 
-Se o MCP retornar enunciado truncado (`is_truncated: true`), chamar `consultar_precedente` para obter o texto integral antes de citar.
+Se o MCP retornar enunciado truncado (`is_truncated: true`), chamar `acervo · consultar` (`dominio: "jurisprudencia"`, `esfera: "federal"` ou `"estadual"`, com os `search_ids` da busca ou uma `citacao` conhecida) para obter o texto integral antes de citar.
 
 **Resultado zero ou precedente não pertinente:** inserir `[JURISPRUDÊNCIA — a ser inserida pelo(a) advogado(a)]`. Nunca copiar enunciado de memória.
 
@@ -96,7 +97,7 @@ Se o MCP retornar enunciado truncado (`is_truncated: true`), chamar `consultar_p
 ```
     [Texto literal retornado pelo MCP — sem aspas, recuado 1,25 cm à esquerda,
      alinhamento justificado, fonte 1pt menor que o corpo do texto]
-    Fonte: [citation_id] | [source_url] | query: "[query usada]" | corpus: [law_key]
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: [lei_slug]
 
 [Linha em branco — texto principal retoma aqui, com formatação normal]
 ```
@@ -109,9 +110,9 @@ Regras de formatação da citação no .docx:
 - **Fonte abaixo:** a linha "Fonte: ..." vem imediatamente após o texto da lei, na mesma formatação recuada e menor. Não vem antes.
 - **Linha em branco após:** após o bloco citação + fonte, uma linha em branco separa do próximo parágrafo de texto principal.
 
-Se o bloco `Fonte:` não puder ser preenchido (citation_id ou source_url ausentes), o artigo não foi buscado via MCP — não entra na peça.
+Se o bloco `Fonte:` não puder ser preenchido (citacao ou source_url ausentes), o artigo não foi buscado via MCP — não entra na peça.
 
-**A regra vale também para alertas e referências administrativas.** Sempre que um dispositivo legal for mencionado fora de um bloco de citação (ex.: em alerta de prescrição, em nota ao advogado, em texto corrido), a referência deve aparecer como `[citação verificada via MCP — citation_id: XXX]` ou a citação literal deve ser inserida com bloco completo. Referência a artigo em texto corrido sem citation_id conta como citação não verificada para fins de auditoria.
+**A regra vale também para alertas e referências administrativas.** Sempre que um dispositivo legal for mencionado fora de um bloco de citação (ex.: em alerta de prescrição, em nota ao advogado, em texto corrido), a referência deve aparecer como `[citação verificada via MCP — citacao: XXX]` ou a citação literal deve ser inserida com bloco completo. Referência a artigo em texto corrido sem citacao conta como citação não verificada para fins de auditoria.
 
 **Por que a regra é absoluta:** memória de modelo erra número de artigo, parágrafo, inciso, redação vigente (leis são alteradas — ex.: Lei 14.905/2024 mudou CC arts. 389 e 406) e — pior — afirma coisas que a lei não diz. Em peça processual isso é sancionável (CPC art. 80, II; art. 81; e responsabilidade do(a) advogado(a) perante a OAB). O MCP existe exatamente para eliminar essa categoria de erro.
 
@@ -146,7 +147,7 @@ Faça as perguntas abaixo, uma por vez ou em bloco curto, antes de redigir. Não
 
 ### 1.5 Conferência rápida — relação de consumo, trabalhista, família?
 
-Se houver pista de **relação de consumo** (CDC) → chamar `buscar_legislacao_federal` com `Lei-8078-1990` para fundamentar. Se **trabalhista** (CLT) → `DL-5452-1943`. Se **família** → Código Civil (`Lei-10406-2002`) + Estatuto do Idoso/ECA/Lei Maria da Penha conforme o caso. Não decidir o regime sem checar a lei.
+Se houver pista de **relação de consumo** (CDC) → chamar `buscar_artigos` com `Lei-8078-1990` para fundamentar. Se **trabalhista** (CLT) → `DL-5452-1943`. Se **família** → Código Civil (`Lei-10406-2002`) + Estatuto do Idoso/ECA/Lei Maria da Penha conforme o caso. Não decidir o regime sem checar a lei.
 
 ### 1.6 Dados adicionais obrigatórios por regime (perguntar na Rodada 2)
 
@@ -164,18 +165,18 @@ Se houver pista de **relação de consumo** (CDC) → chamar `buscar_legislacao_
 Para **cada tese jurídica** que vai sustentar o pedido:
 
 1. Identifique a norma matriz (CC, CDC, CLT, CPC, lei especial).
-2. Chame `buscar_legislacao_federal` com query precisa (palavras do instituto + número se souber) e `corpus` filtrado pelo `law_key`.
+2. Chame `buscar_artigos` com query precisa (palavras do instituto + número se souber) e o parâmetro `norma` (sigla/slug da lei) para restringir a busca.
 3. Registre no rascunho o bloco completo no formato padrão de citação:
    ```
        [Texto literal retornado — sem aspas, recuado, justificado, fonte menor]
-       Fonte: [citation_id] | [source_url] | query: "[query]" | corpus: [law_key]
+       Fonte: [citacao] | [source_url] | situação: [situacao] | lei: [lei_slug]
 
    ```
 4. Se a tese depende de norma fora do corpus (estadual, municipal, infralegal, resolução de agência), **flag** `[FORA DO CORPUS LETRA DA LEI — verificar manualmente]` e siga.
 
 **Sem suplementação silenciosa.** Se a busca no MCP devolver pouco ou nada para um instituto que a peça precisa invocar, pare e pergunte ao usuário antes de buscar em outro lugar:
 
-> "O MCP retornou [N] resultados para [tema]. Cobertura parece fina. Quer: (a) refinar a query; (b) tentar outro `corpus`; (c) buscar na web — resultados ficarão marcados `[busca web — verificar fonte primária]` e devem ser conferidos antes do protocolo; (d) deixar `[CITAÇÃO PENDENTE]` e seguir?"
+> "O MCP retornou [N] resultados para [tema]. Cobertura parece fina. Quer: (a) refinar a query; (b) tentar outra `norma`; (c) buscar na web — resultados ficarão marcados `[busca web — verificar fonte primária]` e devem ser conferidos antes do protocolo; (d) deixar `[CITAÇÃO PENDENTE]` e seguir?"
 
 A decisão é do(a) advogado(a), não da skill.
 
@@ -189,9 +190,9 @@ Para cada tese central da petição, verifique se existe precedente vinculante (
 
 Para cada tese central (ex.: "reconhecimento de vínculo empregatício em pejotização", "responsabilidade do fornecedor por fraude bancária"):
 
-1. **`buscar_vinculantes`** (federal) com query em linguagem natural descrevendo a tese. Filtre por `autoridade: "STF"` para repercussão geral ou `autoridade: "STJ"` para repetitivos.
+1. **`jurisprudencia-federal · buscar_vinculantes`** com query em linguagem natural descrevendo a tese. Filtre por `autoridade: "STF"` para repercussão geral ou `autoridade: "STJ"` para repetitivos.
 2. Se a busca retornar resultado pertinente, note o `search_id`, `tipo` (tema_repercussao_geral / tema_repetitivo), `situacao` e o enunciado.
-3. Para IRDRs estaduais relevantes: `buscar_vinculantes` (estadual) com `localidade` = UF do juízo.
+3. Para IRDRs estaduais relevantes: `jurisprudencia-estadual · buscar_vinculantes` com `localidade` = UF do juízo.
 
 ### Como inserir na peça
 
@@ -246,7 +247,7 @@ o usuário não forneceu; marcar `[DOC. A NUMERAR]`.]
 II — DO DIREITO
 
 [Aqui entram os fundamentos jurídicos do pedido — art. 319, III. CADA dispositivo
-citado abaixo deve ter sido retornado por `buscar_legislacao_federal`. Estrutura
+citado abaixo deve ter sido retornado por `buscar_artigos`. Estrutura
 sugerida:]
 
 II.1 — [Instituto / tese 1 — ex.: Da responsabilidade civil do fornecedor]
@@ -254,7 +255,7 @@ II.1 — [Instituto / tese 1 — ex.: Da responsabilidade civil do fornecedor]
 Dispõe o art. 14 do Código de Defesa do Consumidor (Lei nº 8.078/1990):
 
     [texto literal retornado pelo MCP — sem aspas, recuado, justificado, fonte 1pt menor]
-    Fonte: [citation_id] | [source_url] | query: "[query]" | corpus: Lei-8078-1990
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-8078-1990
 
 [Aplicação ao caso concreto — subsunção. 2-4 parágrafos. Formatação normal.]
 
@@ -267,7 +268,7 @@ III — DA TUTELA DE URGÊNCIA  (se aplicável)
 [Texto introdutório da tutela de urgência.]
 
     [Texto literal do art. 300 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-300 | [source_url] | query: "[query]" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 [Demonstrar probabilidade do direito + perigo de dano + reversibilidade — formatação normal.]
 
@@ -316,9 +317,9 @@ Antes de salvar o `.docx`, rode mentalmente esta checklist e reporte cada item:
 7. **Tutela de urgência** (se houver): probabilidade + perigo + reversibilidade declinados?
 8. **Pedido de citação** consta? (Erro frequente.)
 9. **Gratuidade de justiça** — se o(a) autor(a) é pessoa física, o pedido foi feito ou a ausência foi registrada como `[VERIFICAR]` e anotada no bloco de notas?
-10. **Auditoria de legislação — obrigatória:** para cada dispositivo legal citado na peça (incluindo alertas e notas), verifique se o bloco `citation_id / source_url` está presente. Citação sem esses campos = foi de memória = **inválida**. Remova ou converta em `[CITAÇÃO PENDENTE]`.
+10. **Auditoria de legislação — obrigatória:** para cada dispositivo legal citado na peça (incluindo alertas e notas), verifique se o bloco `citacao / source_url` está presente. Citação sem esses campos = foi de memória = **inválida**. Remova ou converta em `[CITAÇÃO PENDENTE]`.
 11. **Auditoria de jurisprudência — obrigatória:** para cada enunciado jurisprudencial na peça, verifique se há `search_id` e `eficacia` do MCP. Sem esses campos = foi de memória = **inválida**. Substitua por `[JURISPRUDÊNCIA — a ser inserida pelo(a) advogado(a)]`.
-12. **Prescrição — verificação obrigatória em ações trabalhistas:** se o regime for CLT, calcular o prazo prescricional antes de entregar a peça. Regra (CLT, art. 11 — buscar via MCP, corpus `DL-5452-1943`): 5 anos durante a vigência do contrato, **limite de 2 anos após a extinção**. Comparar a data de término do contrato com a data atual. Se o prazo de 2 anos já expirou ou está próximo de expirar (menos de 30 dias), inserir alerta em vermelho no início da peça e no bloco de notas, com instrução expressa de não protocolar sem análise prévia. Exceção: pedido de anotação na CTPS para fins previdenciários não está sujeito a prazo prescricional (CLT, art. 11, § 1º).
+12. **Prescrição — verificação obrigatória em ações trabalhistas:** se o regime for CLT, calcular o prazo prescricional antes de entregar a peça. Regra (CLT, art. 11 — buscar via MCP, norma `DL-5452-1943`): 5 anos durante a vigência do contrato, **limite de 2 anos após a extinção**. Comparar a data de término do contrato com a data atual. Se o prazo de 2 anos já expirou ou está próximo de expirar (menos de 30 dias), inserir alerta em vermelho no início da peça e no bloco de notas, com instrução expressa de não protocolar sem análise prévia. Exceção: pedido de anotação na CTPS para fins previdenciários não está sujeito a prazo prescricional (CLT, art. 11, § 1º).
 13. **Marcadores remanescentes:** `[VERIFICAR]`, `[CITAÇÃO PENDENTE]`, `[DOC. A NUMERAR]`, `[FORA DO CORPUS]`, `[JURISPRUDÊNCIA]` — todos listados no bloco de notas?
 
 ## Formatação padrão do documento
@@ -367,7 +368,7 @@ O script sobrescreve o arquivo no mesmo caminho. Se o script não estiver dispon
 - `[JURISPRUDÊNCIA — a ser inserida pelo(a) advogado(a)]` — N
 
 ### Dispositivos citados (todos verificados via MCP)
-- [law_key]-[Art-N] — [source_url]
+- [lei_slug]-[Art-N] — [source_url]
 - ...
 
 ### Pontos abertos para a(o) advogada(o)

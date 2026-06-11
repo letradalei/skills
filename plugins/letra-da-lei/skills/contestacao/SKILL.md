@@ -1,6 +1,7 @@
 ---
 name: contestacao
-description: Redige uma contestação cível brasileira seguindo os arts. 335 a 342 do CPC, com preliminares (art. 337), mérito (impugnação especificada dos fatos), eventual reconvenção, e toda a fundamentação jurídica buscada e citada literalmente via MCP da Letra da Lei (texto autoritativo do Planalto). Use quando o usuário disser "redige uma contestação", "preciso contestar", "fui citado, monta a defesa", "contestação para [tipo de ação]", "resposta à inicial", ou solicitar qualquer peça defensiva inicial em processo cível, do consumidor, do trabalho, juizado especial. Não use para recurso (apelação, agravo), embargos, ou peças posteriores à fase postulatória.
+version: 0.1.0
+description: Redige contestação cível brasileira (CPC arts. 335–342) — preliminares (art. 337), mérito com impugnação especificada e eventual reconvenção, fundamentada via MCP da Letra da Lei. Use para "redige uma contestação", "preciso contestar", "fui citado, monta a defesa", "resposta à inicial". Não use para recurso, embargos ou peças posteriores à fase postulatória.
 argument-hint: "[descrição curta — ex.: 'contestação em ação de cobrança' ou caminho do PDF da inicial]"
 ---
 
@@ -42,7 +43,7 @@ Só avance para a redação quando **todos** os itens "Informar manualmente" tiv
 
 1. Leia a **inicial** que está sendo contestada (peça o caminho do arquivo ou cole o texto). Sem ela não há contestação útil — só formalismo.
 2. Faça o intake defensivo (Passo 2) — fatos da nossa versão, documentos, teses, eventual reconvenção.
-3. **Chame `buscar_legislacao_federal` para todo dispositivo invocado.** Sem exceção. Preliminares do art. 337 incluem 13 hipóteses — cada uma exige a redação literal do inciso.
+3. **Chame `buscar_artigos` para todo dispositivo invocado.** Sem exceção. Preliminares do art. 337 incluem 13 hipóteses — cada uma exige a redação literal do inciso.
 4. Monte a peça na estrutura preliminares → mérito → reconvenção → provas → pedidos (Passo 4).
 5. Output: `.docx` em `outputs/contestacao-[slug]-[YYYY-MM-DD].docx` + bloco de notas para revisão.
 
@@ -60,19 +61,19 @@ Esta skill produz **rascunho com fundamentação jurídica verificada artigo por
 
 ### Fonte 1 — Lei federal (MCP)
 
-**Toda citação de lei federal vem do MCP da Letra da Lei** (`buscar_legislacao_federal`). Sem exceção.
+**Toda citação de lei federal vem do MCP da Letra da Lei.** Sem exceção. **Carregue a skill `letra-da-lei:pesquisa-juridica` e siga-a** para qualquer busca — ela define as ferramentas (`buscar_artigos`, `acervo · consultar`, `acervo · listar`, `reclame_aqui`), os parâmetros (`query`, `norma`), os campos retornados e as verificações de vigência (`situacao`) e de texto integral (`is_truncated` → `consultar`). Memória do modelo é proibida para citar artigo — leis mudam (ex.: Lei 14.905/2024 mudou CC arts. 389 e 406).
 
-- Antes de invocar art. 337, V (inépcia da inicial), chame a ferramenta. Antes de citar CDC, CLT, CC, qualquer lei especial — chame.
+Regras desta peça (além da `pesquisa-juridica`):
+- Citação sem `citacao` + `source_url` da ferramenta → não entra; vira `[CITAÇÃO PENDENTE]`.
+- `situacao` ≠ `vigente` → `[VERIFICAR VIGÊNCIA — situação: <X>]`.
 - Norma estadual/municipal/infralegal → `[FORA DO CORPUS]`.
-- Resultado zero do MCP → pergunte ao usuário antes de buscar em outro lugar. Não preencha de memória.
-- **Citação sem `citation_id` e `source_url` retornados pela ferramenta é citação inválida.** Vai como `[CITAÇÃO PENDENTE]` — nunca entra na peça direto da memória do modelo. Leis são alteradas (ex.: Lei 14.905/2024 mudou CC arts. 389 e 406); a memória do modelo pode ter a redação desatualizada.
 
 **Formato obrigatório de citação de lei no rascunho e no .docx:**
 
 ```
     [Texto literal retornado pelo MCP — sem aspas, recuado 1,25 cm à esquerda,
      alinhamento justificado, fonte 1pt menor que o corpo do texto]
-    Fonte: [citation_id] | [source_url] | query: "[query usada]" | corpus: [law_key]
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: [lei_slug]
 
 [Linha em branco — texto principal retoma aqui, com formatação normal]
 ```
@@ -85,7 +86,7 @@ Regras de formatação da citação no .docx:
 - **Fonte abaixo:** a linha "Fonte: ..." vem imediatamente após o texto da lei, na mesma formatação recuada e menor. Não vem antes.
 - **Linha em branco após:** após o bloco citação + fonte, uma linha em branco separa do próximo parágrafo de texto principal.
 
-Se o bloco `Fonte:` não puder ser preenchido (citation_id ou source_url ausentes), o artigo não foi buscado via MCP — não entra na peça.
+Se o bloco `Fonte:` não puder ser preenchido (citacao ou source_url ausentes), o artigo não foi buscado via MCP — não entra na peça.
 
 Por quê: contestação com dispositivo citado errado destrói a defesa. O juiz lê, vê que o art. invocado não existe ou diz outra coisa, e a tese morre. Pior, a contestação é a peça em que o(a) advogado(a) assume a defesa — a credibilidade construída ou destruída aqui acompanha o processo todo.
 
@@ -93,8 +94,8 @@ Por quê: contestação com dispositivo citado errado destrói a defesa. O juiz 
 
 Jurisprudência verificada via MCP da Letra da Lei é uma fonte válida. Use as ferramentas conforme o escopo:
 
-- **Federal (STF/STJ/TST/CARF):** `buscar_precedentes` (busca ampla — súmulas, temas, OJs, acórdãos) ou `buscar_vinculantes` (restringe a precedentes vinculantes do art. 927 CPC: súmulas vinculantes, temas de repercussão geral, temas repetitivos).
-- **Estadual — IRDRs (TJs):** `buscar_vinculantes` com o parâmetro `localidade` (sigla da UF, ex.: `"SP"`). IRDR vincula apenas na UF que o decidiu.
+- **Federal (STF/STJ/TST/CARF):** `jurisprudencia-federal · buscar_precedentes` (busca ampla — súmulas, temas, OJs, acórdãos) ou `jurisprudencia-federal · buscar_vinculantes` (restringe a precedentes vinculantes do art. 927 CPC: súmulas vinculantes, temas de repercussão geral, temas repetitivos). Filtre por `autoridade` (`STF`, `STJ`, `TST`, `CARF`).
+- **Estadual — IRDRs (TJs):** `jurisprudencia-estadual · buscar_vinculantes` (ferramenta distinta) com o parâmetro **obrigatório** `localidade` (sigla da UF, ex.: `"SP"`, ou `"BR"` para busca nacional). IRDR vincula apenas na UF que o decidiu.
 
 **Força do precedente — campo `eficacia` retornado pelo MCP:**
 - `vinculante` = observância obrigatória (art. 927 CPC) — citar sem restrição adicional.
@@ -111,7 +112,7 @@ Jurisprudência verificada via MCP da Letra da Lei é uma fonte válida. Use as 
 [Linha em branco — texto principal retoma aqui]
 ```
 
-Se o MCP retornar enunciado truncado (`is_truncated: true`), chamar `consultar_precedente` para obter o texto integral antes de citar.
+Se o MCP retornar enunciado truncado (`is_truncated: true`), chamar `acervo · consultar` (`dominio: "jurisprudencia"`, `esfera: "federal"` ou `"estadual"`, com os `search_ids` da busca ou uma `citacao` conhecida) para obter o texto integral antes de citar.
 
 **Resultado zero ou precedente não pertinente:** inserir `[JURISPRUDÊNCIA — a ser inserida pelo(a) advogado(a)]`. Nunca copiar enunciado de memória.
 
@@ -193,11 +194,11 @@ Para cada fato narrado na inicial, classifique internamente (para fins de estrat
 Para cada tese — preliminar OU mérito:
 
 1. Identifique a norma.
-2. Chame `buscar_legislacao_federal` com query precisa + `corpus`.
+2. Chame `buscar_artigos` com query precisa + `norma`.
 3. Registre no rascunho o bloco completo no formato padrão de citação:
    ```
        [Texto literal retornado — sem aspas, recuado, justificado, fonte menor]
-       Fonte: [citation_id] | [source_url] | query: "[query]" | corpus: [law_key]
+       Fonte: [citacao] | [source_url] | situação: [situacao] | lei: [lei_slug]
 
    ```
 4. Norma fora do corpus → `[FORA DO CORPUS]`.
@@ -230,7 +231,7 @@ I.1 — [Preliminar 1 — ex.: Da incompetência relativa do juízo (art. 337, I
 Dispõe o art. 337, II, do CPC:
 
     [texto literal retornado pelo MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-337 | [source_url] | query: "[query]" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 [Aplicação ao caso. Doc. que comprova. Pedido específico — formatação normal.]
 
@@ -247,7 +248,7 @@ II.2 — DA IMPUGNAÇÃO ESPECIFICADA  (art. 341 do CPC)
 Nos termos do art. 341 do CPC:
 
     [texto literal do art. 341 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-341 | [source_url] | query: "[query]" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 
 Quanto aos fatos narrados na inicial, manifesta-se a(o) Ré(u) na forma seguinte:
@@ -265,7 +266,7 @@ II.3.a — [Tese de mérito 1 — ex.: Da inexistência de defeito do serviço]
 Dispõe o art. 14, § 3º, do Código de Defesa do Consumidor:
 
     [texto literal via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-8078-1990-Art-14 | [source_url] | query: "[query]" | corpus: Lei-8078-1990
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-8078-1990
 
 [Subsunção. 2-4 parágrafos. Formatação normal.]
 
@@ -275,7 +276,7 @@ II.4 — DA INVERSÃO DO ÔNUS DA PROVA  (se aplicável, ou para refutar invers�
                                        pedida na inicial)
 
     [texto literal do art. 6º, VIII, do CDC, ou art. 373, §1º do CPC, via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: [citation_id] | [source_url] | query: "[query]" | corpus: [law_key]
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: [lei_slug]
 
 
 III — DA RECONVENÇÃO                                   (omitir seção se não houver)
@@ -283,7 +284,7 @@ III — DA RECONVENÇÃO                                   (omitir seção se n�
 Com fundamento no art. 343 do CPC:
 
     [texto literal do art. 343 via MCP — sem aspas, recuado, justificado, fonte menor]
-    Fonte: Lei-13105-2015-Art-343 | [source_url] | query: "[query]" | corpus: Lei-13105-2015
+    Fonte: [citacao] | [source_url] | situação: [situacao] | lei: Lei-13105-2015
 
 apresenta a(o) Ré(u) reconvenção em face do(a) Autor(a) Reconvindo(a), pelos fundamentos a seguir.
 
@@ -332,7 +333,7 @@ OAB/[UF] nº [...]
 3. **Impugnação especificada** (art. 341). Cada fato da inicial classificado? Lacuna = confissão ficta — perigosíssimo.
 4. **Pedido contraposto vs. reconvenção.** Se rito é juizado, é pedido contraposto (Lei 9.099) — verificar.
 5. **Documentos.** Procuração + comprovantes da versão da(o) ré(u) — listados?
-6. **Auditoria de legislação — obrigatória:** para cada dispositivo legal citado na peça, verifique se o bloco `citation_id / source_url` está presente. Citação sem esses campos = foi de memória = **inválida**. Remova ou converta em `[CITAÇÃO PENDENTE]`.
+6. **Auditoria de legislação — obrigatória:** para cada dispositivo legal citado na peça, verifique se o bloco `citacao / source_url` está presente. Citação sem esses campos = foi de memória = **inválida**. Remova ou converta em `[CITAÇÃO PENDENTE]`.
 7. **Auditoria de jurisprudência — obrigatória:** para cada enunciado jurisprudencial na peça, verifique se há `search_id` e `eficacia` do MCP. Sem esses campos = foi de memória = **inválida**. Substitua por `[JURISPRUDÊNCIA — a ser inserida pelo(a) advogado(a)]`.
 8. **Marcadores remanescentes:** `[VERIFICAR]`, `[CITAÇÃO PENDENTE]`, `[FORA DO CORPUS]`, `[JURISPRUDÊNCIA]`, `[doc. a numerar]` — todos listados no bloco de notas. Itens `[VERIFICAR]` devem aparecer destacados em vermelho no documento final para sinalizar visualmente que a peça está incompleta.
 

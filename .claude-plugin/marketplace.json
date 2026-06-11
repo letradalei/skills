@@ -1,0 +1,15 @@
+{
+  "name": "letradalei",
+  "description": "Skills da Letra da Lei para o direito brasileiro — pesquisa de legislação e jurisprudência via MCP e redação de peças processuais com fundamentação verificada.",
+  "owner": {
+    "name": "Letra da Lei",
+    "email": "suporte@letradalei.com"
+  },
+  "plugins": [
+    {
+      "name": "letra-da-lei",
+      "source": "./plugins/letra-da-lei",
+      "description": "Pesquise legislação federal e jurisprudência (STF, STJ, TST, CARF, IRDRs) com citações verificáveis, e redija petição inicial, contestação, recursos e fundamentação judicial com base legal verificada via MCP."
+    }
+  ]
+}
