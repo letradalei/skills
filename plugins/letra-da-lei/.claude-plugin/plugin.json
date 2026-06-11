@@ -1,0 +1,9 @@
+{
+  "name": "letra-da-lei",
+  "version": "0.2.0",
+  "description": "A plataforma jurídica brasileira — pesquise legislação federal e jurisprudência (STF, STJ, TST, CARF, IRDRs) com citações em nível de artigo/precedente e fontes verificáveis, e redija peças processuais (petição inicial, contestação, recursos, fundamentação) com base legal verificada via MCP.",
+  "author": {
+    "name": "Letra da Lei",
+    "email": "suporte@letradalei.com"
+  }
+}

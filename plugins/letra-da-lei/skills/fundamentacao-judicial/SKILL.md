@@ -1,5 +1,6 @@
 ---
 name: fundamentacao-judicial
+version: 0.1.0
 description: Auxilia magistrado(a) brasileiro(a) a estruturar a fundamentação de sentença, decisão interlocutória ou despacho fundamentado, garantindo aderência aos requisitos do art. 489 do CPC — especialmente o § 1º (o que NÃO é considerado fundamentação) — com todos os dispositivos legais buscados e citados literalmente via MCP da Letra da Lei (texto autoritativo do Planalto). Use quando o usuário (juiz, juíza, assessor(a) de gabinete, estagiário(a) de pós) disser "monta a fundamentação", "preciso fundamentar a sentença", "estrutura a decisão sobre", "fundamentação para [tese]", ou solicitar redação de relatório, fundamentação ou dispositivo. Não use para parecer ministerial, peças de parte, ou produção fora do gabinete.
 argument-hint: "[tipo de decisão — ex.: 'sentença em ação de cobrança' ou 'decisão sobre tutela de urgência']"
 ---
@@ -71,13 +72,11 @@ O que **não** resolve:
 
 ### Fonte 1 — Lei federal (MCP)
 
-Toda lei federal citada na fundamentação vem do MCP da Letra da Lei. Sem exceção. Ferramentas (grupo · operação):
+Toda lei federal citada na fundamentação vem do MCP da Letra da Lei. Sem exceção. **Carregue a skill `letra-da-lei:pesquisa-juridica` e siga-a** para qualquer busca — ela define as ferramentas (`buscar_artigos`, `acervo · consultar`, `acervo · listar`, `reclame_aqui`), os parâmetros (`query`, `norma`), os campos retornados e as verificações de vigência (`situacao`) e de texto integral (`is_truncated` → `consultar`).
 
-- **`legislacao-federal · buscar_artigos`** — localiza o artigo (ex.: art. 489 do CPC). Params: `query` (+ número se souber) e `norma` (sigla/slug: `CPC`, `CC`, `Lei-8078-1990`). Não sabe a sigla? `acervo · listar` (`dominio: "legislacao"`).
-- **`acervo · consultar`** (`dominio: "legislacao"`) — texto integral; **obrigatório** antes de citar se `is_truncated: true`.
-- **`acervo · reclame_aqui`** — registre a falha quando a busca vier vazia ou irrelevante (`category: "gap"` ou `"resultado_irrelevante"`).
-
-Antes de citar: confira `situacao` — só `vigente` entra sem ressalva (senão `[VERIFICAR VIGÊNCIA — situação: <X>]`). Sem memória do modelo para número ou redação de artigo. Norma estadual, regimento interno, resolução de CNJ/CNMP → `[FORA DO CORPUS]`.
+Regras desta decisão (além da `pesquisa-juridica`):
+- `situacao` ≠ `vigente` → `[VERIFICAR VIGÊNCIA — situação: <X>]`; sem memória do modelo para número ou redação de artigo.
+- Norma estadual, regimento interno, resolução de CNJ/CNMP → `[FORA DO CORPUS]`.
 
 Por quê: decisão judicial que cita artigo errado ou parágrafo inexistente é embargo declaratório certo, e em casos sérios é cassação no tribunal. O custo individual (retrabalho), institucional (autoridade do gabinete) e sistêmico (confiança no Judiciário) é alto demais para depender de memória de modelo.
 

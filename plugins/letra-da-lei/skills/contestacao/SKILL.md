@@ -1,5 +1,6 @@
 ---
 name: contestacao
+version: 0.1.0
 description: Redige uma contestação cível brasileira seguindo os arts. 335 a 342 do CPC, com preliminares (art. 337), mérito (impugnação especificada dos fatos), eventual reconvenção, e toda a fundamentação jurídica buscada e citada literalmente via MCP da Letra da Lei (texto autoritativo do Planalto). Use quando o usuário disser "redige uma contestação", "preciso contestar", "fui citado, monta a defesa", "contestação para [tipo de ação]", "resposta à inicial", ou solicitar qualquer peça defensiva inicial em processo cível, do consumidor, do trabalho, juizado especial. Não use para recurso (apelação, agravo), embargos, ou peças posteriores à fase postulatória.
 argument-hint: "[descrição curta — ex.: 'contestação em ação de cobrança' ou caminho do PDF da inicial]"
 ---
@@ -60,13 +61,12 @@ Esta skill produz **rascunho com fundamentação jurídica verificada artigo por
 
 ### Fonte 1 — Lei federal (MCP)
 
-**Toda citação de lei federal vem do MCP da Letra da Lei.** Sem exceção. Ferramentas (grupo · operação):
+**Toda citação de lei federal vem do MCP da Letra da Lei.** Sem exceção. **Carregue a skill `letra-da-lei:pesquisa-juridica` e siga-a** para qualquer busca — ela define as ferramentas (`buscar_artigos`, `acervo · consultar`, `acervo · listar`, `reclame_aqui`), os parâmetros (`query`, `norma`), os campos retornados e as verificações de vigência (`situacao`) e de texto integral (`is_truncated` → `consultar`). Memória do modelo é proibida para citar artigo — leis mudam (ex.: Lei 14.905/2024 mudou CC arts. 389 e 406).
 
-- **`legislacao-federal · buscar_artigos`** — localiza o artigo (ex.: cada inciso do art. 337). Params: `query` (+ número se souber) e `norma` (sigla/slug: `CPC`, `CDC`, `Lei-8078-1990`). Não sabe a sigla? `acervo · listar` (`dominio: "legislacao"`).
-- **`acervo · consultar`** (`dominio: "legislacao"`) — texto integral; **obrigatório** antes de citar se `is_truncated: true`.
-- **`acervo · reclame_aqui`** — registre a falha quando a busca vier vazia ou irrelevante (`category: "gap"` ou `"resultado_irrelevante"`), em vez de só seguir.
-
-Antes de colar na peça: confira `situacao` — só `vigente` entra sem ressalva (senão `[VERIFICAR VIGÊNCIA — situação: <X>]`). Citação sem `citacao` e `source_url` da ferramenta é inválida → `[CITAÇÃO PENDENTE]`; memória do modelo é proibida (leis mudam — ex.: Lei 14.905/2024 mudou CC arts. 389 e 406). Norma estadual/municipal/infralegal → `[FORA DO CORPUS]`.
+Regras desta peça (além da `pesquisa-juridica`):
+- Citação sem `citacao` + `source_url` da ferramenta → não entra; vira `[CITAÇÃO PENDENTE]`.
+- `situacao` ≠ `vigente` → `[VERIFICAR VIGÊNCIA — situação: <X>]`.
+- Norma estadual/municipal/infralegal → `[FORA DO CORPUS]`.
 
 **Formato obrigatório de citação de lei no rascunho e no .docx:**
 

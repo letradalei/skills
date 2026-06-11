@@ -1,5 +1,6 @@
 ---
 name: analise-processual-minuta
+version: 0.1.0
 description: Analisa a fase processual em que um processo cível ou trabalhista se encontra e redige a peça cabível — réplica (arts. 350/351 CPC), tutela antecipada antecedente (art. 303 CPC), tutela cautelar antecedente (arts. 305-310 CPC), apelação (arts. 1.009-1.014 CPC), cumprimento de sentença (arts. 523, 536, 538 CPC), impugnação ao cumprimento de sentença (art. 525 CPC), embargos à execução de título extrajudicial (arts. 914-917 CPC), exceção de pré-executividade (construção pretoriana — matérias de ordem pública sem dilação probatória), embargos de terceiro (arts. 674-681 CPC), recurso ordinário trabalhista (CLT art. 895), embargos de declaração (art. 1.022 CPC), agravo de instrumento (art. 1.015 CPC), recurso inominado em JEC (Lei 9.099 art. 41), recurso extraordinário ao STF (CF art. 102 III "a"), recurso especial ao STJ (CF art. 105 III), agravo em RE/REsp ao tribunal superior (art. 1.042 CPC), embargos de divergência no STJ/STF (arts. 1.043-1.044 CPC), agravo interno (art. 1.021 CPC), recurso ordinário constitucional em HC/MS (CF arts. 102 II e 105 II), reclamação constitucional (arts. 988-993 CPC), ação rescisória (arts. 966-975 CPC), oposição (arts. 682-686 CPC), suspensão de segurança (Lei 12.016/2009 art. 15 + Lei 8.437/1992 art. 4), suscitação de IRDR (arts. 976-987 CPC) e módulo subsidiário para situações sem módulo específico. Use quando o usuário disser "o que faço agora?", "recebi a contestação, qual é o próximo passo?", "perdi a sentença, como recorro?", "ganhei, como cobro?", "preciso de réplica", "quero apelar", "vou executar a sentença", "preciso embargar", "cabe agravo aqui?", "prazo para recurso", "quero interpor RE", "perdemos no TRF e agora?", "o relator negou monocraticamente", "o presidente inadmitiu o REsp", "denegaram o mandado de segurança no TJ", "cabe recurso ordinário?", "querem descumprir a súmula vinculante", "vou entrar com reclamação", "a sentença transitou mas quero rescindir", "cabe ação rescisória?", "preciso de tutela urgente antes de ajuizar a ação principal", "quero embargar a execução", "o executado quer se defender no cumprimento de sentença", "cabe exceção de pré-executividade?", "meu bem foi penhorado mas não sou parte no processo", "terceiro com bem penhorado indevidamente", "tem um terceiro que quer disputar o bem em juízo", "cabe oposição?", "cabe embargos de terceiro?", "o Estado quer suspender a liminar", "o Município quer suspender a sentença do mandado de segurança", "preciso suscitar IRDR", "há muitos processos com a mesma questão jurídica", "quero uniformizar a jurisprudência no tribunal", "a turma diverge de outra turma no STJ", "cabe embargos de divergência?", ou qualquer pedido de peça processual após a fase postulatória inicial. Não use para petição inicial (use /peticao-inicial), contestação (use /contestacao), ou fundamentação judicial (use /fundamentacao-judicial).
 argument-hint: "[fase do processo ou documento recebido — ex.: 'recebi a contestação' ou caminho do PDF da sentença]"
 ---
@@ -60,13 +61,12 @@ O rascunho gerado **não é peça pronta** — é andaime revisável. Quem assin
 
 ### Fonte 1 — Lei federal (MCP)
 
-**Toda citação de lei federal nesta peça vem do MCP da Letra da Lei.** Sem exceção. Ferramentas (grupo · operação):
+**Toda citação de lei federal nesta peça vem do MCP da Letra da Lei.** Sem exceção. **Carregue a skill `letra-da-lei:pesquisa-juridica` e siga-a** para qualquer busca — ela define as ferramentas (`buscar_artigos`, `acervo · consultar`, `acervo · listar`, `reclame_aqui`), os parâmetros (`query`, `norma`), os campos retornados e as verificações de vigência (`situacao`) e de texto integral (`is_truncated` → `consultar`). Memória do modelo é proibida para citar artigo — leis mudam.
 
-- **`legislacao-federal · buscar_artigos`** — localiza o artigo (ex.: art. 1.009 do CPC). Params: `query` (+ número se souber) e `norma` (sigla/slug: `CPC`, `CLT`, `Lei-13105-2015`, `DL-5452-1943`). Não sabe a sigla? `acervo · listar` (`dominio: "legislacao"`).
-- **`acervo · consultar`** (`dominio: "legislacao"`) — texto integral; **obrigatório** antes de citar se `is_truncated: true`.
-- **`acervo · reclame_aqui`** — registre a falha quando a busca vier vazia ou irrelevante (`category: "gap"` ou `"resultado_irrelevante"`), em vez de só seguir.
-
-Antes de colar na peça: confira `situacao` — só `vigente` entra sem ressalva (senão `[VERIFICAR VIGÊNCIA — situação: <X>]`). Citação sem `citacao` e `source_url` da ferramenta é inválida → `[CITAÇÃO PENDENTE]`; memória do modelo é proibida para citar artigo (leis mudam). Norma estadual/municipal/infralegal → `[FORA DO CORPUS]`.
+Regras desta peça (além da `pesquisa-juridica`):
+- Citação sem `citacao` + `source_url` da ferramenta → não entra; vira `[CITAÇÃO PENDENTE]`.
+- `situacao` ≠ `vigente` → `[VERIFICAR VIGÊNCIA — situação: <X>]`.
+- Norma estadual/municipal/infralegal → `[FORA DO CORPUS]`.
 
 ### Fonte 2 — Jurisprudência (MCP)
 

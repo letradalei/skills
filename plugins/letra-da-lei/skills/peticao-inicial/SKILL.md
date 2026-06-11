@@ -1,5 +1,6 @@
 ---
 name: peticao-inicial
+version: 0.1.0
 description: Redige uma petição inicial brasileira seguindo os requisitos do CPC (art. 319), com toda a fundamentação jurídica buscada e citada literalmente via MCP da Letra da Lei (texto autoritativo do Planalto). Use quando o usuário disser "redige uma inicial", "petição inicial sobre", "vou ajuizar [ação]", "monta a inicial para", "preciso entrar com [ação] de", ou solicitar qualquer peça inaugural de processo cível, trabalhista, do consumidor, juizado especial, ação de família, mandado de segurança ou similar. Não use para contestação, recurso ou outras peças de defesa/impugnação.
 argument-hint: "[tipo de ação ou descrição curta — ex.: 'indenizatória por dano moral']"
 ---
@@ -58,13 +59,12 @@ A inicial é o documento que abre o processo. Tudo que vier depois — saneament
 
 ### Fonte 1 — Lei federal (MCP)
 
-**Toda e qualquer citação de lei federal nesta peça vem do MCP da Letra da Lei.** Sem exceções. Ferramentas (grupo · operação):
+**Toda e qualquer citação de lei federal nesta peça vem do MCP da Letra da Lei.** Sem exceções. **Carregue a skill `letra-da-lei:pesquisa-juridica` e siga-a** para qualquer busca — ela define as ferramentas (`buscar_artigos`, `acervo · consultar`, `acervo · listar`, `reclame_aqui`), os parâmetros (`query`, `norma`), os campos retornados e as verificações de vigência (`situacao`) e de texto integral (`is_truncated` → `consultar`). Memória do modelo é proibida para citar artigo — leis mudam (ex.: Lei 14.905/2024 alterou CC arts. 389 e 406).
 
-- **`legislacao-federal · buscar_artigos`** — localiza o artigo. Params: `query` (+ número se souber) e `norma` (sigla/slug: `CPC`, `CDC`, `Lei-8078-1990`). Não sabe a sigla? `acervo · listar` (`dominio: "legislacao"`).
-- **`acervo · consultar`** (`dominio: "legislacao"`; por `search_ids` ou `norma` + `numeros`) — texto integral; **obrigatório** antes de citar se `is_truncated: true`.
-- **`acervo · reclame_aqui`** — registre a falha quando a busca vier vazia ou irrelevante (`category: "gap"` ou `"resultado_irrelevante"`), em vez de só seguir.
-
-Antes de colar na peça: confira `situacao` — só `vigente` entra sem ressalva (senão `[VERIFICAR VIGÊNCIA — situação: <X>]`). Citação sem `citacao` e `source_url` da ferramenta é inválida → `[CITAÇÃO PENDENTE]`; memória do modelo é proibida para citar artigo (leis mudam — ex.: Lei 14.905/2024 alterou CC arts. 389 e 406). Norma estadual/municipal/infralegal → `[FORA DO CORPUS]`.
+Regras desta peça (além da `pesquisa-juridica`):
+- Citação sem `citacao` + `source_url` da ferramenta → não entra; vira `[CITAÇÃO PENDENTE]`.
+- `situacao` ≠ `vigente` → `[VERIFICAR VIGÊNCIA — situação: <X>]`.
+- Norma estadual/municipal/infralegal → `[FORA DO CORPUS]`.
 
 ### Fonte 2 — Jurisprudência (MCP)
 
