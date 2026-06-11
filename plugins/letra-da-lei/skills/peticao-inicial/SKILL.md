@@ -1,7 +1,7 @@
 ---
 name: peticao-inicial
 version: 0.1.0
-description: Redige uma petição inicial brasileira seguindo os requisitos do CPC (art. 319), com toda a fundamentação jurídica buscada e citada literalmente via MCP da Letra da Lei (texto autoritativo do Planalto). Use quando o usuário disser "redige uma inicial", "petição inicial sobre", "vou ajuizar [ação]", "monta a inicial para", "preciso entrar com [ação] de", ou solicitar qualquer peça inaugural de processo cível, trabalhista, do consumidor, juizado especial, ação de família, mandado de segurança ou similar. Não use para contestação, recurso ou outras peças de defesa/impugnação.
+description: Redige petição inicial brasileira (CPC art. 319) com fundamentação verificada via MCP da Letra da Lei. Use para "redige uma inicial", "vou ajuizar [ação]", "monta a inicial", "preciso entrar com [ação]", ou qualquer peça inaugural cível, trabalhista, do consumidor, juizado, família ou mandado de segurança. Não use para contestação, recurso ou defesa.
 argument-hint: "[tipo de ação ou descrição curta — ex.: 'indenizatória por dano moral']"
 ---
 

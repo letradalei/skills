@@ -1,7 +1,7 @@
 ---
 name: contestacao
 version: 0.1.0
-description: Redige uma contestação cível brasileira seguindo os arts. 335 a 342 do CPC, com preliminares (art. 337), mérito (impugnação especificada dos fatos), eventual reconvenção, e toda a fundamentação jurídica buscada e citada literalmente via MCP da Letra da Lei (texto autoritativo do Planalto). Use quando o usuário disser "redige uma contestação", "preciso contestar", "fui citado, monta a defesa", "contestação para [tipo de ação]", "resposta à inicial", ou solicitar qualquer peça defensiva inicial em processo cível, do consumidor, do trabalho, juizado especial. Não use para recurso (apelação, agravo), embargos, ou peças posteriores à fase postulatória.
+description: Redige contestação cível brasileira (CPC arts. 335–342): preliminares (art. 337), mérito com impugnação especificada e eventual reconvenção, fundamentada via MCP da Letra da Lei. Use para "redige uma contestação", "preciso contestar", "fui citado, monta a defesa", "resposta à inicial". Não use para recurso, embargos ou peças posteriores à fase postulatória.
 argument-hint: "[descrição curta — ex.: 'contestação em ação de cobrança' ou caminho do PDF da inicial]"
 ---
 

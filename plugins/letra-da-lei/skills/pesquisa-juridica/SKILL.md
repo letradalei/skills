@@ -1,12 +1,7 @@
 ---
 name: pesquisa-juridica
 version: 0.1.0
-description: >
-  Pesquise legislação federal e jurisprudência brasileiras pelo MCP da Letra da Lei,
-  com texto autoritativo em nível de artigo/precedente, verificação de vigência e
-  citação verificável. Use sempre que precisar consultar a lei ou um precedente —
-  e é a skill que as peças (petição inicial, contestação, recursos, fundamentação)
-  carregam para fazer qualquer busca jurídica.
+description: Pesquisa e cita legislação federal e jurisprudência brasileiras (STF, STJ, TST, CARF, IRDRs) pelo MCP da Letra da Lei, com verificação de vigência e fontes verificáveis. Skill-base carregada pelas peças para qualquer busca jurídica.
 allowed-tools:
   - mcp
 ---
