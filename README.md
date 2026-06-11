@@ -11,7 +11,7 @@ Marketplace de plugins do [Claude Code](https://claude.com/claude-code) com as s
 /plugin install letra-da-lei@letradalei
 ```
 
-Após instalar, as skills ficam disponíveis com o prefixo do plugin, ex.: `/letra-da-lei:pesquisa-juridica`, `/letra-da-lei:peticao-inicial`. O `.mcp.json` do plugin conecta automaticamente o servidor MCP `letradalei` (`https://mcp.letradalei.com/mcp`).
+Após instalar, as skills ficam disponíveis com o prefixo do plugin, ex.: `/letra-da-lei:pesquisa-juridica`, `/letra-da-lei:peticao-inicial`. O `.mcp.json` do plugin conecta automaticamente o servidor MCP `letra-da-lei` (`https://mcp.letradalei.com/mcp`).
 
 ## As skills
 
@@ -32,7 +32,7 @@ As skills de redação produzem **rascunhos revisáveis**, não peças prontas. 
 ├── .claude-plugin/marketplace.json     ← catálogo (lista o plugin letra-da-lei)
 ├── plugins/letra-da-lei/
 │   ├── .claude-plugin/plugin.json
-│   ├── .mcp.json                       ← conecta o MCP letradalei
+│   ├── .mcp.json                       ← conecta o MCP letra-da-lei
 │   ├── README.md
 │   └── skills/<slug>/SKILL.md          ← uma pasta por skill
 ├── skills/skill-template/SKILL.md      ← modelo para novas skills
@@ -42,7 +42,7 @@ As skills de redação produzem **rascunhos revisáveis**, não peças prontas. 
 
 ## Pré-requisito: o MCP
 
-As skills consultam o servidor MCP `letradalei` para obter texto autoritativo de lei e jurisprudência — **nunca a memória do modelo**. Sem o MCP conectado, a skill avisa e para. A `pesquisa-juridica` é a skill-base que centraliza o uso do MCP (ferramentas, parâmetros, verificação de vigência e citação); as peças a carregam em vez de repetir o contrato.
+As skills consultam o servidor MCP `letra-da-lei` para obter texto autoritativo de lei e jurisprudência — **nunca a memória do modelo**. Sem o MCP conectado, a skill avisa e para. A `pesquisa-juridica` é a skill-base que centraliza o uso do MCP (ferramentas, parâmetros, verificação de vigência e citação); as peças a carregam em vez de repetir o contrato.
 
 ## Como contribuir
 

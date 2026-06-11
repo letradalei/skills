@@ -4,7 +4,7 @@ A Letra da Lei traz o acervo jurídico brasileiro para o Claude: **legislação 
 
 ## Pré-requisito
 
-O servidor MCP **`letradalei`** (`https://mcp.letradalei.com/mcp`) deve estar conectado. As skills verificam a conexão antes de operar e nunca respondem de memória.
+O servidor MCP **`letra-da-lei`** (`https://mcp.letradalei.com/mcp`) deve estar conectado. As skills verificam a conexão antes de operar e nunca respondem de memória.
 
 ## Ferramentas do MCP (grupo · operação)
 

@@ -12,7 +12,7 @@ Esta é a skill-base de toda consulta à lei e à jurisprudência brasileiras. O
 
 ## Pré-requisito
 
-O servidor MCP **`letradalei`** deve estar conectado (`https://mcp.letradalei.com/mcp`). Verifique antes de começar. Se não estiver, avise o usuário e pare — não responda de memória.
+O servidor MCP **`letra-da-lei`** deve estar conectado (`https://mcp.letradalei.com/mcp`). Verifique antes de começar. Se não estiver, avise o usuário e pare — não responda de memória.
 
 ## Quando usar
 

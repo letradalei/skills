@@ -5,7 +5,7 @@ Obrigado por contribuir com as skills da Letra da Lei! Este repositório é um *
 ## Pré-requisitos
 
 - [Claude Code](https://claude.com/claude-code) instalado.
-- Acesso ao servidor MCP `letradalei` (`https://mcp.letradalei.com/mcp`) para testar skills que consultam lei ou jurisprudência.
+- Acesso ao servidor MCP `letra-da-lei` (`https://mcp.letradalei.com/mcp`) para testar skills que consultam lei ou jurisprudência.
 
 ## Onde ficam as skills
 
