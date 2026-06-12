@@ -1,6 +1,6 @@
 # Letra da Lei
 
-A Letra da Lei traz o acervo jurídico brasileiro para o Claude: **legislação federal** e **jurisprudência** (STF, STJ, TST, CARF e IRDRs dos Tribunais de Justiça), com texto autoritativo em nível de artigo/precedente, verificação de vigência e fontes verificáveis no Planalto. Sobre essa base de pesquisa, o plugin também **redige peças processuais** com fundamentação verificada dispositivo por dispositivo.
+A Letra da Lei traz o acervo jurídico brasileiro para o Claude: **legislação** e **jurisprudência**, com texto autoritativo em nível de artigo/precedente, verificação de vigência e fontes verificáveis no Planalto. Sobre essa base de pesquisa, o plugin também **redige peças processuais** com fundamentação verificada dispositivo por dispositivo.
 
 ## Pré-requisito
 
@@ -25,11 +25,11 @@ Todas retornam `situacao` (vigência) e `is_truncated` — confira antes de cita
 
 | Skill | Faz |
 |---|---|
-| `/letra-da-lei:pesquisa-juridica` | **Skill-base.** Pesquisa e cita legislação e jurisprudência pelo MCP, com verificação de vigência e texto integral. As demais skills a carregam. |
-| `/letra-da-lei:peticao-inicial` | Redige petição inicial (CPC art. 319) com fundamentação verificada. |
-| `/letra-da-lei:contestacao` | Redige contestação cível (CPC arts. 335–342), preliminares, mérito e eventual reconvenção. |
-| `/letra-da-lei:fundamentacao-judicial` | Estrutura a fundamentação de sentença/decisão com checagem do art. 489, § 1º do CPC. |
-| `/letra-da-lei:analise-processual-minuta` | Diagnostica a fase processual e redige a peça cabível (réplica, recursos, cumprimento, embargos, ações autônomas etc.). |
+| `/letradalei:pesquisa` | **Skill-base.** Pesquisa e cita legislação e jurisprudência pelo MCP, com verificação de vigência e texto integral. As demais skills a carregam. |
+| `/letradalei:peticao` | Redige petição inicial (CPC art. 319) com fundamentação verificada. |
+| `/letradalei:contestacao` | Redige contestação cível (CPC arts. 335–342), preliminares, mérito e eventual reconvenção. |
+| `/letradalei:fundamentacao` | Estrutura a fundamentação de sentença/decisão com checagem do art. 489, § 1º do CPC. |
+| `/letradalei:analise` | Diagnostica a fase processual e redige a peça cabível (réplica, recursos, cumprimento, embargos, ações autônomas etc.). |
 
 As skills de redação produzem **rascunhos revisáveis**, não peças prontas: quem assina, decide estratégia e protocola é o(a) advogado(a) ou magistrado(a) habilitado(a).
 

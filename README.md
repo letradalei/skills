@@ -8,20 +8,20 @@ Marketplace de plugins do [Claude Code](https://claude.com/claude-code) com as s
 
 ```bash
 /plugin marketplace add letradalei/skills
-/plugin install letra-da-lei@letradalei
+/plugin install letradalei@letradalei
 ```
 
-Após instalar, as skills ficam disponíveis com o prefixo do plugin, ex.: `/letra-da-lei:pesquisa-juridica`, `/letra-da-lei:peticao-inicial`. O `.mcp.json` do plugin conecta automaticamente o servidor MCP `letra-da-lei` (`https://mcp.letradalei.com/mcp`).
+Após instalar, as skills ficam disponíveis com o prefixo do plugin, ex.: `/letradalei:pesquisa`, `/letradalei:peticao`. O `.mcp.json` do plugin conecta automaticamente o servidor MCP `letra-da-lei` (`https://mcp.letradalei.com/mcp`).
 
 ## As skills
 
 | Skill | O que faz |
 |---|---|
-| `pesquisa-juridica` | Pesquisa e cita legislação e jurisprudência pelo MCP. **Skill-base** — as demais a carregam. |
-| `peticao-inicial` | Redige petição inicial (CPC art. 319). |
+| `pesquisa` | Pesquisa e cita legislação e jurisprudência pelo MCP. **Skill-base** — as demais a carregam. |
+| `peticao` | Redige petição inicial (CPC art. 319). |
 | `contestacao` | Redige contestação cível (CPC arts. 335–342). |
-| `fundamentacao-judicial` | Estrutura a fundamentação judicial conforme o art. 489, § 1º do CPC. |
-| `analise-processual-minuta` | Diagnostica a fase processual e redige a peça cabível (réplica, recursos, cumprimento, embargos, ações autônomas etc.). |
+| `fundamentacao` | Estrutura a fundamentação judicial conforme o art. 489, § 1º do CPC. |
+| `analise` | Diagnostica a fase processual e redige a peça cabível (réplica, recursos, cumprimento, embargos, ações autônomas etc.). |
 
 As skills de redação produzem **rascunhos revisáveis**, não peças prontas. Quem assina, decide estratégia e protocola é o(a) advogado(a) ou magistrado(a) habilitado(a).
 
@@ -29,7 +29,7 @@ As skills de redação produzem **rascunhos revisáveis**, não peças prontas. 
 
 ```text
 .
-├── .claude-plugin/marketplace.json     ← catálogo (lista o plugin letra-da-lei)
+├── .claude-plugin/marketplace.json     ← catálogo (lista o plugin letradalei)
 ├── plugins/letra-da-lei/
 │   ├── .claude-plugin/plugin.json
 │   ├── .mcp.json                       ← conecta o MCP letra-da-lei
@@ -42,16 +42,16 @@ As skills de redação produzem **rascunhos revisáveis**, não peças prontas. 
 
 ## Pré-requisito: o MCP
 
-As skills consultam o servidor MCP `letra-da-lei` para obter texto autoritativo de lei e jurisprudência — **nunca a memória do modelo**. Sem o MCP conectado, a skill avisa e para. A conexão é autenticada via OAuth (login no primeiro uso). A `pesquisa-juridica` é a skill-base que centraliza o uso do MCP (ferramentas, parâmetros, verificação de vigência e citação); as peças a carregam em vez de repetir o contrato.
+As skills consultam o servidor MCP `letra-da-lei` para obter texto autoritativo de lei e jurisprudência — **nunca a memória do modelo**. Sem o MCP conectado, a skill avisa e para. A conexão é autenticada via OAuth (login no primeiro uso). A `pesquisa` é a skill-base que centraliza o uso do MCP (ferramentas, parâmetros, verificação de vigência e citação); as peças a carregam em vez de repetir o contrato.
 
 ## Como contribuir
 
 Leia o [CONTRIBUTING.md](CONTRIBUTING.md). Em resumo:
 
 - Skills ficam em `plugins/letra-da-lei/skills/<slug>/SKILL.md`.
-- `name` no frontmatter é **kebab-case puro** (o prefixo `letra-da-lei:` é aplicado automaticamente).
+- `name` no frontmatter é **kebab-case puro** (o prefixo `letradalei:` é aplicado automaticamente).
 - Corpo das skills em **português**.
-- Para acesso ao MCP, **carregue a skill `pesquisa-juridica`** em vez de repetir o contrato das ferramentas.
+- Para acesso ao MCP, **carregue a skill `pesquisa`** em vez de repetir o contrato das ferramentas.
 - Valide antes de abrir PR: `bash ./scripts/validate-skills.sh`.
 
 ## Validação

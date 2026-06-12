@@ -1,11 +1,11 @@
 ---
-name: analise-processual-minuta
+name: analise
 version: 0.1.0
-description: Diagnostica a fase de um processo cível ou trabalhista e redige a peça cabível (réplica, recursos, cumprimento de sentença, embargos, ações autônomas etc.), fundamentada via MCP. Use para "o que faço agora?", "perdi a sentença, como recorro?", "cabe [peça/recurso]?". Não use para petição inicial, contestação ou fundamentação judicial — há skills próprias.
+description: Diagnostica a fase de um processo cível ou trabalhista e redige a peça cabível (réplica, recursos, cumprimento de sentença, embargos, ações autônomas etc.), fundamentada. Use para "o que faço agora?", "perdi a sentença, como recorro?", "cabe [peça/recurso]?". Não use para petição inicial, contestação ou fundamentação judicial — há skills próprias.
 argument-hint: "[fase do processo ou documento recebido — ex.: 'recebi a contestação' ou caminho do PDF da sentença]"
 ---
 
-# /analise-processual-minuta
+# /analise
 
 ## ⚠️ PASSO ZERO — OBRIGATÓRIO ANTES DE QUALQUER RASCUNHO
 
@@ -61,9 +61,9 @@ O rascunho gerado **não é peça pronta** — é andaime revisável. Quem assin
 
 ### Fonte 1 — Lei federal (MCP)
 
-**Toda citação de lei federal nesta peça vem do MCP da Letra da Lei.** Sem exceção. **Carregue a skill `letra-da-lei:pesquisa-juridica` e siga-a** para qualquer busca — ela define as ferramentas (`buscar_artigos`, `acervo · consultar`, `acervo · listar`, `reclame_aqui`), os parâmetros (`query`, `norma`), os campos retornados e as verificações de vigência (`situacao`) e de texto integral (`is_truncated` → `consultar`). Memória do modelo é proibida para citar artigo — leis mudam.
+**Toda citação de lei federal nesta peça vem do MCP da Letra da Lei.** Sem exceção. **Carregue a skill `letradalei:pesquisa` e siga-a** para qualquer busca — ela define as ferramentas (`buscar_artigos`, `acervo · consultar`, `acervo · listar`, `reclame_aqui`), os parâmetros (`query`, `norma`), os campos retornados e as verificações de vigência (`situacao`) e de texto integral (`is_truncated` → `consultar`). Memória do modelo é proibida para citar artigo — leis mudam.
 
-Regras desta peça (além da `pesquisa-juridica`):
+Regras desta peça (além da `pesquisa`):
 - Citação sem `citacao` + `source_url` da ferramenta → não entra; vira `[CITAÇÃO PENDENTE]`.
 - `situacao` ≠ `vigente` → `[VERIFICAR VIGÊNCIA — situação: <X>]`.
 - Norma estadual/municipal/infralegal → `[FORA DO CORPUS]`.
@@ -327,7 +327,7 @@ O script sobrescreve o arquivo no mesmo caminho. Se o script não estiver dispon
 ```
 ## Notas de revisão — [Tipo de Peça] — [data]
 
-**Skill:** analise-processual-minuta (Letra da Lei)
+**Skill:** analise (Letra da Lei)
 **Fase diagnosticada:** [fase]
 **Peça produzida:** [tipo]
 **Fonte da legislação:** MCP Letra da Lei (texto verbatim do Planalto)

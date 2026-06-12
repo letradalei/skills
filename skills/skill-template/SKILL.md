@@ -10,9 +10,9 @@ Use este modelo ao criar uma nova skill. Copie esta pasta para `plugins/letra-da
 
 ## Convenções
 
-- `name` em **kebab-case puro** (sem `:` — o prefixo `letra-da-lei:` é aplicado automaticamente).
+- `name` em **kebab-case puro** (sem `:` — o prefixo `letradalei:` é aplicado automaticamente).
 - Corpo em **português**.
-- Para consultar lei ou jurisprudência, **carregue a skill `letra-da-lei:pesquisa-juridica`** em vez de repetir o contrato do MCP.
+- Para consultar lei ou jurisprudência, **carregue a skill `letradalei:pesquisa`** em vez de repetir o contrato do MCP.
 - Material de apoio extenso vai em `references/` ao lado, carregado sob demanda.
 
 ## Fluxo de autoria

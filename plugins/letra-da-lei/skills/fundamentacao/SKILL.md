@@ -1,11 +1,11 @@
 ---
-name: fundamentacao-judicial
+name: fundamentacao
 version: 0.1.0
-description: Estrutura a fundamentação de sentença, decisão interlocutória ou despacho conforme o art. 489 do CPC (esp. § 1º), com dispositivos verificados via MCP. Use para "monta a fundamentação", "fundamentar a sentença", "estrutura a decisão sobre [tese]". Não use para peças de parte ou parecer ministerial.
+description: Estrutura a fundamentação de sentença, decisão interlocutória ou despacho conforme o art. 489 do CPC (esp. § 1º), com dispositivos verificados. Use para "monta a fundamentação", "fundamentar a sentença", "estrutura a decisão sobre [tese]". Não use para peças de parte ou parecer ministerial.
 argument-hint: "[tipo de decisão — ex.: 'sentença em ação de cobrança' ou 'decisão sobre tutela de urgência']"
 ---
 
-# /fundamentacao-judicial
+# /fundamentacao
 
 ## ⚠️ PASSO ZERO — OBRIGATÓRIO ANTES DE QUALQUER RASCUNHO
 
@@ -72,9 +72,9 @@ O que **não** resolve:
 
 ### Fonte 1 — Lei federal (MCP)
 
-Toda lei federal citada na fundamentação vem do MCP da Letra da Lei. Sem exceção. **Carregue a skill `letra-da-lei:pesquisa-juridica` e siga-a** para qualquer busca — ela define as ferramentas (`buscar_artigos`, `acervo · consultar`, `acervo · listar`, `reclame_aqui`), os parâmetros (`query`, `norma`), os campos retornados e as verificações de vigência (`situacao`) e de texto integral (`is_truncated` → `consultar`).
+Toda lei federal citada na fundamentação vem do MCP da Letra da Lei. Sem exceção. **Carregue a skill `letradalei:pesquisa` e siga-a** para qualquer busca — ela define as ferramentas (`buscar_artigos`, `acervo · consultar`, `acervo · listar`, `reclame_aqui`), os parâmetros (`query`, `norma`), os campos retornados e as verificações de vigência (`situacao`) e de texto integral (`is_truncated` → `consultar`).
 
-Regras desta decisão (além da `pesquisa-juridica`):
+Regras desta decisão (além da `pesquisa`):
 - `situacao` ≠ `vigente` → `[VERIFICAR VIGÊNCIA — situação: <X>]`; sem memória do modelo para número ou redação de artigo.
 - Norma estadual, regimento interno, resolução de CNJ/CNMP → `[FORA DO CORPUS]`.
 - Busca do MCP vazia, contraditória ou irrelevante? Registre a lacuna via `acervo · reclame_aqui` antes de seguir.
@@ -331,7 +331,7 @@ O script sobrescreve o arquivo no mesmo caminho. Se o script não estiver dispon
 ```
 ## Notas de revisão — Fundamentação Judicial — [data]
 
-**Skill:** fundamentacao-judicial (Letra da Lei)
+**Skill:** fundamentacao (Letra da Lei)
 **Fonte da legislação:** MCP Letra da Lei (texto verbatim do Planalto)
 
 ### Mapa de teses (do Passo 1) e onde foram enfrentadas

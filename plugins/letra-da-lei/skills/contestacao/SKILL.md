@@ -1,7 +1,7 @@
 ---
 name: contestacao
 version: 0.1.0
-description: Redige contestação cível brasileira (CPC arts. 335–342) — preliminares (art. 337), mérito com impugnação especificada e eventual reconvenção, fundamentada via MCP. Use para "redige uma contestação", "preciso contestar", "fui citado, monta a defesa", "resposta à inicial". Não use para recurso, embargos ou peças posteriores à fase postulatória.
+description: Redige contestação cível brasileira (CPC arts. 335–342) — preliminares (art. 337), mérito com impugnação especificada e eventual reconvenção, fundamentada. Use para "redige uma contestação", "preciso contestar", "fui citado, monta a defesa", "resposta à inicial". Não use para recurso, embargos ou peças posteriores à fase postulatória.
 argument-hint: "[descrição curta — ex.: 'contestação em ação de cobrança' ou caminho do PDF da inicial]"
 ---
 
@@ -61,9 +61,9 @@ Esta skill produz **rascunho com fundamentação jurídica verificada artigo por
 
 ### Fonte 1 — Lei federal (MCP)
 
-**Toda citação de lei federal vem do MCP da Letra da Lei.** Sem exceção. **Carregue a skill `letra-da-lei:pesquisa-juridica` e siga-a** para qualquer busca — ela define as ferramentas (`buscar_artigos`, `acervo · consultar`, `acervo · listar`, `reclame_aqui`), os parâmetros (`query`, `norma`), os campos retornados e as verificações de vigência (`situacao`) e de texto integral (`is_truncated` → `consultar`). Memória do modelo é proibida para citar artigo — leis mudam (ex.: Lei 14.905/2024 mudou CC arts. 389 e 406).
+**Toda citação de lei federal vem do MCP da Letra da Lei.** Sem exceção. **Carregue a skill `letradalei:pesquisa` e siga-a** para qualquer busca — ela define as ferramentas (`buscar_artigos`, `acervo · consultar`, `acervo · listar`, `reclame_aqui`), os parâmetros (`query`, `norma`), os campos retornados e as verificações de vigência (`situacao`) e de texto integral (`is_truncated` → `consultar`). Memória do modelo é proibida para citar artigo — leis mudam (ex.: Lei 14.905/2024 mudou CC arts. 389 e 406).
 
-Regras desta peça (além da `pesquisa-juridica`):
+Regras desta peça (além da `pesquisa`):
 - Citação sem `citacao` + `source_url` da ferramenta → não entra; vira `[CITAÇÃO PENDENTE]`.
 - `situacao` ≠ `vigente` → `[VERIFICAR VIGÊNCIA — situação: <X>]`.
 - Norma estadual/municipal/infralegal → `[FORA DO CORPUS]`.
@@ -346,7 +346,7 @@ No .docx, isso equivale a `AlignmentType.JUSTIFIED` (docx-js) ou `alignment: jus
 
 ## Passo 6 — Output
 
-`outputs/contestacao-[slug]-[YYYY-MM-DD].docx` + `outputs/contestacao-[slug]-NOTAS.md` (mesmo formato do bloco da skill `peticao-inicial`).
+`outputs/contestacao-[slug]-[YYYY-MM-DD].docx` + `outputs/contestacao-[slug]-NOTAS.md` (mesmo formato do bloco da skill `peticao`).
 
 **Marcadores em vermelho — obrigatório.** Após gerar o `.docx`, execute o script `colorir_marcadores.py` (disponível em `scripts/`) para aplicar cor vermelha e negrito a todos os marcadores inline:
 

@@ -1,4 +1,4 @@
-# Cumprimento de sentença e execução — módulos de `analise-processual-minuta`
+# Cumprimento de sentença e execução — módulos de `analise`
 
 > Abra este arquivo **após** confirmar o diagnóstico (Passo 2 da skill principal, `../SKILL.md`). Siga a **Regra absoluta — fontes da peça** (Fonte 1/2/3) e os **Passos 4–6** (pesquisa, conferências, output) definidos no `SKILL.md`. Cada módulo abaixo é autossuficiente quanto ao intake e à estrutura.
 

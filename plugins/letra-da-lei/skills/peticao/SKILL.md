@@ -1,11 +1,11 @@
 ---
-name: peticao-inicial
+name: peticao
 version: 0.1.0
-description: Redige petição inicial brasileira (CPC art. 319) com fundamentação verificada via MCP. Use para "redige uma inicial", "vou ajuizar [ação]", "monta a inicial", "preciso entrar com [ação]", ou qualquer peça inaugural cível, trabalhista, do consumidor, juizado, família ou mandado de segurança. Não use para contestação, recurso ou defesa.
+description: Redige petição inicial brasileira (CPC art. 319) com fundamentação verificada. Use para "redige uma inicial", "vou ajuizar [ação]", "monta a inicial", "preciso entrar com [ação]", ou qualquer peça inaugural cível, trabalhista, do consumidor, juizado, família ou mandado de segurança. Não use para contestação, recurso ou defesa.
 argument-hint: "[tipo de ação ou descrição curta — ex.: 'indenizatória por dano moral']"
 ---
 
-# /peticao-inicial
+# /peticao
 
 ## ⚠️ PASSO ZERO — OBRIGATÓRIO ANTES DE QUALQUER RASCUNHO
 
@@ -45,7 +45,7 @@ Só avance para a redação quando **todos** os itens "Informar manualmente" tiv
 1. Faça a entrevista de intake (Passo 1 abaixo) — partes, fatos, pedido, juízo, rito.
 2. **Chame `buscar_artigos` para todo dispositivo legal que entrar na peça.** Sem exceção. Memória do modelo é proibida para citar artigo.
 3. Monte a peça na estrutura do CPC art. 319 (Passo 3).
-4. Output: rascunho `.docx` em `outputs/peticao-inicial-[slug]-[YYYY-MM-DD].docx` + bloco de notas para o(a) advogado(a) revisor(a) com cada marcador `[VERIFICAR]` e `[CITAÇÃO PENDENTE]` que sobrou.
+4. Output: rascunho `.docx` em `outputs/peticao-[slug]-[YYYY-MM-DD].docx` + bloco de notas para o(a) advogado(a) revisor(a) com cada marcador `[VERIFICAR]` e `[CITAÇÃO PENDENTE]` que sobrou.
 
 ---
 
@@ -59,9 +59,9 @@ A inicial é o documento que abre o processo. Tudo que vier depois — saneament
 
 ### Fonte 1 — Lei federal (MCP)
 
-**Toda e qualquer citação de lei federal nesta peça vem do MCP da Letra da Lei.** Sem exceções. **Carregue a skill `letra-da-lei:pesquisa-juridica` e siga-a** para qualquer busca — ela define as ferramentas (`buscar_artigos`, `acervo · consultar`, `acervo · listar`, `reclame_aqui`), os parâmetros (`query`, `norma`), os campos retornados e as verificações de vigência (`situacao`) e de texto integral (`is_truncated` → `consultar`). Memória do modelo é proibida para citar artigo — leis mudam (ex.: Lei 14.905/2024 alterou CC arts. 389 e 406).
+**Toda e qualquer citação de lei federal nesta peça vem do MCP da Letra da Lei.** Sem exceções. **Carregue a skill `letradalei:pesquisa` e siga-a** para qualquer busca — ela define as ferramentas (`buscar_artigos`, `acervo · consultar`, `acervo · listar`, `reclame_aqui`), os parâmetros (`query`, `norma`), os campos retornados e as verificações de vigência (`situacao`) e de texto integral (`is_truncated` → `consultar`). Memória do modelo é proibida para citar artigo — leis mudam (ex.: Lei 14.905/2024 alterou CC arts. 389 e 406).
 
-Regras desta peça (além da `pesquisa-juridica`):
+Regras desta peça (além da `pesquisa`):
 - Citação sem `citacao` + `source_url` da ferramenta → não entra; vira `[CITAÇÃO PENDENTE]`.
 - `situacao` ≠ `vigente` → `[VERIFICAR VIGÊNCIA — situação: <X>]`.
 - Norma estadual/municipal/infralegal → `[FORA DO CORPUS]`.
@@ -333,13 +333,13 @@ No .docx, isso equivale a `AlignmentType.JUSTIFIED` (docx-js) ou `alignment: jus
 
 Salve **dois arquivos**:
 
-- `outputs/peticao-inicial-[slug]-[YYYY-MM-DD].docx` — a peça em si, formatada.
-- `outputs/peticao-inicial-[slug]-NOTAS.md` — bloco de notas para revisão.
+- `outputs/peticao-[slug]-[YYYY-MM-DD].docx` — a peça em si, formatada.
+- `outputs/peticao-[slug]-NOTAS.md` — bloco de notas para revisão.
 
 **Marcadores em vermelho — obrigatório.** Após gerar o `.docx`, execute o script `colorir_marcadores.py` (disponível em `scripts/`) para aplicar cor vermelha e negrito a todos os marcadores inline. O(a) advogado(a) revisor(a) deve conseguir identificar visualmente todos os pontos pendentes sem fazer busca manual.
 
 ```bash
-python scripts/colorir_marcadores.py outputs/peticao-inicial-[slug]-[YYYY-MM-DD].docx
+python scripts/colorir_marcadores.py outputs/peticao-[slug]-[YYYY-MM-DD].docx
 ```
 
 O script sobrescreve o arquivo no mesmo caminho. Se o script não estiver disponível, aplique manualmente cor `#FF0000` a cada ocorrência de `[VERIFICAR...]`, `[CITAÇÃO PENDENTE]`, `[FORA DO CORPUS...]`, `[JURISPRUDÊNCIA...]` e `[DOC. A NUMERAR]`.
@@ -359,7 +359,7 @@ O script sobrescreve o arquivo no mesmo caminho. Se o script não estiver dispon
 ```
 ## Notas de revisão — Petição Inicial — [data]
 
-**Skill:** peticao-inicial (Letra da Lei)
+**Skill:** peticao (Letra da Lei)
 **Fonte da legislação:** MCP Letra da Lei (texto verbatim do Planalto)
 
 ### Marcadores inline a resolver
