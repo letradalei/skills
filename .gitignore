@@ -1,6 +1,6 @@
 .DS_Store
 
-# Peças e documentos gerados pelas skills — podem conter dados de clientes (PII).
+# Peças e documentos gerados pelas skills, podem conter dados de clientes (PII).
 # Nunca devem ser versionados.
 outputs/
 *.docx

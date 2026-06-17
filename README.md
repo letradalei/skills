@@ -1,8 +1,8 @@
-# Letra da Lei — Skills
+# Letra da Lei, Skills
 
 Marketplace de plugins do [Claude Code](https://claude.com/claude-code) com as skills jurídicas da **Letra da Lei**: pesquisa de legislação e jurisprudência brasileiras (via MCP) e redação de peças processuais com fundamentação verificada.
 
-> Projeto open source sob licença [MIT](LICENSE). Contribuições são bem-vindas — veja o [CONTRIBUTING.md](CONTRIBUTING.md).
+> Projeto open source sob licença [MIT](LICENSE). Contribuições são bem-vindas, veja o [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Instalação (Claude Code)
 
@@ -17,7 +17,7 @@ Após instalar, as skills ficam disponíveis com o prefixo do plugin, ex.: `/let
 
 | Skill | O que faz |
 |---|---|
-| `pesquisa` | Pesquisa e cita legislação e jurisprudência pelo MCP. **Skill-base** — as demais a carregam. |
+| `pesquisa` | Pesquisa e cita legislação e jurisprudência pelo MCP. **Skill-base**, as demais a carregam. |
 | `peticao` | Redige petição inicial (CPC art. 319). |
 | `contestacao` | Redige contestação cível (CPC arts. 335–342). |
 | `fundamentacao` | Estrutura a fundamentação judicial conforme o art. 489, § 1º do CPC. |
@@ -42,7 +42,7 @@ As skills de redação produzem **rascunhos revisáveis**, não peças prontas. 
 
 ## Pré-requisito: o MCP
 
-As skills consultam o servidor MCP `letra-da-lei` para obter texto autoritativo de lei e jurisprudência — **nunca a memória do modelo**. Sem o MCP conectado, a skill avisa e para. A conexão é autenticada via OAuth (login no primeiro uso). A `pesquisa` é a skill-base que centraliza o uso do MCP (ferramentas, parâmetros, verificação de vigência e citação); as peças a carregam em vez de repetir o contrato.
+As skills consultam o servidor MCP `letra-da-lei` para obter texto autoritativo de lei e jurisprudência, **nunca a memória do modelo**. Sem o MCP conectado, a skill avisa e para. A conexão é autenticada via OAuth (login no primeiro uso). A `pesquisa` é a skill-base que centraliza o uso do MCP (ferramentas, parâmetros, verificação de vigência e citação); as peças a carregam em vez de repetir o contrato.
 
 ## Como contribuir
 

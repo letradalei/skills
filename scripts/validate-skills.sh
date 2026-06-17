@@ -48,7 +48,7 @@ for skill_file in "${skill_files[@]}"; do
     exit 1
   fi
 
-  # Skill name must be bare kebab-case — the plugin namespace is applied
+  # Skill name must be bare kebab-case, the plugin namespace is applied
   # automatically at invocation, so a colon in the name field is invalid.
   if grep -qE '^name:.*:' "$skill_file"; then
     echo "Skill name must not contain a colon (use bare kebab-case): $skill_file" >&2
