@@ -5,15 +5,25 @@ Obrigado por contribuir com as skills da Letra da Lei! Este repositório é um *
 ## Pré-requisitos
 
 - [Claude Code](https://claude.com/claude-code) instalado.
-- Acesso ao servidor MCP `letra-da-lei` (`https://mcp.letradalei.com/mcp`) para testar skills que consultam lei ou jurisprudência.
+- Acesso ao servidor MCP `letradalei` (`https://mcp.letradalei.com/mcp`) para testar skills que consultam lei ou jurisprudência.
 
 ## Onde ficam as skills
 
 ```
-plugins/letra-da-lei/skills/<slug>/SKILL.md
+plugins/letradalei/skills/<slug>/SKILL.md
 ```
 
 Cada skill é uma pasta com um `SKILL.md`. Material extenso (módulos, tabelas longas) vai em `references/` ao lado, carregado **sob demanda**, veja `analise` como exemplo.
+
+## Scripts
+
+Em `plugins/letradalei/scripts/`:
+
+- **`colorir_marcadores.py`** — usado pelas skills de redação (`peticao`, `contestacao`, `fundamentacao`, `analise`). Após gerar o `.docx`, recolore em **vermelho/negrito** os marcadores de revisão (`[VERIFICAR]`, `[CITAÇÃO PENDENTE]`, `[FORA DO CORPUS]`, `[JURISPRUDÊNCIA…]`, `[CONVICÇÃO JUDICIAL…]`, `[DOC. A NUMERAR]`), deixando placeholders comuns (`[Cidade]`) intactos. Uso: `python scripts/colorir_marcadores.py outputs/<peca>.docx`. **Dependência:** `python-docx` (`pip install python-docx`).
+
+Em `scripts/` (raiz do repo):
+
+- **`validate-skills.sh`** — valida `marketplace.json`, os `plugin.json` e o frontmatter de cada `SKILL.md`. Rode antes de abrir PR; o CI roda o mesmo.
 
 ## Convenções
 
@@ -27,7 +37,7 @@ Cada skill é uma pasta com um `SKILL.md`. Material extenso (módulos, tabelas l
 
 ## Criando uma skill nova
 
-1. Copie `skills/skill-template/` para `plugins/letra-da-lei/skills/<slug>/`.
+1. Copie `skills/skill-template/` para `plugins/letradalei/skills/<slug>/`.
 2. Reescreva o `SKILL.md` em torno de **uma** tarefa concreta; ajuste `name` (kebab puro) e `description`.
 3. Se precisar do MCP, instrua a carregar `letradalei:pesquisa`.
 4. Valide: `bash ./scripts/validate-skills.sh`.

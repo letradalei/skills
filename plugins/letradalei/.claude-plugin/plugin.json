@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "letradalei",
+  "displayName": "Letra da Lei",
+  "version": "0.4.0",
+  "description": "Pesquise legislação e jurisprudência brasileiras com citações em nível de artigo e precedente e fontes verificáveis, e redija peças processuais (petição inicial, contestação, recursos, fundamentação) a partir delas. É uma ferramenta de pesquisa jurídica fundamentada nas fontes — não de aconselhamento jurídico.",
+  "author": {
+    "name": "Letra da Lei",
+    "email": "suporte@letradalei.com",
+    "url": "https://letradalei.com"
+  },
+  "homepage": "https://letradalei.com/docs",
+  "repository": "https://github.com/letradalei/skills",
+  "license": "MIT",
+  "keywords": [
+    "direito",
+    "juridico",
+    "advogado",
+    "legal",
+    "law",
+    "lawyer",
+    "brazilian-law",
+    "case-law"
+  ]
+}

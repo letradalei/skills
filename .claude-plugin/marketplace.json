@@ -9,7 +9,7 @@
     {
       "name": "letradalei",
       "displayName": "Letra da Lei",
-      "source": "./plugins/letra-da-lei",
+      "source": "./plugins/letradalei",
       "description": "Pesquise legislação e jurisprudência com citações verificáveis, e redija petição inicial, contestação, recursos e fundamentação judicial com base legal verificada."
     }
   ]
