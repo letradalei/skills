@@ -11,7 +11,7 @@ Marketplace de plugins do [Claude Code](https://claude.com/claude-code) com as s
 /plugin install letradalei@letradalei
 ```
 
-Após instalar, as skills ficam disponíveis com o prefixo do plugin, ex.: `/letradalei:pesquisa`, `/letradalei:peticao`. O `.mcp.json` do plugin conecta automaticamente o servidor MCP `letra-da-lei` (`https://mcp.letradalei.com/mcp`).
+Após instalar, as skills ficam disponíveis com o prefixo do plugin, ex.: `/letradalei:pesquisa`, `/letradalei:peticao`. O `.mcp.json` do plugin conecta automaticamente o servidor MCP `letradalei` (`https://mcp.letradalei.com/mcp`).
 
 ## As skills
 
@@ -30,9 +30,9 @@ As skills de redação produzem **rascunhos revisáveis**, não peças prontas. 
 ```text
 .
 ├── .claude-plugin/marketplace.json     ← catálogo (lista o plugin letradalei)
-├── plugins/letra-da-lei/
+├── plugins/letradalei/
 │   ├── .claude-plugin/plugin.json
-│   ├── .mcp.json                       ← conecta o MCP letra-da-lei
+│   ├── .mcp.json                       ← conecta o MCP letradalei
 │   ├── README.md
 │   └── skills/<slug>/SKILL.md          ← uma pasta por skill
 ├── skills/skill-template/SKILL.md      ← modelo para novas skills
@@ -42,13 +42,13 @@ As skills de redação produzem **rascunhos revisáveis**, não peças prontas. 
 
 ## Pré-requisito: o MCP
 
-As skills consultam o servidor MCP `letra-da-lei` para obter texto autoritativo de lei e jurisprudência, **nunca a memória do modelo**. Sem o MCP conectado, a skill avisa e para. A conexão é autenticada via OAuth (login no primeiro uso). A `pesquisa` é a skill-base que centraliza o uso do MCP (ferramentas, parâmetros, verificação de vigência e citação); as peças a carregam em vez de repetir o contrato.
+As skills consultam o servidor MCP `letradalei` para obter texto autoritativo de lei e jurisprudência, **nunca a memória do modelo**. Sem o MCP conectado, a skill avisa e para. A conexão é autenticada via OAuth (login no primeiro uso). A `pesquisa` é a skill-base que centraliza o uso do MCP (ferramentas, parâmetros, verificação de vigência e citação); as peças a carregam em vez de repetir o contrato.
 
 ## Como contribuir
 
 Leia o [CONTRIBUTING.md](CONTRIBUTING.md). Em resumo:
 
-- Skills ficam em `plugins/letra-da-lei/skills/<slug>/SKILL.md`.
+- Skills ficam em `plugins/letradalei/skills/<slug>/SKILL.md`.
 - `name` no frontmatter é **kebab-case puro** (o prefixo `letradalei:` é aplicado automaticamente).
 - Corpo das skills em **português**.
 - Para acesso ao MCP, **carregue a skill `pesquisa`** em vez de repetir o contrato das ferramentas.

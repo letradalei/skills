@@ -1,9 +1,9 @@
 ---
 name: pesquisa
-version: 0.2.0
 description: Pesquisa e cita legislação e jurisprudência brasileiras, com verificação de vigência e fontes verificáveis. Skill-base carregada pelas peças para qualquer busca jurídica.
-allowed-tools:
-  - mcp
+allowed-tools: mcp__letradalei
+metadata:
+  version: "0.2.1"
 ---
 
 # Pesquisa Jurídica, Letra da Lei (MCP)
@@ -12,7 +12,7 @@ Esta é a skill-base de toda consulta à lei e à jurisprudência brasileiras. O
 
 ## Pré-requisito
 
-O servidor MCP **`letra-da-lei`** deve estar conectado (`https://mcp.letradalei.com/mcp`). Verifique antes de começar. Se não estiver, avise o usuário e pare, não responda de memória.
+O servidor MCP **`letradalei`** deve estar conectado (`https://mcp.letradalei.com/mcp`). Verifique antes de começar. Se não estiver, avise o usuário e pare, não responda de memória.
 
 ## Quando usar
 

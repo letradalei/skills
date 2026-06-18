@@ -1,0 +1,51 @@
+{
+  "skill_name": "peticao",
+  "evals": [
+    {
+      "id": 0,
+      "eval_name": "consumidor-danos-morais-voo",
+      "prompt": "Preciso de uma petição inicial de indenização por danos morais contra uma companhia aérea — cancelaram meu voo e fiquei 14 horas no aeroporto sem assistência. Quero R$ 15.000 de danos morais.",
+      "expected_output": "Inicial estruturada no art. 319 do CPC, fundamentada no CDC (responsabilidade do fornecedor) com citações verificadas via MCP, dados pessoais ausentes marcados [VERIFICAR], valor da causa coerente, .docx + NOTAS.md.",
+      "files": [],
+      "assertions": [
+        "Produziu um arquivo .docx em outputs/",
+        "Produziu um arquivo NOTAS.md companion em outputs/",
+        "A peça contém as seções do art. 319: DOS FATOS, DO DIREITO, DOS PEDIDOS e VALOR DA CAUSA",
+        "Toda referência a artigo de lei vem acompanhada de um bloco 'Fonte:' com source_url, OU está marcada [CITAÇÃO PENDENTE] — nenhuma citação solta sem verificação",
+        "Fundamenta a responsabilidade no CDC (ex.: art. 14) com citação verificada via MCP",
+        "Dados pessoais ausentes (CPF, endereço do autor/réu) aparecem como [VERIFICAR], não inventados"
+      ]
+    },
+    {
+      "id": 1,
+      "eval_name": "trabalhista-verbas-rescisorias",
+      "prompt": "Monta uma reclamação trabalhista: meu cliente foi demitido sem receber as verbas rescisórias, trabalhou 2 anos, salário R$ 3.000, sem aviso prévio nem FGTS.",
+      "expected_output": "Inicial trabalhista com pedidos de verbas (aviso prévio, FGTS, férias, 13º) baseados no salário informado, atenção à prescrição bienal, dispositivos da CLT verificados via MCP, .docx + NOTAS.md.",
+      "files": [],
+      "assertions": [
+        "Produziu um arquivo .docx em outputs/",
+        "Produziu um arquivo NOTAS.md companion em outputs/",
+        "A peça contém as seções do art. 319: DOS FATOS, DO DIREITO, DOS PEDIDOS e VALOR DA CAUSA",
+        "Toda referência a artigo de lei vem acompanhada de um bloco 'Fonte:' com source_url, OU está marcada [CITAÇÃO PENDENTE]",
+        "Aborda a prescrição bienal trabalhista (limite de 2 anos após a extinção do contrato)",
+        "Trata FGTS/verbas com base no salário informado (R$ 3.000) ou marca o cálculo como [VERIFICAR: calcular]",
+        "Dados pessoais ausentes aparecem como [VERIFICAR], não inventados"
+      ]
+    },
+    {
+      "id": 2,
+      "eval_name": "civil-cobranca-alugueis",
+      "prompt": "Petição inicial de ação de cobrança de aluguéis atrasados: 5 meses, contrato de locação residencial, R$ 2.000 por mês.",
+      "expected_output": "Ação de cobrança estruturada no art. 319, valor da causa coerente (~5 × R$ 2.000), fundamentos do contrato/locação verificados via MCP, dados ausentes marcados [VERIFICAR], .docx + NOTAS.md.",
+      "files": [],
+      "assertions": [
+        "Produziu um arquivo .docx em outputs/",
+        "Produziu um arquivo NOTAS.md companion em outputs/",
+        "A peça contém as seções do art. 319: DOS FATOS, DO DIREITO, DOS PEDIDOS e VALOR DA CAUSA",
+        "Toda referência a artigo de lei vem acompanhada de um bloco 'Fonte:' com source_url, OU está marcada [CITAÇÃO PENDENTE]",
+        "O valor da causa é coerente com a cobrança (em torno de 5 × R$ 2.000 = R$ 10.000)",
+        "Dados pessoais ausentes aparecem como [VERIFICAR], não inventados"
+      ]
+    }
+  ]
+}

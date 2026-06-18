@@ -1,0 +1,45 @@
+{
+  "name": "letradalei",
+  "version": "0.4.0",
+  "description": "Pesquisa jurídica brasileira com fontes verificáveis.",
+  "author": {
+    "name": "Letra da Lei",
+    "email": "suporte@letradalei.com",
+    "url": "https://letradalei.com"
+  },
+  "homepage": "https://letradalei.com/docs",
+  "repository": "https://github.com/letradalei/skills",
+  "license": "MIT",
+  "keywords": [
+    "direito",
+    "juridico",
+    "advogado",
+    "legal",
+    "law",
+    "lawyer",
+    "brazilian-law",
+    "case-law"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Letra da Lei",
+    "shortDescription": "Pesquisa jurídica brasileira",
+    "longDescription": "Pesquise legislação e jurisprudência brasileiras com citações em nível de artigo e precedente e fontes verificáveis, e redija peças processuais (petição inicial, contestação, recursos, fundamentação) a partir delas. É uma ferramenta de pesquisa jurídica fundamentada nas fontes — não de aconselhamento jurídico.",
+    "developerName": "Letra da Lei",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://letradalei.com",
+    "privacyPolicyURL": "https://letradalei.com/privacidade",
+    "termsOfServiceURL": "https://letradalei.com/termos",
+    "defaultPrompt": [
+      "Quais leis da área tributária estão indexadas?",
+      "Mostre o texto integral do art. 121 do Código Penal.",
+      "Quais precedentes vinculantes federais tratam de revista íntima em estabelecimento prisional?"
+    ]
+  }
+}

@@ -4,3 +4,7 @@
 # Nunca devem ser versionados.
 outputs/
 *.docx
+
+# Artefatos Python (scripts/)
+__pycache__/
+*.pyc

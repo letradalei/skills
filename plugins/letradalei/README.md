@@ -4,7 +4,7 @@ A Letra da Lei traz o acervo jurídico brasileiro para o Claude: **legislação*
 
 ## Pré-requisito
 
-O servidor MCP **`letra-da-lei`** (`https://mcp.letradalei.com/mcp`) deve estar conectado, autenticação via **OAuth** (login no primeiro uso). As skills verificam a conexão antes de operar e nunca respondem de memória.
+O servidor MCP **`letradalei`** (`https://mcp.letradalei.com/mcp`) deve estar conectado, autenticação via **OAuth** (login no primeiro uso). As skills verificam a conexão antes de operar e nunca respondem de memória.
 
 ## Ferramentas do MCP (grupo · operação)
 
@@ -31,7 +31,7 @@ Todas retornam `situacao` (vigência) e `is_truncated`, confira antes de citar.
 | `/letradalei:fundamentacao` | Estrutura a fundamentação de sentença/decisão com checagem do art. 489, § 1º do CPC. |
 | `/letradalei:analise` | Diagnostica a fase processual e redige a peça cabível (réplica, recursos, cumprimento, embargos, ações autônomas etc.). |
 
-As skills de redação produzem **rascunhos revisáveis**, não peças prontas: quem assina, decide estratégia e protocola é o(a) advogado(a) ou magistrado(a) habilitado(a).
+As skills de redação produzem **rascunhos revisáveis**, não peças prontas: quem assina, decide estratégia e protocola é o(a) advogado(a) ou magistrado(a) habilitado(a). A peça é salva em `outputs/` e os pontos pendentes (`[VERIFICAR]`, `[CITAÇÃO PENDENTE]`, `[FORA DO CORPUS]` etc.) ficam em **vermelho e negrito** no `.docx`, aplicados por `scripts/colorir_marcadores.py` (requer `python-docx`: `pip install python-docx`).
 
 ## Quando usar / não usar
 

@@ -6,7 +6,7 @@ argument-hint: "[descrição curta do argumento, se houver]"
 
 # Skill Modelo
 
-Use este modelo ao criar uma nova skill. Copie esta pasta para `plugins/letra-da-lei/skills/<slug>/` e reescreva.
+Use este modelo ao criar uma nova skill. Copie esta pasta para `plugins/letradalei/skills/<slug>/` e reescreva.
 
 ## Convenções
 
