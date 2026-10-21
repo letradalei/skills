@@ -10,6 +10,7 @@
     "url": "https://letradalei.com"
   },
   "homepage": "https://letradalei.com/docs",
+  "privacyPolicyUrl": "https://letradalei.com/privacidade",
   "repository": "https://github.com/letradalei/skills",
   "license": "MIT",
   "keywords": [
@@ -21,5 +22,8 @@
     "lawyer",
     "brazilian-law",
     "case-law"
-  ]
+  ],
+  "icon": "./assets/icon.png",
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
 }
