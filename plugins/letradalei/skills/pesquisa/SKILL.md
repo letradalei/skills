@@ -1,9 +1,9 @@
 ---
 name: pesquisa
 description: Pesquisa e cita legislação e jurisprudência brasileiras, com verificação de vigência e fontes verificáveis. Skill-base carregada pelas peças para qualquer busca jurídica.
-allowed-tools: mcp__letradalei
+allowed-tools: mcp__plugin_letradalei_letradalei
 metadata:
-  version: "0.2.1"
+  version: "0.2.2"
 ---
 
 # Pesquisa Jurídica, Letra da Lei (MCP)
