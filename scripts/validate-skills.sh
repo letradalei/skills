@@ -5,8 +5,7 @@ repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 # This repo is a Claude Code plugin marketplace: a root marketplace.json
 # points at the bundled plugin under plugins/, whose skills live in
-# plugins/<plugin>/skills/<name>/SKILL.md. Skills may also exist outside the
-# plugin (e.g. authoring templates under skills/). Validate them all.
+# plugins/<plugin>/skills/<name>/SKILL.md. Validate them all.
 
 marketplace="$repo_root/.claude-plugin/marketplace.json"
 if [[ ! -f "$marketplace" ]]; then
@@ -26,6 +25,23 @@ json_check "$marketplace"
 while IFS= read -r manifest; do
   json_check "$manifest"
 done < <(find "$repo_root/plugins" -name plugin.json -type f 2>/dev/null | sort)
+
+# The root .claude-plugin/plugin.json mirrors the plugin's manifest so the
+# plugin directory submission (plugin path = repository root) finds a plugin;
+# only its paths differ. Fail if the two drift apart.
+root_manifest="$repo_root/.claude-plugin/plugin.json"
+plugin_manifest="$repo_root/plugins/letradalei/.claude-plugin/plugin.json"
+if [[ -f "$root_manifest" ]] && command -v python3 >/dev/null 2>&1; then
+  json_check "$root_manifest"
+  python3 - "$root_manifest" "$plugin_manifest" <<'PY' || exit 1
+import json, sys
+root, plugin = (json.load(open(p)) for p in sys.argv[1:])
+paths = {"icon", "skills", "mcpServers"}
+drift = sorted(k for k in (root.keys() | plugin.keys()) - paths if root.get(k) != plugin.get(k))
+if drift:
+    sys.exit("Root plugin.json drifted from plugins/letradalei: " + ", ".join(drift))
+PY
+fi
 
 skill_files=()
 while IFS= read -r skill_file; do
