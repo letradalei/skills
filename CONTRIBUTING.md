@@ -37,8 +37,8 @@ Em `scripts/` (raiz do repo):
 
 ## Criando uma skill nova
 
-1. Copie `skills/skill-template/` para `plugins/letradalei/skills/<slug>/`.
-2. Reescreva o `SKILL.md` em torno de **uma** tarefa concreta; ajuste `name` (kebab puro) e `description`.
+1. Crie `plugins/letradalei/skills/<slug>/SKILL.md` (use uma skill existente como base).
+2. Escreva o `SKILL.md` em torno de **uma** tarefa concreta; ajuste `name` (kebab puro) e `description`.
 3. Se precisar do MCP, instrua a carregar `letradalei:pesquisa`.
 4. Valide: `bash ./scripts/validate-skills.sh`.
 

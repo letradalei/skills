@@ -30,12 +30,12 @@ As skills de redação produzem **rascunhos revisáveis**, não peças prontas. 
 ```text
 .
 ├── .claude-plugin/marketplace.json     ← catálogo (lista o plugin letradalei)
+├── .claude-plugin/plugin.json          ← espelho do manifesto do plugin (submissão no diretório)
 ├── plugins/letradalei/
 │   ├── .claude-plugin/plugin.json
 │   ├── .mcp.json                       ← conecta o MCP letradalei
 │   ├── README.md
 │   └── skills/<slug>/SKILL.md          ← uma pasta por skill
-├── skills/skill-template/SKILL.md      ← modelo para novas skills
 ├── scripts/validate-skills.sh
 └── .github/workflows/validate.yml
 ```
