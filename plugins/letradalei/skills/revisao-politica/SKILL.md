@@ -99,7 +99,7 @@ Curta. Diga: a política e a data-base; quantos achados por severidade e os de s
 
 ## Política de exemplo
 
-`exemplos/politica-prevencao-fraudes-exemplo.docx` é uma política fictícia (Exemplo Pagamentos IP S.A., "Documento de exemplo, sem relação com instituição real"), aprovada em 18/3/2025, para demonstração. Ao revisá-la, ponha `"exemplo": true` no JSON. `exemplos/resultado-exemplo.json` mostra um resultado completo. O gabarito do backtest fica em `evals/` e não deve ser lido durante a revisão.
+`exemplos/politica-prevencao-fraudes-exemplo.docx` é uma política fictícia (Exemplo Pagamentos IP S.A., "Documento de exemplo, sem relação com instituição real"), aprovada em 18/3/2025, para demonstração. Ao revisá-la, ponha `"exemplo": true` no JSON. `exemplos/resultado-exemplo.json` mostra um resultado completo. O gabarito do backtest fica fora do plugin e não deve ser lido durante a revisão.
 
 ## O que esta skill não faz
 

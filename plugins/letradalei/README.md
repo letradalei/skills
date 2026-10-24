@@ -44,12 +44,12 @@ python scripts/montar_pacote_conformidade.py skills/revisao-politica/exemplos/re
 python -m unittest discover -s scripts/tests -v
 ```
 
-`skills/revisao-politica/exemplos/` traz uma política fictícia de prevenção a fraudes (documento de exemplo, sem relação com instituição real) e um resultado completo; o gabarito do backtest está em `skills/revisao-politica/evals/`.
+`skills/revisao-politica/exemplos/` traz uma política fictícia de prevenção a fraudes (documento de exemplo, sem relação com instituição real) e um resultado completo; o gabarito do backtest fica fora do plugin, em `evals/revisao-politica/` na raiz do repositório.
 
 ## Quando usar / não usar
 
 - **Usar:** consultar o que a lei diz, localizar artigo/precedente, verificar uma citação, ou redigir uma peça com base legal verificada.
-- **Não usar:** aconselhamento jurídico ou prognóstico, o plugin recupera e estrutura fontes; a aplicação aos fatos é do(a) profissional habilitado(a). Legislação estadual/municipal e normas infralegais estão fora do acervo.
+- **Não usar:** aconselhamento jurídico ou prognóstico, o plugin recupera e estrutura fontes; a aplicação aos fatos é do(a) profissional habilitado(a). Legislação estadual/municipal está fora do acervo; normas infralegais (BCB/CMN, CNJ, ANS e outros órgãos) estão em beta.
 
 ### Links
 

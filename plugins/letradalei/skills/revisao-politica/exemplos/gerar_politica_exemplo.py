@@ -5,7 +5,7 @@ DOCUMENTO DE EXEMPLO, SEM RELAÇÃO COM INSTITUIÇÃO REAL. A "Exemplo Pagamento
 S.A." é fictícia. O texto reflete, de propósito, as regras vigentes em março de
 2025: as lacunas que a revisão deve apontar vêm só de mudanças normativas
 posteriores (Res. BCB 493/2025, 501/2025, 506/2025, 559/2026 e 587/2026). O
-gabarito fica em ../evals/gabarito.md e ../evals/gabarito.json.
+gabarito fica fora do plugin, em evals/revisao-politica/ na raiz do repositório.
 
 Uso:
     python gerar_politica_exemplo.py [saida.docx]
