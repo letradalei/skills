@@ -1,0 +1,126 @@
+{
+  "aviso": "Gabarito do backtest. Documento de exemplo, sem relação com instituição real. Não carregar no contexto do agente avaliado.",
+  "politica": "exemplos/politica-prevencao-fraudes-exemplo.docx",
+  "data_revisao_politica": "2025-03-18",
+  "verificado_em": "2026-10-24",
+  "verificado_com": "MCP Letra da Lei (acervo · consultar, legislacao-infralegal · buscar_atos, jurisprudencia-federal/estadual), texto consolidado e atos alteradores lidos na íntegra",
+  "achados_esperados": [
+    {
+      "id": "G1",
+      "conceito": "Contas suspeitas",
+      "clausulas": ["5.4"],
+      "lacuna": "A política não rejeita transações de pagamento destinadas a contas com fundada suspeita de envolvimento em fraude, nem comunica ao titular a medida.",
+      "regra": "Res. BCB 142/2021, art. 2º-A, caput e §§ 2º a 4º",
+      "ato_alterador": "Res. BCB 501/2025, de 11/9/2025 (art. 1º), em vigor na publicação (art. 2º)",
+      "prazo": "2025-10-13 (art. 2º-A, § 4º)",
+      "vigente_desde": "2025-09-11",
+      "severidade_esperada": "alta",
+      "responsaveis": ["fraude_compliance", "ops"],
+      "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=142"
+    },
+    {
+      "id": "G2",
+      "conceito": "MED",
+      "clausulas": ["10.3", "10.4"],
+      "lacuna": "A política limita o MED à conta que recebeu diretamente a transação. O MED 2.0 rastreia os recursos por outras contas (recuperação de valores) e, nas transações identificadas no rastreamento, o PSP do recebedor deve debitar a conta do recebedor e efetuar a devolução em nome próprio.",
+      "regra": "Res. BCB 1/2020 (Regulamento anexo), art. 41-D, § 4º, I e II; art. 41-E, II; art. 78-N; art. 54, XII; art. 121",
+      "ato_alterador": "Res. BCB 493/2025, de 28/8/2025 (art. 2º), efeitos imediatos (art. 4º, II)",
+      "prazo": "2026-02-02: recuperação de valores obrigatória para provedor de conta transacional (art. 121, II)",
+      "vigente_desde": "2025-08-28",
+      "severidade_esperada": "alta",
+      "responsaveis": ["ops", "fraude_compliance", "juridico"],
+      "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=493"
+    },
+    {
+      "id": "G3",
+      "conceito": "MED",
+      "clausulas": ["10.2"],
+      "lacuna": "A política bloqueia só o saldo disponível no momento da notificação. Desde 1º/7/2026 o bloqueio deve ser imediato e complementado a cada ingresso de recursos na conta, até o valor solicitado ou o encerramento da notificação.",
+      "regra": "Res. BCB 1/2020 (Regulamento anexo), art. 41-D, § 1º, I e II (revogados os §§ 2º e 3º)",
+      "ato_alterador": "Res. BCB 559/2026, de 23/4/2026 (arts. 1º e 2º, III), efeitos a partir de 1º/7/2026 (art. 3º, I, a e b)",
+      "prazo": "2026-07-01",
+      "vigente_desde": "2026-07-01",
+      "severidade_esperada": "alta",
+      "responsaveis": ["ops", "fraude_compliance"],
+      "replay": "Na revisão 'em 2026-07-01' este achado aparece como vigente naquele dia; em datas entre 2026-04-23 e 2026-06-30 aparece como 'a vigorar'.",
+      "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=559"
+    },
+    {
+      "id": "G4",
+      "conceito": "Contas suspeitas",
+      "clausulas": ["8.2", "8.3"],
+      "lacuna": "A política trata a rejeição de registro de chave como faculdade ('poderá'). Passou a ser dever rejeitar o registro de chave de usuário com marcação de fraude transacional criada pela própria instituição (Res. BCB 506/2025); desde 18/9/2026 o dever alcança também usuário ou conta associados a notificação de infração aceita pela instituição (Res. BCB 587/2026). Também não se deve solicitar portabilidade nem reivindicar posse de chave para esses usuários.",
+      "regra": "Res. BCB 1/2020 (Regulamento anexo), art. 56, § 3º; art. 68, § 2º; art. 70, § 2º",
+      "ato_alterador": "Res. BCB 506/2025, de 26/9/2025 (art. 2º), em vigor na publicação (art. 4º); redação atual do art. 56, § 3º dada pela Res. BCB 587/2026, de 18/9/2026",
+      "prazo": null,
+      "vigente_desde": "2025-09-26",
+      "severidade_esperada": "media",
+      "responsaveis": ["ops", "fraude_compliance"],
+      "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=506"
+    },
+    {
+      "id": "G5",
+      "conceito": "Contas suspeitas",
+      "clausulas": ["11.1", "11.2"],
+      "lacuna": "A política não prevê a marcação de fundada suspeita de fraude transacional (criação, responsabilidade, cancelamento), não fixa prazo para o pedido de revisão (7 dias), não registra os fundamentos, não prevê a guarda por 5 anos e não prevê a comunicação ao usuário marcado (data, possibilidade de revisão e canal). A restrição do art. 89, § 2º alcança o usuário como pagador ou recebedor, não só a conta.",
+      "regra": "Res. BCB 1/2020 (Regulamento anexo), arts. 78-HA, 78-HB (caput e parágrafo único), 78-HC, §§ 1º a 4º, 78-HD; art. 89, § 2º",
+      "ato_alterador": "Res. BCB 587/2026, de 18/9/2026 (art. 2º), em vigor na publicação, exceto art. 78-HB, parágrafo único, em vigor em 1º/2/2027 (art. 5º, I, g)",
+      "prazo": "2027-02-01 para a comunicação ao usuário marcado (art. 78-HB, parágrafo único)",
+      "vigente_desde": "2026-09-18",
+      "severidade_esperada": "media",
+      "responsaveis": ["fraude_compliance", "juridico", "ops"],
+      "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=587"
+    }
+  ],
+  "achados_bonus_reais": [
+    {
+      "id": "B1",
+      "clausulas": ["13.2"],
+      "lacuna": "Divulgação do MED com foco no público vulnerável, em canais de publicidade e atendimento.",
+      "regra": "Res. BCB 1/2020 (Regulamento anexo), art. 32, X",
+      "ato_alterador": "Res. BCB 587/2026, art. 2º, em vigor em 1º/2/2027 (art. 5º, I, c). O texto consolidado no acervo atribui o inciso X à Res. BCB 597/2026, de 30/9/2026: divergência a conferir na fonte.",
+      "severidade_esperada": "baixa"
+    },
+    {
+      "id": "B2",
+      "clausulas": ["5.1"],
+      "lacuna": "Critérios mínimos de avaliação de suspeita de fraude indicados pelo BCB em documento específico.",
+      "regra": "Res. BCB 1/2020 (Regulamento anexo), art. 39-C",
+      "ato_alterador": "Res. BCB 506/2025, art. 2º",
+      "severidade_esperada": "baixa"
+    },
+    {
+      "id": "B3",
+      "clausulas": ["14.1"],
+      "lacuna": "Revisão ordinária prevista para março de 2026 não realizada (observação de governança interna, não regra externa).",
+      "severidade_esperada": "baixa"
+    }
+  ],
+  "clausulas_conformes": {
+    "5.1": "Res. BCB 1/2020, art. 89, § 1º, I",
+    "5.2": "Res. BCB 142/2021, art. 3º",
+    "6.1": "Res. BCB 1/2020, art. 89, § 6º",
+    "6.3": "Res. BCB 1/2020, art. 89, § 1º, II",
+    "9.1-9.3": "Res. BCB 1/2020, art. 39-B, §§ 2º a 6º e 8º",
+    "10.5": "Res. BCB 1/2020, art. 41-C, § 1º",
+    "12.1-12.2": "Res. BCB 142/2021, art. 4º, § 1º (sem comitê de auditoria na estrutura fictícia; incisos I e III são 'se houver')"
+  },
+  "exposicao_judicial_esperada": [
+    {"citacao": "STJ, Tema Repetitivo 466", "eficacia": "vinculante", "uso": "responsabilidade objetiva por fortuito interno (fraudes de terceiros)"},
+    {"citacao": "STJ, Súmula 479", "eficacia": "obrigatoria", "uso": "idem"},
+    {"citacao": "CDC, art. 14", "uso": "responsabilidade objetiva do fornecedor de serviços"},
+    {"citacao": "STJ, REsp 2052228/DF (j. 2023-09-12)", "eficacia": "persuasiva", "uso": "dever de identificar e impedir movimentações atípicas"},
+    {"citacao": "TJSP, 1021944-19.2025.8.26.0405 (j. 2026-03-19)", "eficacia": "persuasiva", "uso": "MED rejeitado por ausência de saldo, sem monitoramento, é falha do serviço (G3)"},
+    {"citacao": "TJSP, 1005315-29.2023.8.26.0020 (j. 2025-02-07)", "eficacia": "persuasiva", "uso": "conta aberta e usada para fraude sem cautelas gera responsabilidade da instituição recebedora (G1, G5)"}
+  ],
+  "replay": {
+    "2026-07-01": ["G1", "G2", "G3", "G4"],
+    "2026-06-30": {"vigentes": ["G1", "G2", "G4"], "a_vigorar": ["G3"]},
+    "2025-09-01": {"vigentes": ["G2"], "nota": "G1 (Res. 501, 11/9/2025) e G4 (Res. 506, 26/9/2025) ainda não publicados"}
+  },
+  "observacoes_do_acervo": [
+    "Art. 78-HA a 78-HD do Regulamento do Pix não são consultáveis por número (consultar devolve 'omitidos'); o texto aparece dentro do registro do art. 78.",
+    "O registro consolidado do art. 78-HB não traz o parágrafo único incluído pela Res. BCB 587/2026 (lido no próprio ato alterador).",
+    "Art. 32, X: consolidado atribui à Res. BCB 597/2026; a Res. BCB 587/2026, art. 2º, também o inclui."
+  ]
+}

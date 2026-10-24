@@ -30,8 +30,21 @@ Todas retornam `situacao` (vigência) e `is_truncated`, confira antes de citar.
 | `/letradalei:contestacao` | Redige contestação cível (CPC arts. 335–342), preliminares, mérito e eventual reconvenção. |
 | `/letradalei:fundamentacao` | Estrutura a fundamentação de sentença/decisão com checagem do art. 489, § 1º do CPC. |
 | `/letradalei:analise` | Diagnostica a fase processual e redige a peça cabível (réplica, recursos, cumprimento, embargos, ações autônomas etc.). |
+| `/letradalei:revisao-politica` | Revisa uma política interna (.docx) contra a regulação e a legislação vigentes e gera um pacote para aprovação (PDF e .docx): achados por cláusula com fonte, o que mudou desde a última revisão, exposição judicial, tarefas por responsável e registro de auditoria. Aceita replay ("como em AAAA-MM-DD"). |
 
 As skills de redação produzem **rascunhos revisáveis**, não peças prontas: quem assina, decide estratégia e protocola é o(a) advogado(a) ou magistrado(a) habilitado(a). A peça é salva em `outputs/` e os pontos pendentes (`[VERIFICAR]`, `[CITAÇÃO PENDENTE]`, `[FORA DO CORPUS]` etc.) ficam em **vermelho e negrito** no `.docx`, aplicados por `scripts/colorir_marcadores.py` (requer `python-docx`: `pip install python-docx`).
+
+### Revisão de política (`revisao-politica`)
+
+Usa as ferramentas de conformidade da Letra da Lei (`conformidade · conceito`, `conformidade · alteracoes`, disponíveis nos planos com acesso ao gateway de produto) quando conectadas; sem elas, usa as ferramentas públicas (inclusive `legislacao-infralegal · buscar_atos`) e diz isso no pacote. O PDF e o `.docx` são gerados por `scripts/montar_pacote_conformidade.py` a partir de um JSON (contrato em `skills/revisao-politica/references/esquema-resultado.md`):
+
+```bash
+pip install reportlab python-docx
+python scripts/montar_pacote_conformidade.py skills/revisao-politica/exemplos/resultado-exemplo.json --pdf outputs/exemplo.pdf --docx outputs/exemplo.docx
+python -m unittest discover -s scripts/tests -v
+```
+
+`skills/revisao-politica/exemplos/` traz uma política fictícia de prevenção a fraudes (documento de exemplo, sem relação com instituição real) e um resultado completo; o gabarito do backtest está em `skills/revisao-politica/evals/`.
 
 ## Quando usar / não usar
 
