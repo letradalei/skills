@@ -1,0 +1,150 @@
+{
+ "id": "R07",
+ "itens": {
+  "G1": {
+   "encontrado": true,
+   "clausula_ok": true,
+   "ato_artigo_ok": true,
+   "data_ok": true,
+   "achado_ids": [
+    "A5"
+   ],
+   "nota": "5.4, alta. Cita a Res. 142, art. 2º-A, caput e §§ 1º a 4º (Res. 501/2025), vigência 2025-09-12 (DOU) e prazo de 13/10/2025 vencido. Ressalva: a segunda fonte (art. 89, § 2º, 'veda iniciar ou receber Pix em conta de usuário suspeito, inclusive terceiros') reproduz a redação da Res. 403/2024, substituída pelas Res. 425/2024, 429/2024, 506/2025 e 587/2026. Fontes da legisweb, não oficiais."
+  },
+  "G2": {
+   "encontrado": true,
+   "clausula_ok": true,
+   "ato_artigo_ok": true,
+   "data_ok": true,
+   "achado_ids": [
+    "A13",
+    "A11"
+   ],
+   "nota": "A13 (10.3, alta) cita os arts. 41-D, § 4º, 41-E, II e III, 78-J, 78-N e 121, II (Res. 493/2025), com obrigatoriedade em 2/2/2026 vencida. A11 (10.1, média) cita os arts. 54, XII, 78-F, § 2º, 78-I, parágrafo único, 78-N e 121. A11 também afirma 'autoatendimento desde 01/10/2025 segundo fontes secundárias [VERIFICAR]', sem dispositivo, não conferido."
+  },
+  "G3": {
+   "encontrado": true,
+   "clausula_ok": true,
+   "ato_artigo_ok": false,
+   "data_ok": false,
+   "achado_ids": [
+    "A12"
+   ],
+   "nota": "10.2, média (gabarito: alta). Identifica que a Política bloqueia só o saldo do momento. Mas fundamenta no § 1º com redação da Res. 493/2025 e nos §§ 2º e 3º da Res. 403/2024 (bloqueios parciais até 90 dias), que foram revogados pela Res. 559/2026 com efeitos em 1º/7/2026. Não cita a 559 nem o bloqueio complementar até o valor ou o encerramento da notificação. Vigência e situação (2025-08-29) erradas para a regra vigente em 24/10/2026."
+  },
+  "G4": {
+   "encontrado": true,
+   "clausula_ok": true,
+   "ato_artigo_ok": true,
+   "data_ok": true,
+   "achado_ids": [
+    "A8",
+    "A9"
+   ],
+   "nota": "A8 (8.2, alta) cita o art. 56, § 3º e o art. 78-HA, da Res. 506/2025, vigência 2025-09-30 (DOU), e o § 2º. A9 (8.3, média) cita os arts. 68, § 2º e 70, § 2º. Ressalva: descreve a redação original da 506 (só a marcação criada pela própria instituição) e não a ampliação pela Res. 587/2026 a usuário ou conta com notificação de infração aceita."
+  },
+  "G5": {
+   "encontrado": true,
+   "clausula_ok": true,
+   "ato_artigo_ok": "parcial",
+   "data_ok": "parcial",
+   "achado_ids": [
+    "A14",
+    "A15"
+   ],
+   "nota": "A14 (11.1, alta) cita o art. 89, § 2º e o art. 78-HA (Res. 506, 2025-09-30), o que confere com a conferência oficial, e menciona os 5 anos e a Res. 587 via resumo de escritório. A15 (11.2, média) traz o prazo de 7 dias sem dispositivo ('[VERIFICAR artigo]'), baseado em resumo da Cescon. Não cita o art. 78-HC nem o registro de fundamentos. Afirma que o dever de notificar o usuário marcado vige desde 18/9/2026, mas o art. 78-HB, parágrafo único só vige em 1º/2/2027 (587, art. 5º, I, g)."
+  },
+  "B1": {
+   "encontrado": true,
+   "clausula_ok": false,
+   "ato_artigo_ok": "parcial",
+   "data_ok": "parcial",
+   "achado_ids": [
+    "A7"
+   ],
+   "nota": "Vinculado a 6.3, não a 13.2. Baixa, a vigorar em 1º/2/2027. Cita o art. 32 sem inciso, via resumo da Cescon ('[VERIFICAR texto oficial]'). A data bate com o gabarito, mas a fonte oficial indica possível vigência desde 2/10/2026 (Res. 597)."
+  },
+  "B2": {
+   "encontrado": true,
+   "clausula_ok": true,
+   "ato_artigo_ok": true,
+   "data_ok": true,
+   "achado_ids": [
+    "A2"
+   ],
+   "nota": "5.1, média. Cita o art. 39-C (Res. 506/2025, 2025-09-30). Também cita o art. 89, §§ 3º e 4º (ver divergência 5.1). Erro: 'a identificação de fraudadores deve considerar as marcações de fraude no DICT' é o art. 89, § 5º, revogado pela Res. 425/2024 (efeitos 1º/11/2024), e a saída cita '§§ 3º a 5º'."
+  },
+  "B3": {
+   "encontrado": false,
+   "clausula_ok": null,
+   "ato_artigo_ok": null,
+   "data_ok": null,
+   "achado_ids": [],
+   "nota": "Não encontrado. A1 (1.1) fala de normas alteradas, não da revisão ordinária de mar/2026 da cláusula 14.1."
+  }
+ },
+ "nao_casados": [
+  {
+   "achado_id": "A1",
+   "classe": "duvidoso",
+   "motivo": "Observação genérica de que a base normativa citada em 1.1 foi alterada pelas Res. 493, 501, 506/2025 e 587/2026. Os fatos conferem, mas não é lacuna autônoma: repete os demais achados. Fontes da legisweb, não oficiais.",
+   "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=142"
+  },
+  {
+   "achado_id": "A3",
+   "classe": "extra_valido",
+   "motivo": "5.2. A Res. 142, art. 2º, I e II, §§ 1º a 3º, e art. 3º, §§ 1º e 2º conferem e faltam na Política. Severidade alta. O gabarito dá 5.2 como conforme: registrado como divergência.",
+   "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=142"
+  },
+  {
+   "achado_id": "A16",
+   "classe": "extra_valido",
+   "motivo": "12.2. A guarda por 5 anos (Res. 142, art. 6º) confere e falta na Política. A parte 'não prevê o comitê de auditoria' não é lacuna: o art. 4º, § 1º, I diz 'se houver', e o gabarito registra que a estrutura não tem esse comitê. Baixa.",
+   "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=142"
+  }
+ ],
+ "proveniencia_amostra": {
+  "ok": 0,
+  "total": 5,
+  "problemas": [
+   "Nenhuma fonte do R07 é oficial: todos os source_url são legisweb.com.br ou cesconbarrieu.com.br (escritório). Os dispositivos foram conferidos no texto oficial do BCB, sem abrir os links não oficiais.",
+   "A5 (142, art. 2º-A, Res. 501, legisweb id=483402): o dispositivo e a data (2025-09-12) conferem no texto oficial; o link não é oficial.",
+   "A8 (art. 56, § 3º, Res. 506, legisweb id=484161): o dispositivo confere, mas a redação descrita foi substituída pela Res. 587/2026; o link não é oficial.",
+   "A12 (art. 41-D, §§ 2º e 3º, Res. 403/2024, legisweb id=462334): dispositivos revogados pela Res. 559/2026 desde 1º/7/2026; o link não é oficial.",
+   "A15 (prazo de 7 dias, Cescon Barrieu): sem artigo ('[VERIFICAR artigo]'); a fonte é um resumo de escritório. A regra existe no art. 78-HC, § 2º, mas a saída não a identifica.",
+   "A7 (art. 32, divulgação do MED, Cescon Barrieu): sem inciso, '[VERIFICAR texto oficial]'; a fonte é secundária."
+  ]
+ },
+ "divergencias_com_gabarito": [
+  {
+   "item": "clausula 5.2",
+   "o_que": "Gabarito dá 5.2 como conforme (Res. 142, art. 3º). A Res. BCB 142/2021, art. 2º, I e II (limite de R$1.000 entre 20h e 6h entre pessoas naturais; 24h para efetivar aumento de limite) e art. 3º, § 1º (24h para o cadastro prévio) são obrigações vigentes que a Política não prevê. A lacuna é real.",
+   "evidencia_url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=142"
+  },
+  {
+   "item": "clausula 5.1",
+   "o_que": "Gabarito dá 5.1 como conforme (art. 89, § 1º, I). A Política não prevê a base de informações de segurança atualizada ao menos a cada 6 meses por consulta ao DICT (art. 89, § 3º) nem a documentação da solução à disposição do BCB (art. 89, § 4º). As duas regras vigem desde 1º/11/2024 (Res. 403/2024). É uma omissão real de detalhe, de baixa materialidade.",
+   "evidencia_url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1"
+  },
+  {
+   "item": "clausula 12.1-12.2",
+   "o_que": "Gabarito dá 12.1-12.2 como conformes. A Res. BCB 142/2021, art. 6º (registros, relatórios e documentos à disposição do BCB por 5 anos) não está na Política. É uma omissão real, de baixa materialidade, que o gabarito não registra.",
+   "evidencia_url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=142"
+  },
+  {
+   "item": "G5",
+   "o_que": "A conferência (passo 1) mostra que a extensão do art. 89, § 2º ao usuário como pagador ou recebedor e o art. 78-HA vêm da Res. BCB 506/2025 (26/9/2025; DOU 30/9/2025). A Res. 587/2026 só deu a redação atual ('fundada suspeita') e incluiu 78-HB, 78-HC e 78-HD. Parte da lacuna de 11.1 vige desde set/2025, não desde 18/9/2026.",
+   "evidencia_url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1"
+  },
+  {
+   "item": "B1",
+   "o_que": "O gabarito dá 1º/2/2027 (Res. 587, art. 5º, I, c) para o art. 32, X. O consolidado oficial atribui o inciso à Res. BCB 597/2026 (30/9/2026; DOU 2/10/2026), que entra em vigor na publicação. A exigibilidade desde out/2026 é plausível e o ponto é ambíguo.",
+   "evidencia_url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=597"
+  },
+  {
+   "item": "G1/G2/G4",
+   "o_que": "Diferença menor de datas, conforme a conferência: a vigência é a da publicação no DOU (501: 12/9/2025; 493: 29/8/2025; 506: 30/9/2025), e o gabarito usa a data do ato. Não altera prazos nem situação na data de referência.",
+   "evidencia_url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=506"
+  }
+ ]
+}

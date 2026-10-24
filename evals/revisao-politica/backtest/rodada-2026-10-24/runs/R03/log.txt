@@ -1,0 +1,21 @@
+conformidade conceito query=MED
+conformidade conceito query=bloqueio cautelar
+conformidade conceito query=gerenciamento de risco de fraude Pix
+conformidade conceito query=chave Pix
+conformidade conceito id=letradalei:br:concept:topic:med desde=2025-03-18 ref=2026-10-24
+conformidade conceito id=letradalei:concept:topic:instant-payment-fraud desde=2025-03-18 ref=2026-10-24
+conformidade conceito id=letradalei:br:concept:topic:pix desde=2025-03-18 ref=2026-10-24
+conformidade conceito id=letradalei:concept:topic:financial-institution-fraud-liability desde=2025-03-18 ref=2026-10-24
+conformidade conceito id=letradalei:concept:topic:fraud-data-sharing desde=2025-03-18 ref=2026-10-24
+conformidade alteracoes norma=BCB-Res-1-2020 desde=2025-03-18 ate=2026-10-24
+conformidade alteracoes norma=BCB-Res-142-2021 desde=2025-03-18 ate=2026-10-24
+conformidade alteracoes norma=BCB-Res-343-2023 desde=2025-03-18 ate=2026-10-24
+mcp acervo___consultar legislacao-infralegal search_ids=[1M8Jehzqne2AcNlv,KHFSh8eidBr3OETO,5iVdGtMilRkWFT6l,1Z3m7hsCgyH5ilWH,wy3bEbV4VywfzoYE] (Res BCB 1/2020 arts 38-A,39,39-B,39-C,38)
+mcp acervo___consultar legislacao-infralegal search_ids=[byFBCpjXiJbXExBO,dkD1QCBZqCvJwmdJ,1TVUI5eLJEU4n5EB,K716TDayS9WEhHMR,18NGDHIYGwjzTUr6] (arts 41-D,41-E,78-N,121,78-F)
+mcp acervo___consultar legislacao-infralegal search_ids=[8ZKBuzYEbJmGrVmP,1I6v4mg3vimnTf5G,Cp0q6F0SAX7B7Xg0,15rin5orml0z8KuF,uNw7cUWoqihGhwnR] (arts 32,89,37,60,78-H)
+mcp legislacao-infralegal___buscar_atos norma=BCB-Res-587-2026 query="alteração regulamento Pix notificação de infração rejeição transações bloqueio"
+mcp acervo___consultar legislacao-infralegal norma=BCB-Res-142-2021 numeros=[1,2,2-A,3,4]
+mcp acervo___consultar legislacao-infralegal search_ids=[XICtGGAly0W5V4EV] (Res BCB 587/2026 art 2)
+mcp acervo___consultar legislacao-infralegal search_ids=[n1sOuIdFd7hsgzCW,fQvIH2jjfk8puLzn,1Qpnc4fqlgwhISxC,1OozE80H5bYcLuPV,1GFW6HGj2ww7CAih] (ResConj 6/2023 art2; Res 343 art4; Res 1 arts 41-I,41-F; Res 507 art18)
+mcp acervo___consultar jurisprudencia federal search_ids=[1P3qo3LW3EX6txpt,f4rtktxooHEXYyqL] (STJ Sum 479, Tema 466)
+mcp jurisprudencia-federal___buscar_precedentes autoridade=STJ query="responsabilidade da instituição de pagamento golpe via Pix falha no bloqueio e devolução Mecanismo Especial de Devolução"

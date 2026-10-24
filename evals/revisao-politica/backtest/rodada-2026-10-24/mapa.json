@@ -1,0 +1,47 @@
+{
+  "R01": {
+    "contender": "b",
+    "descricao": "AI + ferramentas públicas da Letra da Lei",
+    "rodada": 2
+  },
+  "R02": {
+    "contender": "c",
+    "descricao": "AI + grafo de conceitos (conformidade)",
+    "rodada": 2
+  },
+  "R03": {
+    "contender": "c",
+    "descricao": "AI + grafo de conceitos (conformidade)",
+    "rodada": 3
+  },
+  "R04": {
+    "contender": "a",
+    "descricao": "AI + busca na web",
+    "rodada": 1
+  },
+  "R05": {
+    "contender": "a",
+    "descricao": "AI + busca na web",
+    "rodada": 2
+  },
+  "R06": {
+    "contender": "b",
+    "descricao": "AI + ferramentas públicas da Letra da Lei",
+    "rodada": 3
+  },
+  "R07": {
+    "contender": "a",
+    "descricao": "AI + busca na web",
+    "rodada": 3
+  },
+  "R08": {
+    "contender": "b",
+    "descricao": "AI + ferramentas públicas da Letra da Lei",
+    "rodada": 1
+  },
+  "R09": {
+    "contender": "c",
+    "descricao": "AI + grafo de conceitos (conformidade)",
+    "rodada": 1
+  }
+}

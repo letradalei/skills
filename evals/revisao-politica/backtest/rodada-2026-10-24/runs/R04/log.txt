@@ -1,0 +1,23 @@
+WebSearch | Resolução BCB 2025 MED 2.0 rastreamento recursos múltiplas contas Pix obrigatório 2026
+WebSearch | Resolução BCB 2025 gerenciamento de risco de fraude conta recebedora Pix "Resolução BCB nº" alteração Regulamento Pix
+WebFetch | bcb.gov.br api exibenormativo Resolução BCB 493
+WebFetch | bcb.gov.br api exibenormativo Resolução BCB 501
+WebFetch | bcb.gov.br api exibenormativo Resolução BCB 506
+WebFetch | bcb.gov.br api exibenormativo Resolução BCB 142 (consolidada)
+WebFetch | bcb.gov.br api exibenormativo Resolução BCB 584
+WebFetch | bcb.gov.br api exibenormativo Resolução BCB 1 (consolidada, offset 0)
+WebFetch | bcb.gov.br api exibenormativo Resolução BCB 559
+WebFetch | bcb.gov.br api exibenormativo Resolução BCB 457
+WebFetch | bcb.gov.br api exibenormativo Resolução BCB 597
+WebFetch | bcb.gov.br api exibenormativo Resolução BCB 546
+WebFetch | bcb.gov.br api exibenormativo Resolução BCB 403
+WebFetch | bcb.gov.br api exibenormativo Resolução BCB 402
+WebSearch | bloqueio cautelar Pix 72 horas Regulamento Pix artigo "bloqueio cautelar" Resolução BCB 103 cláusula contrato
+WebFetch | bcb.gov.br api exibenormativo Resolução BCB 147
+WebSearch | Banco Central critérios mínimos fundada suspeita de fraude Pix art. 39-C documento publicado 2026
+WebFetch | bcb.gov.br api exibenormativo Resolução BCB 482
+WebFetch | bcb.gov.br api exibenormativo Resolução BCB 425
+WebFetch | bcb.gov.br api exibenormativo Resolução BCB 506 (redações literais)
+WebSearch | MED autoatendimento contestação Pix aplicativo obrigatório 1º de outubro de 2025 Resolução BCB
+WebSearch | STJ responsabilidade instituição recebedora conta laranja golpe Pix falha mecanismo de segurança REsp 2024 2025 Súmula 479
+WebSearch | STJ REsp 2.052.228 transações atípicas perfil do cliente falha prestação serviço banco golpe

@@ -1,0 +1,16 @@
+legislacao-infralegal___buscar_atos | BCB | Mecanismo Especial de Devolução rastreamento de recursos contas subsequentes devolução
+legislacao-infralegal___buscar_atos | BCB | gerenciamento de risco de fraude Pix avaliação do recebedor conta de destino transações recebidas
+acervo___consultar | legislacao-infralegal | search_ids art. 89, 39-B, 41-D, 41-C, 41-B Res. BCB 1/2020
+acervo___consultar | legislacao-infralegal | BCB Resolução 493/2025 arts. 1-5
+acervo___consultar | legislacao-infralegal | BCB Resolução 506/2025 arts. 2-5
+acervo___consultar | legislacao-infralegal | BCB Resolução 587/2026 arts. 2-5
+acervo___consultar | legislacao-infralegal | BCB Resolução 559/2026 arts. 1-5
+acervo___consultar | legislacao-infralegal | BCB-Res-1-2020 arts. 32, 38, 41-A, 78-N, 37
+legislacao-infralegal___buscar_atos | norma BCB Resolução 597/2026 | entra em vigor divulgar MED público vulnerável loterias quota fixa
+acervo___consultar | legislacao-infralegal | BCB Resolução 142/2021 arts. 1-2
+legislacao-infralegal___buscar_atos | BCB,CMN | compartilhamento de dados e informações sobre indícios de fraudes entre instituições registro de ocorrências
+acervo___consultar | legislacao-infralegal | BCB-Res-142-2021 arts. 3-7
+legislacao-infralegal___buscar_atos | BCB,CMN | Resolução Conjunta 6 2023 instituições devem compartilhar dados indícios de fraudes sistema eletrônico
+legislacao-infralegal___buscar_atos | BCB | autoatendimento contestação Pix fraude funcionalidade no aplicativo solicitar devolução usuário pagador reclamação
+jurisprudencia-federal___buscar_precedentes | STJ | responsabilidade objetiva instituição financeira fraude Pix golpe falha de segurança fortuito interno
+jurisprudencia-federal___buscar_precedentes | STJ | responsabilidade da instituição recebedora conta de destino utilizada por fraudador abertura de conta laranja Pix MED

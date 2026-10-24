@@ -1,0 +1,20 @@
+WebSearch: Resolução BCB 2025 MED 2.0 rastreamento recursos múltiplas contas Regulamento Pix alteração
+WebSearch: Resolução BCB 2025 altera Resolução BCB 142 gerenciamento risco fraude conta recebedora
+WebFetch: bcb.gov.br exibenormativo Res BCB 142 (falhou)
+WebFetch: legisweb Res BCB 501/2025
+WebSearch: "Resolução BCB nº 584" 2026
+WebSearch: Resolução BCB 2025 MED autoatendimento devolução múltiplas camadas Regulamento Pix artigo 41 bloqueio contas subsequentes
+WebFetch: Voto BC 105/2025 PDF (ilegível)
+WebSearch: "Resolução BCB nº 493" Pix MED recuperação de valores
+WebSearch: Resolução BCB 2025 Pix chave rejeitar registro fundada suspeita fraude obrigatório
+WebFetch: cesconbarrieu Res BCB 587/2026
+WebFetch: legisweb Res BCB 506/2025
+WebFetch: legisweb Res BCB 493/2025
+WebSearch: autoatendimento MED obrigatório 1º de outubro de 2025 Resolução BCB contestação Pix aplicativo artigo
+WebSearch: Resolução BCB 402/2024 Pix gerenciamento de risco de fraude verificar semestralmente marcação DICT novos dispositivos R$ 200 art. 39-B
+WebFetch: bcb.gov.br Regulamento_Pix.pdf (404)
+WebSearch: Regulamento Pix consolidado "art. 39-B" gerenciamento de risco de fraude "informações de segurança" DICT "no mínimo semestralmente"
+WebFetch: legisweb Res BCB 403/2024
+WebSearch: "Resolução BCB nº 142" 2021 texto art. 1º art. 2º registros ocorrências fraude relatório
+WebFetch: legisweb Res BCB 142/2021 (id=420671)
+WebSearch: STJ Súmula 479 fortuito interno; STJ Pix golpe responsabilidade instituição de pagamento conta recebedora

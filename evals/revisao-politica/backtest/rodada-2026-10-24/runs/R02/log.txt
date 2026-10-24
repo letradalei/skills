@@ -1,0 +1,26 @@
+conformidade conceito query=MED
+conformidade conceito query=bloqueio cautelar
+conformidade conceito query=prevenção a fraudes
+conformidade conceito id=letradalei:br:concept:topic:med desde=2025-03-18 ref=2026-10-24
+conformidade conceito id=letradalei:concept:topic:payment-fraud desde=2025-03-18 ref=2026-10-24
+conformidade conceito id=letradalei:br:concept:topic:pix desde=2025-03-18 ref=2026-10-24
+conformidade conceito id=letradalei:concept:topic:fraud-suspect-accounts desde=2025-03-18 ref=2026-10-24
+conformidade conceito id=letradalei:concept:topic:fraud-records-and-reporting desde=2025-03-18 ref=2026-10-24
+conformidade conceito id=letradalei:concept:topic:instant-payment-fraud desde=2025-03-18 ref=2026-10-24
+Letra_da_Lei acervo___consultar search_ids=41-D,41-E,78-N,121,39-C
+Letra_da_Lei acervo___consultar search_ids=38-A,39,39-B,37,56
+Letra_da_Lei acervo___consultar search_ids=89,78-G,142-2-A,142-2,41-A
+conformidade alteracoes search_id=1I6v4mg3vimnTf5G desde=2025-03-18
+conformidade alteracoes search_id=1bexqrWj8ZuTU6ub desde=2025-03-18
+conformidade alteracoes search_id=KHFSh8eidBr3OETO desde=2025-03-18
+conformidade alteracoes search_id=hxXnlvBbpR6tdgfC desde=2025-03-18
+conformidade alteracoes search_id=18NGDHIYGwjzTUr6 desde=2025-03-18
+conformidade alteracoes search_id=5iVdGtMilRkWFT6l desde=2025-03-18
+conformidade alteracoes norma=BCB-Res-142-2021
+conformidade alteracoes norma=BCB-Res-343-2023
+Letra_da_Lei acervo___consultar norma=BCB-Res-142-2021 numeros=3,4,5,6
+Letra_da_Lei acervo___consultar search_ids=343-art4,78-F,78(78-HA..78-HD),78-I,38
+Letra_da_Lei jurisprudencia-federal___buscar_precedentes query="responsabilidade da instituição financeira por fraude praticada por terceiro em transferência Pix, fortuito interno"
+Letra_da_Lei acervo___consultar jurisprudencia search_id=f4rtktxooHEXYyqL (STJ Tema 466)
+Letra_da_Lei acervo___consultar jurisprudencia citacao="STJ Súmula 479"
+Letra_da_Lei acervo___consultar search_ids=41-I,Res507-AnexoI-art18,54

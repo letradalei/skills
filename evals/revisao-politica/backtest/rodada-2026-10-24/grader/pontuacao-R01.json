@@ -1,0 +1,146 @@
+{
+ "id": "R01",
+ "itens": {
+  "G1": {
+   "encontrado": true,
+   "clausula_ok": true,
+   "ato_artigo_ok": false,
+   "data_ok": false,
+   "achado_ids": [
+    "A1"
+   ],
+   "nota": "Aponta 5.4 (conta de destino tratada por um único fator) e o dever de rejeitar recebimento com fundada suspeita, mas pelo Regulamento Pix (arts. 39, I, 39-B, § 1º, 39-C, 89). Não cita a Res. 142, art. 2º-A nem a Res. 501/2025 (zero menções), nem a extensão a TED/boleto/transferências internas, nem a comunicação ao titular; sem o prazo de 13/10/2025. Severidade alta = esperada."
+  },
+  "G2": {
+   "encontrado": true,
+   "clausula_ok": true,
+   "ato_artigo_ok": true,
+   "data_ok": true,
+   "achado_ids": [
+    "A2"
+   ],
+   "nota": "10.3 (e menciona 10.1); arts. 78-N, 78-F, § 2º, 41-D, § 4º, 41-E, II, 121, II; Res. 493/2025; prazo 2/2/2026 vencido. 10.4 marcada conforme em A20 para a transação original, com remissão a A2. Vigências pela data do ato (28/8/2025; 559 em 23/4/2026), não pelo DOU: menor."
+  },
+  "G3": {
+   "encontrado": true,
+   "clausula_ok": true,
+   "ato_artigo_ok": true,
+   "data_ok": true,
+   "achado_ids": [
+    "A3"
+   ],
+   "nota": "10.2; art. 41-D, § 1º, I e II; Res. 559/2026, art. 3º, I, a; efeitos 1º/7/2026; vigente. Alta."
+  },
+  "G4": {
+   "encontrado": true,
+   "clausula_ok": true,
+   "ato_artigo_ok": true,
+   "data_ok": true,
+   "achado_ids": [
+    "A4",
+    "A9"
+   ],
+   "nota": "8.2 (art. 56, § 3º, redação da 587/2026, com menção à redação anterior da 506/2025) e 8.3 (arts. 68, § 2º, 70, § 2º). Vigência 18/9/2026 (data do ato; DOU 21/9) para a redação atual; não dá a data em que o dever passou a existir (set/2025), mas registra a origem na 506. Severidade alta (esperada média)."
+  },
+  "G5": {
+   "encontrado": true,
+   "clausula_ok": true,
+   "ato_artigo_ok": true,
+   "data_ok": true,
+   "achado_ids": [
+    "A5",
+    "A6",
+    "A12"
+   ],
+   "nota": "11.1/11.2: art. 89, § 2º (usuário como pagador ou recebedor), 78-HA, 78-HC, §§ 1º-4º (7 dias, fundamentos), 78-HD (5 anos), 78-HB, parágrafo único a vigorar em 1º/2/2027 (art. 5º, I, g). Atribui 89, § 2º e 78-HA à 587 com nota da redação anterior da 506: aceitável. Vigência 18/9/2026 pela data do ato (DOU 21/9): menor."
+  },
+  "B1": {
+   "encontrado": true,
+   "clausula_ok": true,
+   "ato_artigo_ok": true,
+   "data_ok": true,
+   "achado_ids": [
+    "A11"
+   ],
+   "nota": "13.2; art. 32, X; Res. 587, art. 5º, I, c, a_vigorar 1º/2/2027, com [VERIFICAR] sobre a Res. 597 ter antecipado: coincide com o gabarito; ambiguidade real (ver divergência B1). Severidade baixa = esperada."
+  },
+  "B2": {
+   "encontrado": true,
+   "clausula_ok": false,
+   "ato_artigo_ok": true,
+   "data_ok": true,
+   "achado_ids": [
+    "A1"
+   ],
+   "nota": "Art. 39-C (Res. 506/2025) dito expressamente em A1 ('além dos critérios mínimos divulgados pelo BCB'), mas na cláusula 5.4, sem achado próprio sobre 5.1."
+  },
+  "B3": {
+   "encontrado": false,
+   "clausula_ok": false,
+   "ato_artigo_ok": null,
+   "data_ok": null,
+   "achado_ids": [],
+   "nota": "Não aponta a revisão ordinária de mar/2026 não realizada; cláusula 14 declarada fora do escopo em auditoria.limitacoes."
+  }
+ },
+ "nao_casados": [
+  {
+   "achado_id": "A7",
+   "classe": "extra_valido",
+   "motivo": "Res. 142, art. 2º, I e II, e art. 3º, §§ 1º e 2º: deveres reais não previstos; art. 37 do Reg. Pix (redação 506) conferido. Gabarito marca 5.2 como conforme: divergência.",
+   "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=142"
+  },
+  {
+   "achado_id": "A8",
+   "classe": "extra_valido",
+   "motivo": "Res. 142, art. 6º (guarda 5 anos) e Res. BCB 343/2023, arts. 4º (registro em 24h) e 5º (declaração até o dia 15), em vigor desde 1º/11/2023; art. 2º, III com redação da Res. BCB 552/2026 conferido. Gabarito marca 12.1 como conforme: divergência.",
+   "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=343"
+  },
+  {
+   "achado_id": "A10",
+   "classe": "extra_valido",
+   "motivo": "Art. 89, §§ 3º e 4º (Res. 403/2024, efeitos 1º/11/2024) conferidos. Gabarito marca 5.1 como conforme: divergência.",
+   "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1"
+  }
+ ],
+ "proveniencia_amostra": {
+  "ok": 5,
+  "total": 5,
+  "problemas": [
+   "A6 (Res. 587, vigência 18/9/2026) e A8/F3 (Res. 552, 3/3/2026) usam a data do ato; DOU 21/9/2026 e 5/3/2026: menor, admitido pela saída em [VERIFICAR].",
+   "A11: atribui art. 32, X à 587 (art. 5º, I, c), mas o consolidado oficial o atribui à 597/2026; a saída registra a dúvida."
+  ]
+ },
+ "divergencias_com_gabarito": [
+  {
+   "item": "G5",
+   "o_que": "O art. 78-HA (marcação de fraude transacional) e a extensão do art. 89, § 2º ao usuário como pagador ou recebedor vêm da Res. BCB 506/2025 (DOU 30/9/2025); a 587/2026 só reescreveu (\"fundada suspeita\") e incluiu 78-HB a 78-HD. O gabarito atribui tudo à 587.",
+   "evidencia_url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1"
+  },
+  {
+   "item": "B1",
+   "o_que": "Art. 32, X: o consolidado do BCB atribui o inciso à Res. BCB 597/2026, em vigor na publicação (DOU 2/10/2026); a 587/2026 o difere para 1º/2/2027. Leitura literal permite tratá-lo como vigente desde 2/10/2026; o gabarito não deve tratar 1º/2/2027 como certo. Ambas as leituras foram aceitas em data_ok.",
+   "evidencia_url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=597"
+  },
+  {
+   "item": "clausula 5.1",
+   "o_que": "Gabarito dá 5.1 como conforme (art. 89, § 1º, I), mas a política omite o § 3º (base de informações de segurança atualizada ao menos a cada seis meses via DICT) e o § 4º (documentação da solução à disposição do BCB), ambos vigentes desde 1º/11/2024 (Res. BCB 403/2024).",
+   "evidencia_url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1"
+  },
+  {
+   "item": "clausula 5.2",
+   "o_que": "Gabarito dá 5.2 como conforme (art. 3º da Res. 142), mas a política não prevê os deveres do art. 2º da Res. BCB 142/2021 (limite de R$ 1.000 das 20h às 6h entre pessoas naturais; prazo mínimo de 24h para aumento de limite) nem o prazo de 24h do art. 3º, § 1º.",
+   "evidencia_url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=142"
+  },
+  {
+   "item": "clausula 12.1",
+   "o_que": "Gabarito dá 12.1-12.2 como conformes (art. 4º), mas a política não prevê a guarda por cinco anos de registros e relatórios (Res. BCB 142/2021, art. 6º).",
+   "evidencia_url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=142"
+  },
+  {
+   "item": "clausula 12.1",
+   "o_que": "A política também não prevê o compartilhamento de indícios de fraude (Res. Conjunta 6/2023, art. 2º; Res. BCB 343/2023, arts. 4º e 5º: registro em até 24h e declaração mensal até o dia 15), vigentes desde 1º/11/2023.",
+   "evidencia_url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=343"
+  }
+ ]
+}

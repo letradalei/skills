@@ -1,0 +1,395 @@
+{
+ "itens": [
+  {
+   "id": "G1",
+   "confere": true,
+   "regra_ok": true,
+   "ato_alterador_ok": true,
+   "vigencia_ok": "parcial",
+   "prazo_ok": true,
+   "lacuna_ok": true,
+   "evidencia": [
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=142",
+     "trecho": "Art. 2º-A As instituições referidas no art. 1º, na prestação de serviços de pagamento, quando constatarem identificação de fundada suspeita de envolvimento de fraude em contas de depósitos à vista, contas de depósitos de poupança e contas de pagamento pré-pagas, devem rejeitar transações de pagamento que tenham essas contas como destinatárias. (Incluído pela Resolução BCB nº 501, de 11/9/2025.)"
+    },
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=142",
+     "trecho": "§ 3º A instituição destinatária dos recursos deve comunicar ao titular da conta a efetivação da medida de que trata o caput. ... § 4º ... deverão implementar as medidas necessárias ao cumprimento dos deveres previstos neste artigo até o dia 13 de outubro de 2025."
+    },
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=501",
+     "trecho": "Art. 2º Esta Resolução entra em vigor na data de sua publicação. [metadado: 'DOU': 'Publicada no DOU de 12/9/2025, Seção 1, p. 208.']"
+    }
+   ],
+   "divergencia": "Menor: vigente_desde 2025-09-11 é a data do ato; a vigência é 'na data de sua publicação' e o DOU é de 12/9/2025 (11/9 só se contada a divulgação no site do BCB). Sem efeito no prazo (13/10/2025) nem no replay."
+  },
+  {
+   "id": "G2",
+   "confere": true,
+   "regra_ok": true,
+   "ato_alterador_ok": true,
+   "vigencia_ok": "parcial",
+   "prazo_ok": true,
+   "lacuna_ok": true,
+   "evidencia": [
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1",
+     "trecho": "§ 4º Nas devoluções das transações identificadas na etapa de rastreamento da funcionalidade de recuperação de valores, o prestador de serviço de pagamento do usuário recebedor deve: (Incluído pela Resolução BCB nº 493, de 28/8/2025.) I - debitar os recursos da conta do usuário recebedor; e ... II - efetuar a transação para o usuário pagador em seu próprio nome."
+    },
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1",
+     "trecho": "Art. 41-E ... II - o mecanismo de rastreamento de transações no âmbito da funcionalidade de recuperação de valores, conforme definido no art. 78-N; (Incluído pela Resolução BCB nº 493, de 28/8/2025.)"
+    },
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1",
+     "trecho": "XII - recuperação de valores: procedimento de rastreamento, de bloqueio e de devolução de valores no âmbito do Pix decorrente de suspeita de fraude na transação. (Incluído pela Resolução BCB nº 493, de 28/8/2025.)"
+    },
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1",
+     "trecho": "Art. 121. A funcionalidade de recuperação de valores de que trata o art. 54, caput, inciso XII: ... II - deverá ser implementada obrigatoriamente pelos participantes do Pix nas modalidades provedor de conta transacional e liquidante especial a partir de 2 de fevereiro de 2026."
+    },
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=493",
+     "trecho": "Art. 4º Esta Resolução entra em vigor na data de sua publicação produzindo efeitos: I - em 2 de fevereiro de 2026, para o art. 3º; e II - imediatos, para os demais artigos. [metadado: 'Publicada no DOU de 29/8/2025']"
+    }
+   ],
+   "divergencia": "Menor: vigência na publicação, DOU de 29/8/2025 (gabarito usa 28/8/2025, data do ato). Replay 2025-09-01 não muda."
+  },
+  {
+   "id": "G3",
+   "confere": "parcial",
+   "regra_ok": true,
+   "ato_alterador_ok": true,
+   "vigencia_ok": true,
+   "prazo_ok": true,
+   "lacuna_ok": true,
+   "evidencia": [
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1",
+     "trecho": "§ 1º O bloqueio de que trata o inciso II do caput deve: (Redação dada pela Resolução BCB nº 559, de 23/4/2026, produzindo efeitos a partir de 1º/7/2026.) I - ser feito imediatamente após o participante ... receber a notificação de infração; e ... II - ser complementado sempre que houver ingresso de recursos na conta transacional do usuário recebedor, até o limite do valor solicitado ou até o encerramento do procedimento de notificação de infração, o que ocorrer primeiro."
+    },
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=559",
+     "trecho": "Art. 2º Ficam revogados ... III - os §§ 2º e 3º do art. 41-D; ... Art. 3º ... produzindo efeitos: I - a partir de 1º de julho de 2026: a) para as alterações introduzidas pelo art. 1º, referentes aos arts. 11-L, 15-A, 41-D e 96-B ... b) para as revogações de que trata o art. 2º, caput, incisos I, III, IV e VI"
+    },
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1",
+     "trecho": "§ 2º Caso a conta transacional do usuário recebedor da transação Pix com fundada suspeita de fraude não tenha sido encerrada, o participante deverá realizar múltiplos bloqueios ou devoluções parciais do valor correspondente ao saldo nela disponível, sempre que recursos forem nela creditados e: (Incluído pela Resolução BCB nº 403, de 22/7/2024.) I - a solicitação de devolução tiver sido rejeitada por ausência de saldo na conta transacional; ou ... II - a devolução ocorrer em valor inferior ao da transação original."
+    }
+   ],
+   "divergencia": "A regra de 1º/7/2026 confere. Mas a cláusula 10.2 (bloqueia só o saldo no momento da notificação) já não atendia ao art. 41-D, §§ 2º e 3º (Res. BCB 403/2024, anteriores a 18/3/2025), que exigiam bloqueios múltiplos a cada crédito quando o MED fosse rejeitado por falta de saldo ou parcial. A afirmação do gabarito.md de que 'todos vêm de mudanças posteriores a 18/3/2025' não vale por inteiro para G3; num replay anterior a 2026-07-01 há lacuna parcial vigente (403/2024), não só 'a vigorar'. Além disso, a Res. 493/2025 já tinha exigido o bloqueio 'imediatamente após' receber a notificação (§ 1º, redação de 28/8/2025). DOU da 559: 27/4/2026."
+  },
+  {
+   "id": "G4",
+   "confere": true,
+   "regra_ok": true,
+   "ato_alterador_ok": true,
+   "vigencia_ok": "parcial",
+   "prazo_ok": null,
+   "lacuna_ok": true,
+   "evidencia": [
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1",
+     "trecho": "§ 3º O participante do Pix deve rejeitar pedido de registro de chave Pix em caso de usuário com notificação de infração para marcação de fraude transacional registrada no DICT pelo próprio participante, nos termos do art. 78-HA, devendo comunicar o motivo da rejeição ao usuário. (Incluído pela Resolução BCB nº 506, de 26/9/2025.)"
+    },
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1",
+     "trecho": "§ 3º O participante do Pix deve rejeitar pedido de registro de chave Pix em caso de usuário ou de conta transacional associados a uma notificação de infração aceita pelo próprio participante ou a uma notificação de infração para marcação de fundada suspeita de fraude transacional criada no DICT por esse participante ... (Redação dada pela Resolução BCB nº 587, de 18/9/2026.)"
+    },
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1",
+     "trecho": "[art. 68] § 2º O participante não deve solicitar a portabilidade de chave Pix no DICT caso o solicitante seja usuário associado a uma notificação de infração aceita por esse participante ou a uma notificação de infração para marcação de fraude transacional criada pelo próprio participante ... (Incluído pela Resolução BCB nº 506, de 26/9/2025.)"
+    },
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1",
+     "trecho": "[art. 70] § 2º O participante não deve reivindicar a posse de chave Pix no DICT caso o solicitante seja usuário associado a uma notificação de infração aceita por esse participante ... (Incluído pela Resolução BCB nº 506, de 26/9/2025.)"
+    },
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=506",
+     "trecho": "Art. 4º Esta Resolução entra em vigor na data de sua publicação. [metadado: 'Publicada no DOU de 30/9/2025']"
+    }
+   ],
+   "divergencia": "Menor: vigência na publicação, DOU de 30/9/2025 (gabarito: 26/9/2025). Nota: os §§ 2º dos arts. 68 e 70 já alcançavam, desde a 506/2025, o usuário com notificação de infração ACEITA; só o art. 56, § 3º passou a alcançá-la com a 587/2026, como diz o gabarito."
+  },
+  {
+   "id": "G5",
+   "confere": "parcial",
+   "regra_ok": true,
+   "ato_alterador_ok": "parcial",
+   "vigencia_ok": "parcial",
+   "prazo_ok": true,
+   "lacuna_ok": true,
+   "evidencia": [
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1",
+     "trecho": "Art. 78-HA. O participante pode criar uma notificação de infração para marcação de fraude transacional, que permite a marcação de CPF ou de CNPJ de seu cliente que esteja envolvido em episódio de fraude relacionado a uma transação Pix específica. (Incluído pela Resolução BCB nº 506, de 26/9/2025.)"
+    },
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1",
+     "trecho": "§ 2º Cabe ao participante responsável pela marcação de fundada suspeita de fraude a análise do pedido de que trata o § 1º, competindo-lhe decidir pela manutenção ou pelo cancelamento da marcação em até sete dias, contados a partir da data de recebimento do pedido. (Incluído pela Resolução BCB nº 587, de 18/9/2026.) ... § 4º O participante deverá manter registro dos fundamentos utilizados ..."
+    },
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1",
+     "trecho": "Art. 78-HD. A marcação de fundada suspeita de fraude permanecerá vinculada ... pelo prazo de cinco anos, contados a partir da data da realização do registro no DICT da referida marcação. (Incluído pela Resolução BCB nº 587, de 18/9/2026.)"
+    },
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=587",
+     "trecho": "Parágrafo único. O participante que criar a marcação de fundada suspeita de fraude deverá comunicar ao usuário a realização da marcação, informando, no mínimo, a data da marcação, a possibilidade de revisão da medida e o canal disponível para esclarecimentos e para solicitação de revisão."
+    },
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=587",
+     "trecho": "Art. 5º Esta Resolução entra em vigor: I - em 1º de fevereiro de 2027, em relação às alterações promovidas pelo art. 2º referentes a: ... g) art. 78-HB, parágrafo único; ... III - na data de sua publicação, em relação aos demais dispositivos. [metadado: 'Publicada no DOU de 21/9/2026']"
+    },
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1",
+     "trecho": "[art. 89] § 2º O participante que aceitar uma notificação de infração ou que criar uma notificação de infração para marcação de fraude transacional deve rejeitar todas as transações Pix que tenham o usuário envolvido na notificação como pagador ou como recebedor, bem como a conta envolvida na notificação ... (Redação dada pela Resolução BCB nº 506, de 26/9/2025.)"
+    }
+   ],
+   "divergencia": "Atribuição: o art. 78-HA (marcação de fraude transacional) e a extensão do art. 89, § 2º ao usuário como pagador ou recebedor vêm da Res. BCB 506/2025 (26/9/2025; DOU 30/9/2025), não da 587/2026; a 587 só reescreveu ('fundada suspeita') e incluiu 78-HB, 78-HC, 78-HD. Assim, parte da lacuna (11.1 restringe só a conta) já vigorava desde set/2025; em replay entre 2025-09-26 e 2026-09-17 essa parte de G5 já seria vigente. 78-HB, parágrafo único, ausente do consolidado, confirmado no ato alterador. DOU da 587: 21/9/2026 (gabarito: 18/9/2026)."
+  },
+  {
+   "id": "B1",
+   "confere": "parcial",
+   "regra_ok": true,
+   "ato_alterador_ok": "parcial",
+   "vigencia_ok": "parcial",
+   "prazo_ok": null,
+   "lacuna_ok": true,
+   "evidencia": [
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=587",
+     "trecho": "X - divulgar o Mecanismo Especial de Devolução, de que trata o Capítulo XI, Seção II, com foco no público vulnerável, em seus canais de publicidade e de atendimento, por meio de informação clara e acessível. ... Art. 5º ... I - em 1º de fevereiro de 2027, em relação às alterações promovidas pelo art. 2º referentes a: ... c) art. 32;"
+    },
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=597",
+     "trecho": "“Art. 32. ... X - divulgar o Mecanismo Especial de Devolução, de que trata o Capítulo XI, Seção II, com foco no público vulnerável, em seus canais de publicidade e de atendimento, por meio de informação clara e acessível; e XI - impedir o processamento ... Art. 2º Esta Resolução entra em vigor na data de sua publicação. [metadado: 'Publicada no DOU de 2/10/2026']"
+    },
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1",
+     "trecho": "X - divulgar o Mecanismo Especial de Devolução ... (Incluído pela Resolução BCB nº 597, de 30/9/2026.)"
+    }
+   ],
+   "divergencia": "A divergência apontada no gabarito se confirma na fonte oficial: o consolidado do BCB atribui o inciso X à Res. BCB 597/2026, que o reescreve no art. 1º com vigência na publicação (DOU 2/10/2026), sem diferimento. Leitura literal: o inciso X pode estar exigível desde 2/10/2026, não só a partir de 1º/2/2027 (587, art. 5º, I, c). Ponto ambíguo; o gabarito não deve tratar 1º/2/2027 como certo."
+  },
+  {
+   "id": "B2",
+   "confere": true,
+   "regra_ok": true,
+   "ato_alterador_ok": true,
+   "vigencia_ok": "parcial",
+   "prazo_ok": null,
+   "lacuna_ok": true,
+   "evidencia": [
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1",
+     "trecho": "Art. 39-C. Para fins de avaliação de suspeita de fraude ou de fundada suspeita de fraude em transações Pix, os participantes deverão adotar, no mínimo, os critérios indicados pelo Banco Central do Brasil, a ser divulgado em documento específico. (Incluído pela Resolução BCB nº 506, de 26/9/2025.)"
+    }
+   ],
+   "divergencia": "Nenhuma de conteúdo; vigência na publicação (DOU 30/9/2025). O 'documento específico' do BCB não foi lido."
+  },
+  {
+   "id": "B3",
+   "confere": true,
+   "regra_ok": null,
+   "ato_alterador_ok": null,
+   "vigencia_ok": null,
+   "prazo_ok": null,
+   "lacuna_ok": true,
+   "evidencia": [
+    {
+     "url": "politica.txt",
+     "trecho": "Próxima revisão ordinária: março de 2026 ... 14.1 Esta Política é revista anualmente ... Histórico de versões: ... 3.0 (mar. 2025 ...)"
+    }
+   ],
+   "divergencia": "Observação de governança interna; não há regra externa a conferir. A política não registra revisão após mar/2025."
+  },
+  {
+   "id": "EXP-Tema466",
+   "confere": true,
+   "regra_ok": true,
+   "ato_alterador_ok": null,
+   "vigencia_ok": null,
+   "prazo_ok": null,
+   "lacuna_ok": null,
+   "evidencia": [
+    {
+     "url": "https://processo.stj.jus.br/repetitivos/temas_repetitivos/pesquisa.jsp?novaConsulta=true&tipo_pesquisa=T&cod_tema_inicial=466&cod_tema_final=466",
+     "trecho": "As instituições financeiras respondem objetivamente pelos danos gerados por fortuito interno relativo a fraudes e delitos praticados por terceiros no âmbito de operações bancárias. [Situação: Trânsito em Julgado; REsp 1197929/PR e 1199782/PR, j. 24/08/2011]"
+    }
+   ],
+   "divergencia": null
+  },
+  {
+   "id": "EXP-Sumula479",
+   "confere": true,
+   "regra_ok": true,
+   "ato_alterador_ok": null,
+   "vigencia_ok": null,
+   "prazo_ok": null,
+   "lacuna_ok": null,
+   "evidencia": [
+    {
+     "url": "https://scon.stj.jus.br/SCON/sumstj/doc.jsp?livre=%22479%22.num.&b=SUMU",
+     "trecho": "As instituições financeiras respondem objetivamente pelos danos gerados por fortuito interno relativo a fraudes e delitos praticados por terceiros no âmbito de operações bancárias. (Segunda Seção, julgado em 27/06/2012, DJe 01/08/2012)"
+    }
+   ],
+   "divergencia": null
+  },
+  {
+   "id": "EXP-CDC14",
+   "confere": true,
+   "regra_ok": true,
+   "ato_alterador_ok": null,
+   "vigencia_ok": null,
+   "prazo_ok": null,
+   "lacuna_ok": null,
+   "evidencia": [
+    {
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+     "trecho": "Art. 14. O fornecedor de serviços responde, independentemente da existência de culpa, pela reparação dos danos causados aos consumidores por defeitos relativos à prestação dos serviços, bem como por informações insuficientes ou inadequadas sobre sua fruição e riscos."
+    }
+   ],
+   "divergencia": null
+  },
+  {
+   "id": "EXP-REsp2052228",
+   "confere": true,
+   "regra_ok": true,
+   "ato_alterador_ok": null,
+   "vigencia_ok": null,
+   "prazo_ok": null,
+   "lacuna_ok": null,
+   "evidencia": [
+    {
+     "url": "https://scon.stj.jus.br/jurisprudencia/externo/informativo/?aplicacao=informativo&acao=pesquisar&livre=%40CNOT%3D%27020239%27",
+     "trecho": "REsp 2.052.228-DF, Rel. Ministra Nancy Andrighi, Terceira Turma, por unanimidade, julgado em 12/9/2023, DJe 15/9/2023. Responsabilidade objetiva de instituição financeira. Fraude perpetrada por terceiro. Contratação de mútuo. Movimentações atípicas e alheias ao padrão de consumo."
+    }
+   ],
+   "divergencia": "Nenhuma; o dever de identificar/impedir movimentações atípicas consta do informativo e da notícia do STJ de 30/10/2023 (lidos via resumo do WebFetch/WebSearch, não o inteiro teor)."
+  },
+  {
+   "id": "EXP-TJSP-1021944-19.2025.8.26.0405",
+   "confere": "parcial",
+   "regra_ok": null,
+   "ato_alterador_ok": null,
+   "vigencia_ok": true,
+   "prazo_ok": null,
+   "lacuna_ok": null,
+   "evidencia": [
+    {
+     "url": "https://esaj.tjsp.jus.br/cposg/search.do?cbPesquisa=NUMPROC&dePesquisaNuUnificado=1021944-19.2025.8.26.0405",
+     "trecho": "Apelação Cível; Núcleo 4.0-T. VII (DP2); Relator Gustavo Santini Teodoro; julgamento 19/03/2026; 'Deram provimento ao recurso. V. U.'"
+    },
+    {
+     "url": "https://esaj.tjsp.jus.br/cpopg/search.do?dadosConsulta.valorConsultaNuUnificado=1021944-19.2025.8.26.0405",
+     "trecho": "Procedimento Comum Cível; Responsabilidade do Fornecedor; Foro de Osasco, 5ª Vara Cível; Requerido: Banco Bradesco S.A."
+    }
+   ],
+   "divergencia": "Data (19/3/2026) e existência conferem; a tese (MED rejeitado por falta de saldo, sem monitoramento, é falha do serviço) não foi lida: ementa/inteiro teor exigem a busca cjsg, bloqueada por reCAPTCHA."
+  },
+  {
+   "id": "EXP-TJSP-1005315-29.2023.8.26.0020",
+   "confere": "parcial",
+   "regra_ok": null,
+   "ato_alterador_ok": null,
+   "vigencia_ok": true,
+   "prazo_ok": null,
+   "lacuna_ok": null,
+   "evidencia": [
+    {
+     "url": "https://esaj.tjsp.jus.br/cposg/search.do?cbPesquisa=NUMPROC&dePesquisaNuUnificado=1005315-29.2023.8.26.0020",
+     "trecho": "Apelação Cível; DIREITO DO CONSUMIDOR - Contratos de Consumo - Bancários; Núcleo 4.0-T. IV (DP2); Relator Domingos de Siqueira Frascino; julgamento 07/02/2025; 'Deram provimento ao recurso. V. U.'; Apelados: Pagseguro Internet Instituição de Pagamento S/A e Itaú Unibanco S/A"
+    }
+   ],
+   "divergencia": "Data (7/2/2025) e existência conferem; a tese (conta aberta e usada para fraude sem cautelas gera responsabilidade da recebedora) não foi lida (cjsg bloqueada por reCAPTCHA)."
+  },
+  {
+   "id": "CONF-5.2",
+   "confere": true,
+   "regra_ok": true,
+   "ato_alterador_ok": null,
+   "vigencia_ok": null,
+   "prazo_ok": null,
+   "lacuna_ok": true,
+   "evidencia": [
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=142",
+     "trecho": "Art. 3º As instituições referidas no art. 1º devem facultar aos seus clientes: I - o estabelecimento de limites específicos de acordo com o período ... II - o cadastro prévio de contas de depósitos ou de pagamento pré-pagas autorizadas a receber valores acima dos limites ..."
+    }
+   ],
+   "divergencia": null
+  },
+  {
+   "id": "CONF-9.1-9.3",
+   "confere": true,
+   "regra_ok": true,
+   "ato_alterador_ok": null,
+   "vigencia_ok": null,
+   "prazo_ok": null,
+   "lacuna_ok": true,
+   "evidencia": [
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1",
+     "trecho": "Art. 39-B ... § 2º O bloqueio cautelar deve ser efetivado simultaneamente ao crédito ... § 3º ... comunicar imediatamente ao usuário recebedor ... § 4º O bloqueio cautelar durará no máximo 72 horas. ... § 8º A possibilidade de realização do bloqueio cautelar ... deverá constar do contrato ... mediante cláusula em destaque"
+    }
+   ],
+   "divergencia": "Nenhuma (§ 7º, que limitava a pessoa natural, foi revogado pela 506/2025; a política não o reproduz)."
+  },
+  {
+   "id": "CONF-10.5",
+   "confere": true,
+   "regra_ok": true,
+   "ato_alterador_ok": null,
+   "vigencia_ok": null,
+   "prazo_ok": null,
+   "lacuna_ok": true,
+   "evidencia": [
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1",
+     "trecho": "§ 1º A possibilidade de devoluções e de bloqueios dos recursos realizados no âmbito do Mecanismo Especial de Devolução, inclusive a possibilidade de devoluções e de bloqueios parciais ... deverá constar do contrato ... mediante cláusula em destaque no corpo do instrumento contratual ... (Redação dada, a partir de 1º/1/2023, pela Resolução BCB nº 269, de 1º/12/2022.)"
+    }
+   ],
+   "divergencia": null
+  },
+  {
+   "id": "CONF-12.1-12.2",
+   "confere": true,
+   "regra_ok": true,
+   "ato_alterador_ok": null,
+   "vigencia_ok": null,
+   "prazo_ok": null,
+   "lacuna_ok": true,
+   "evidencia": [
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=142",
+     "trecho": "Art. 4º ... devem manter registros diários ... § 1º ... relatório com avaliação mensal consolidada ... encaminhado, para ciência: I - ao comitê de auditoria, se houver; II - à auditoria interna; III - ao comitê de risco, se houver; IV - à Diretoria Executiva; e V - ao Conselho de Administração, se houver."
+    }
+   ],
+   "divergencia": null
+  },
+  {
+   "id": "CONF-5.1-6.1-6.3",
+   "confere": true,
+   "regra_ok": true,
+   "ato_alterador_ok": null,
+   "vigencia_ok": null,
+   "prazo_ok": null,
+   "lacuna_ok": true,
+   "evidencia": [
+    {
+     "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1",
+     "trecho": "[art. 89] § 1º ... I - utilizar solução de gerenciamento de risco de fraude que contemple ao menos as informações de segurança armazenadas no DICT ... II - disponibilizar ... informações sobre os cuidados que os clientes devem ter para evitar fraudes. ... § 6º ... apenas por meio de dispositivo de acesso previamente cadastrado"
+    }
+   ],
+   "divergencia": null
+  }
+ ],
+ "nao_conferido": [
+  "Teses dos acórdãos TJSP 1021944-19.2025.8.26.0405 e 1005315-29.2023.8.26.0020: a busca de jurisprudência (esaj cjsg) exige reCAPTCHA; só foram lidos número, órgão, relator, data e resultado (cposg).",
+  "Inteiro teor do REsp 2.052.228/DF: lido apenas o Informativo 788 e a notícia do STJ, via resumo do WebFetch/WebSearch (o WebFetch devolve resumo de modelo, não texto bruto); idem para Tema 466 e Súmula 479, cujo enunciado foi transcrito pelo WebFetch.",
+  "Manual Operacional do DICT e o 'documento específico' do art. 39-C não foram lidos (prazos operacionais do MED não conferidos).",
+  "Severidade e responsáveis esperados não são fatos verificáveis em fonte oficial.",
+  "Textos do BCB lidos via API oficial do BCB com curl (texto bruto em raw/), não com WebFetch; DOU (in.gov.br) não consultado diretamente: as datas de DOU vêm do campo 'DOU' do próprio BCB."
+ ]
+}

@@ -1,0 +1,22 @@
+legislacao-infralegal___buscar_atos | BCB | mecanismo especial de devolução rastreamento de recursos transferidos a outras contas
+legislacao-infralegal___buscar_atos | BCB | bloqueio cautelar recursos recebidos Pix suspeita de fraude 72 horas
+acervo___consultar | legislacao-infralegal | BCB-Res-493-2025 arts. 3,4,5
+acervo___consultar | legislacao-infralegal | BCB-Res-506-2025 arts. 3,4,5
+acervo___consultar | legislacao-infralegal | BCB-Res-1-2020 arts. 39-B,41-D,78-H,78-N,89
+legislacao-infralegal___buscar_atos | norma BCB-Res-559-2026 | vigência e produção de efeitos
+legislacao-infralegal___buscar_atos | norma BCB-Res-587-2026 | vigência e produção de efeitos (fora da busca)
+acervo___consultar | legislacao-infralegal | BCB-Res-587-2026 arts. 1,2,3,4
+acervo___consultar | legislacao-infralegal | BCB-Res-457-2025 arts. 1,2,3,4
+acervo___consultar | legislacao-infralegal | BCB-Res-587-2026 arts. 5,6
+acervo___consultar | legislacao-infralegal | BCB-Res-1-2020 arts. 32,56,39,78-HB,78-HC
+legislacao-infralegal___buscar_atos | norma BCB-Res-597-2026 | vigência divulgar MED público vulnerável
+acervo___consultar | legislacao-infralegal | BCB-Res-1-2020 arts. 78-HB,78-HC,78-HA (não retornados)
+legislacao-infralegal___buscar_atos | BCB,CMN | política de prevenção a fraudes instituição de pagamento registro ocorrências relatório
+acervo___consultar | legislacao-infralegal | BCB-Res-142-2021 arts. 2,3,4,5
+acervo___consultar | legislacao-infralegal | BCB-Res-584-2026 arts. 1,2,3,4
+acervo___consultar | legislacao-infralegal | BCB-Res-142-2021 arts. 2-A,6,7
+acervo___consultar | legislacao-infralegal | BCB-Res-501-2025 arts. 1,2,3
+acervo___consultar | legislacao-infralegal | BCB-Res-506-2025 art. 2
+jurisprudencia-federal___buscar_precedentes | STF,STJ | responsabilidade objetiva instituição financeira fraude Pix golpe falha de segurança fortuito interno
+acervo___consultar | legislacao-infralegal | BCB-Res-343-2023 arts. 1,9,10,11
+jurisprudencia-federal___buscar_precedentes | STF,STJ | Pix golpe instituição recebedora conta de destino responsabilidade abertura de conta fraudador MED

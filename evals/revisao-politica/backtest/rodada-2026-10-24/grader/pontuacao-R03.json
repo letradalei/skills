@@ -1,0 +1,168 @@
+{
+ "id": "R03",
+ "itens": {
+  "G1": {
+   "encontrado": true,
+   "clausula_ok": true,
+   "ato_artigo_ok": true,
+   "data_ok": true,
+   "achado_ids": [
+    "A5"
+   ],
+   "nota": "5.4; Res. 142, art. 2º-A, caput e §§ 1º-4º (Res. 501/2025); prazo 13/10/2025 vencido; comunicação ao titular; também arts. 39, I, 39-B, § 1º e 39-C. Vigência 11/9/2025 (data do ato; DOU 12/9): menor, igual ao gabarito. Alta."
+  },
+  "G2": {
+   "encontrado": true,
+   "clausula_ok": true,
+   "ato_artigo_ok": true,
+   "data_ok": true,
+   "achado_ids": [
+    "A1",
+    "A3",
+    "A4"
+   ],
+   "nota": "10.1, 10.3 e 10.4; arts. 78-N, 78-F, § 2º, 41-E, 41-D, § 4º, I e II, 54, 121, II; Res. 493/2025; prazo 2/2/2026 vencido. A4 com severidade baixa (10.4); A1 e A3 altas."
+  },
+  "G3": {
+   "encontrado": true,
+   "clausula_ok": true,
+   "ato_artigo_ok": true,
+   "data_ok": true,
+   "achado_ids": [
+    "A2"
+   ],
+   "nota": "10.2; art. 41-D, II e § 1º, I e II; Res. 559/2026, art. 3º, I, a; efeitos 1º/7/2026; vigente. Cita também Res. 507/2025 (Manual de Penalidades), Anexo I, art. 18, II, e: conferido. Alta."
+  },
+  "G4": {
+   "encontrado": true,
+   "clausula_ok": true,
+   "ato_artigo_ok": true,
+   "data_ok": true,
+   "achado_ids": [
+    "A12",
+    "A13"
+   ],
+   "nota": "8.2 (art. 56, § 3º) e 8.3 (arts. 68, § 2º, 70, § 2º), atribuídos à Res. 587/2026 (que de fato deu a redação atual aos três), vigência 18/9/2026 (data do ato; DOU 21/9). Não menciona a Res. 506/2025: sugere que o dever nasceu em set/2026 quando já existia desde 30/9/2025. Situação vigente correta. Média = esperada."
+  },
+  "G5": {
+   "encontrado": true,
+   "clausula_ok": true,
+   "ato_artigo_ok": true,
+   "data_ok": true,
+   "achado_ids": [
+    "A16",
+    "A17",
+    "A18"
+   ],
+   "nota": "11.1/11.2: art. 89, § 2º (usuário pagador ou recebedor), 78-HA, 78-HD (5 anos), 78-HC, §§ 1º-4º (7 dias, fundamentos), 78-HB, parágrafo único a vigorar em 1º/2/2027 (art. 5º, I, g). Atribui 89, § 2º e 78-HA só à 587 (origem na 506): imprecisão de origem, como no gabarito. Vigência pela data do ato: menor."
+  },
+  "B1": {
+   "encontrado": true,
+   "clausula_ok": true,
+   "ato_artigo_ok": true,
+   "data_ok": true,
+   "achado_ids": [
+    "A20"
+   ],
+   "nota": "13.2; art. 32, X, Res. 597/2026, vigente na publicação (usa 30/9/2026, data do ato; DOU 2/10/2026): aceito pela leitura literal da fonte oficial (ver divergência B1). Severidade média (esperada baixa)."
+  },
+  "B2": {
+   "encontrado": true,
+   "clausula_ok": false,
+   "ato_artigo_ok": true,
+   "data_ok": true,
+   "achado_ids": [
+    "A5"
+   ],
+   "nota": "Item (iii) de A5: adotar no mínimo os critérios indicados pelo BCB (art. 39-C, Res. 506/2025), na cláusula 5.4, sem achado próprio sobre 5.1."
+  },
+  "B3": {
+   "encontrado": true,
+   "clausula_ok": true,
+   "ato_artigo_ok": null,
+   "data_ok": true,
+   "achado_ids": [
+    "A22"
+   ],
+   "nota": "Cláusulas 3.1-4.6/14.1: revisão ordinária de mar/2026 não ocorreu e as alterações normativas disparam a revisão extraordinária. Baixa = esperada."
+  }
+ },
+ "nao_casados": [
+  {
+   "achado_id": "A6",
+   "classe": "extra_valido",
+   "motivo": "Res. 142, art. 2º, I e II, §§ 1º-3º, e art. 3º, § 1º: deveres reais não previstos (vigência citada 23/9/2021 é a do ato; implementação até 4/10/2021, art. 7º, I). Gabarito marca 5.2 como conforme: divergência.",
+   "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=142"
+  },
+  {
+   "achado_id": "A7",
+   "classe": "extra_valido",
+   "motivo": "Art. 89, §§ 3º e 4º (Res. 403/2024) e art. 32, VII (redação da Res. 402/2024) conferidos. Gabarito marca 5.1 como conforme: divergência.",
+   "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1"
+  },
+  {
+   "achado_id": "A8",
+   "classe": "extra_valido",
+   "motivo": "Art. 38, II: a transação 'deverá ser rejeitada' com fundada suspeita; a cláusula 5.3 diz 'podem ser rejeitadas'. Lacuna de redação real, baixa; 5.3 não está na lista de conformes do gabarito.",
+   "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1"
+  },
+  {
+   "achado_id": "A19",
+   "classe": "extra_valido",
+   "motivo": "Res. Conjunta 6/2023, art. 2º, §§ 1º-4º (sistema eletrônico, consentimento em cláusula destacada) e Res. BCB 343/2023, art. 4º (registro em 24h) conferidos; a política não prevê. Datas erradas: ambas entram em vigor em 1º/11/2023 (a saída usa 23/5/2023 e 4/10/2023, datas dos atos). Gabarito marca 12.1-12.2 como conformes: divergência.",
+   "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20Conjunta&p2=6"
+  },
+  {
+   "achado_id": "A21",
+   "classe": "duvidoso",
+   "motivo": "Art. 32, XI (Res. BCB 597/2026) existe e está conferido (bloqueio de transações a loterias de quota fixa, MP 1.394/2026), mas é dever de conformidade com apostas, não de prevenção a fraudes; a própria saída diz que pode caber em outra política.",
+   "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=597"
+  }
+ ],
+ "proveniencia_amostra": {
+  "ok": 3,
+  "total": 5,
+  "problemas": [
+   "A19/F2: Res. Conjunta 6/2023 com vigência 2023-05-23; o ato entra em vigor em 1º/11/2023.",
+   "A19/F3: Res. BCB 343/2023 com vigência 2023-10-04; o ato entra em vigor em 1º/11/2023.",
+   "A5 (Res. 501, 11/9/2025) e A21 (Res. 597, 30/9/2026) usam a data do ato em vez do DOU (12/9/2025 e 2/10/2026): menor, contado como ok."
+  ]
+ },
+ "divergencias_com_gabarito": [
+  {
+   "item": "G1",
+   "o_que": "vigente_desde 2025-09-11 é a data do ato; a Res. BCB 501/2025 vige na publicação, DOU de 12/9/2025. Sem efeito no prazo (13/10/2025).",
+   "evidencia_url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=501"
+  },
+  {
+   "item": "G4",
+   "o_que": "vigente_desde 2025-09-26 é a data do ato; a Res. BCB 506/2025 vige na publicação, DOU de 30/9/2025. A 587/2026 (DOU 21/9/2026) também deu nova redação aos arts. 68, § 2º, 70, § 2º e 89, § 2º, não só ao 56, § 3º.",
+   "evidencia_url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=587"
+  },
+  {
+   "item": "G5",
+   "o_que": "O art. 78-HA (marcação de fraude transacional) e a extensão do art. 89, § 2º ao usuário como pagador ou recebedor vêm da Res. BCB 506/2025 (DOU 30/9/2025); a 587/2026 só reescreveu (\"fundada suspeita\") e incluiu 78-HB a 78-HD. O gabarito atribui tudo à 587.",
+   "evidencia_url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1"
+  },
+  {
+   "item": "B1",
+   "o_que": "Art. 32, X: o consolidado do BCB atribui o inciso à Res. BCB 597/2026, em vigor na publicação (DOU 2/10/2026); a 587/2026 o difere para 1º/2/2027. Leitura literal permite tratá-lo como vigente desde 2/10/2026; o gabarito não deve tratar 1º/2/2027 como certo. Ambas as leituras foram aceitas em data_ok.",
+   "evidencia_url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=597"
+  },
+  {
+   "item": "clausula 5.1",
+   "o_que": "Gabarito dá 5.1 como conforme (art. 89, § 1º, I), mas a política omite o § 3º (base de informações de segurança atualizada ao menos a cada seis meses via DICT) e o § 4º (documentação da solução à disposição do BCB), ambos vigentes desde 1º/11/2024 (Res. BCB 403/2024).",
+   "evidencia_url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1"
+  },
+  {
+   "item": "clausula 5.2",
+   "o_que": "Gabarito dá 5.2 como conforme (art. 3º da Res. 142), mas a política não prevê os deveres do art. 2º da Res. BCB 142/2021 (limite de R$ 1.000 das 20h às 6h entre pessoas naturais; prazo mínimo de 24h para aumento de limite) nem o prazo de 24h do art. 3º, § 1º.",
+   "evidencia_url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=142"
+  },
+  {
+   "item": "clausula 12.1-12.2",
+   "o_que": "Gabarito dá 12.1-12.2 como conformes, mas a política não prevê o compartilhamento de indícios de fraude exigido pela Res. Conjunta 6/2023, art. 2º, e pela Res. BCB 343/2023, arts. 4º e 5º (vigentes desde 1º/11/2023).",
+   "evidencia_url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20Conjunta&p2=6"
+  }
+ ]
+}

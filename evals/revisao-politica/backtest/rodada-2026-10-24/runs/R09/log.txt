@@ -1,0 +1,35 @@
+conformidade-local conceito {"query":"MED"}
+conformidade-local conceito {"query":"bloqueio cautelar"}
+conformidade-local conceito {"query":"gerenciamento de risco de fraude Pix"}
+conformidade-local conceito {"query":"notificação de infração"}
+conformidade-local conceito {"id":"letradalei:br:concept:topic:med","desde":"2025-03-18","data_referencia":"2026-10-24"}
+conformidade-local conceito {"id":"letradalei:concept:topic:instant-payment-fraud","desde":"2025-03-18","data_referencia":"2026-10-24"}
+conformidade-local conceito {"id":"letradalei:concept:topic:fraud-suspect-accounts","desde":"2025-03-18","data_referencia":"2026-10-24"}
+conformidade-local conceito {"id":"letradalei:br:concept:topic:pix","desde":"2025-03-18","data_referencia":"2026-10-24"}
+conformidade-local conceito {"id":"letradalei:concept:topic:financial-institution-fraud-liability","desde":"2025-03-18","data_referencia":"2026-10-24"}
+conformidade-local conceito {"id":"letradalei:concept:topic:fraud-data-sharing","desde":"2025-03-18","data_referencia":"2026-10-24"}
+conformidade-local conceito {"id":"letradalei:concept:topic:payment-fraud","desde":"2025-03-18","data_referencia":"2026-10-24"}
+conformidade-local alteracoes {"search_id":"byFBCpjXiJbXExBO","desde":"2025-03-18"}
+conformidade-local alteracoes {"search_id":"dkD1QCBZqCvJwmdJ","desde":"2025-03-18"}
+conformidade-local alteracoes {"search_id":"1Z3m7hsCgyH5ilWH","desde":"2025-03-18"}
+conformidade-local alteracoes {"search_id":"VQvkeighdq5jHmMG","desde":"2025-03-18"}
+conformidade-local alteracoes {"search_id":"1I6v4mg3vimnTf5G","desde":"2025-03-18"}
+conformidade-local alteracoes {"search_id":"K716TDayS9WEhHMR","desde":"2025-03-18"}
+conformidade-local alteracoes {"search_id":"1baWctsTQHCGTmat","desde":"2025-03-18"}
+conformidade-local alteracoes {"search_id":"Cp0q6F0SAX7B7Xg0","desde":"2025-03-18"}
+conformidade-local alteracoes {"search_id":"5iVdGtMilRkWFT6l","desde":"2025-03-18"}
+conformidade-local alteracoes {"search_id":"1bexqrWj8ZuTU6ub","desde":"2025-03-18"}
+conformidade-local alteracoes {"search_id":"hwsAxKdPLZZ27XTN","desde":"2025-03-18"}
+conformidade-local alteracoes {"search_id":"1TVUI5eLJEU4n5EB","desde":"2025-03-18"}
+conformidade-local alteracoes {"search_id":"wy3bEbV4VywfzoYE","desde":"2025-03-18"}
+acervo___consultar legislacao-infralegal search_ids=[byFBCpjXiJbXExBO,dkD1QCBZqCvJwmdJ,1Z3m7hsCgyH5ilWH,5iVdGtMilRkWFT6l,K716TDayS9WEhHMR] (arts. 41-D,41-E,39-C,39-B,121 Res BCB 1/2020)
+acervo___consultar legislacao-infralegal search_ids=[VQvkeighdq5jHmMG,1I6v4mg3vimnTf5G,1TVUI5eLJEU4n5EB,18NGDHIYGwjzTUr6,1baWctsTQHCGTmat] (arts. 78/78-HA..HD,89,78-N,78-F Res 1/2020; art. 2º-A Res 142/2021)
+acervo___consultar legislacao-infralegal search_ids=[1bexqrWj8ZuTU6ub,Cp0q6F0SAX7B7Xg0,wy3bEbV4VywfzoYE,KHFSh8eidBr3OETO,hwsAxKdPLZZ27XTN] (arts. 56,37,38,39 Res 1/2020; art. 4º Res 142/2021)
+acervo___consultar legislacao-infralegal norma=BCB-Res-584-2026 numeros=[1,2,3]
+acervo___consultar legislacao-infralegal norma=BCB-Res-587-2026 numeros=[1..5]
+acervo___consultar legislacao-infralegal search_ids=[1aoJc1jO4OAExU4l,XX4VmkpdeVQGWPi8,177GQrZ25632XlWv,1GFW6HGj2ww7CAih,n1sOuIdFd7hsgzCW] (Res 142 arts 2,3,6; Res 507 Anexo I art 18; ResConj 6/2023 art 2)
+jurisprudencia-federal___buscar_precedentes STJ "responsabilidade da instituição de pagamento por golpe via Pix, falha no bloqueio e na devolução (MED)"
+acervo___consultar jurisprudencia federal search_ids=[1P3qo3LW3EX6txpt,f4rtktxooHEXYyqL] (STJ Súmula 479, Tema 466)
+jurisprudencia-estadual___buscar_precedentes SP "responsabilidade da instituição do recebedor conta laranja golpe Pix MED bloqueio"
+conformidade-local alteracoes {"norma":"BCB-Res-1-2020","desde":"2025-03-18","ate":"2026-10-24"}
+conformidade-local alteracoes {"norma":"BCB-Res-142-2021","desde":"2025-03-18","ate":"2026-10-24"}

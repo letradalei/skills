@@ -1,0 +1,27 @@
+WebSearch: Resolução BCB 2025 MED 2.0 rastreamento recursos múltiplas contas autoatendimento prazo
+WebSearch: Resolução BCB 142 2021 política prevenção fraudes instituições de pagamento
+WebFetch: legisweb Resolucao BCB 501/2025 (id=483402)
+WebSearch: "Resolução BCB nº 493" 2025 Regulamento Pix MED alterações vigência
+WebSearch: Banco Central 2025 resolução chaves Pix rejeitar registro CPF irregular notificação de infração obrigatoriedade
+WebFetch: bcb.gov.br exibenormativo Resolucao BCB 493
+WebSearch: Resolução BCB abril 2026 MED bloqueio complementar conta recebedor novos ingressos 1º de julho 2026 Pix
+WebFetch: bcb.gov.br exibenormativo Resolucao BCB 559
+WebFetch: mercadopago.com.br blog novas-regras-pix-contas-juridicas (403)
+WebSearch: Resolução BCB 2025 Pix gerenciamento de risco de fraude conta recebedora transações recebidas suspeita alteração regulamento Pix art. 39
+WebFetch: bcb.gov.br exibenormativo Resolucao BCB 506
+WebFetch: bcb.gov.br exibenormativo Resolucao BCB 402
+WebFetch: bcb.gov.br exibenormativo Resolucao BCB 403
+WebFetch: bcb.gov.br exibenormativo Resolucao BCB 142 (consolidada)
+WebFetch: bcb.gov.br exibenormativo Resolucao BCB 584
+WebSearch: Resolução BCB março 2025 chaves Pix situação cadastral CPF Receita Federal número resolução 457
+WebFetch: bcb.gov.br exibenormativo Resolucao BCB 457
+WebSearch: bloqueio cautelar Pix pessoa jurídica 2026 resolução BCB 72 horas alteração regulamento
+WebFetch: bcb.gov.br exibenormativo Resolucao BCB 1 (regulamento consolidado, notas de atualizacao)
+WebFetch: bcb.gov.br exibenormativo Resolucao BCB 587
+WebFetch: bcb.gov.br exibenormativo Resolucao BCB 597
+WebFetch: bcb.gov.br exibenormativo Resolucao BCB 147
+WebFetch: bcb.gov.br exibenormativo Resolucao BCB 425
+WebSearch: botão de contestação MED autoatendimento obrigatório 1º de outubro de 2025 Pix Banco Central norma
+WebSearch: STJ responsabilidade instituição recebedora conta laranja golpe Pix falha dever de segurança REsp 2025 2026 ementa
+WebSearch: stj.jus.br notícia Terceira Turma banco recebedor responde conta usada por golpistas monitoramento REsp (allowed_domains stj.jus.br)
+WebFetch: stj.jus.br noticia 11102026 Golpes virtuais danos reais (precedentes)

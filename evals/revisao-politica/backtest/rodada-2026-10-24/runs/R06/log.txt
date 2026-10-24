@@ -1,0 +1,20 @@
+mcp__claude_ai_Letra_da_Lei__acervo___listar | dominio=legislacao-infralegal
+mcp__claude_ai_Letra_da_Lei__legislacao-infralegal___buscar_atos | BCB: Mecanismo Especial de Devolução rastreamento de recursos contas subsequentes
+mcp__claude_ai_Letra_da_Lei__legislacao-infralegal___buscar_atos | BCB: bloqueio cautelar recursos recebidos Pix suspeita de fraude 72 horas
+mcp__claude_ai_Letra_da_Lei__legislacao-infralegal___buscar_atos | BCB: solução de gerenciamento de risco de fraude informações de segurança DICT transações recebidas
+mcp__claude_ai_Letra_da_Lei__acervo___consultar | legislacao-infralegal search_ids: Res BCB 1/2020 Reg. arts. 89, 39-B, 41-D, 41-C, 41-B
+mcp__claude_ai_Letra_da_Lei__acervo___consultar | legislacao-infralegal BCB-Res-506-2025 arts. 2-5
+mcp__claude_ai_Letra_da_Lei__acervo___consultar | legislacao-infralegal BCB-Res-587-2026 arts. 2-6
+mcp__claude_ai_Letra_da_Lei__legislacao-infralegal___buscar_atos | norma BCB-Res-493-2025: entra em vigor produzindo efeitos recuperação de valores rastreamento
+mcp__claude_ai_Letra_da_Lei__legislacao-infralegal___buscar_atos | norma BCB-Res-559-2026: entra em vigor efeitos bloqueio complementado ingresso de recursos
+mcp__claude_ai_Letra_da_Lei__acervo___consultar | legislacao-infralegal BCB-Res-493-2025 art. 3
+mcp__claude_ai_Letra_da_Lei__legislacao-infralegal___buscar_atos | norma BCB-Res-1-2020: funcionalidade de recuperação de valores rastreamento obrigatória art. 78-N
+mcp__claude_ai_Letra_da_Lei__legislacao-infralegal___buscar_atos | norma BCB-Res-142-2021: objeto da resolução
+mcp__claude_ai_Letra_da_Lei__legislacao-infralegal___buscar_atos | norma BCB-Res-457-2025: dispositivo de acesso não cadastrado entra em vigor efeitos
+mcp__claude_ai_Letra_da_Lei__acervo___consultar | legislacao-infralegal BCB-Res-142-2021 arts. 2,3,4,5,7
+mcp__claude_ai_Letra_da_Lei__jurisprudencia-federal___buscar_precedentes | STJ: responsabilidade objetiva instituição financeira fraudes praticadas por terceiros fortuito interno
+mcp__claude_ai_Letra_da_Lei__jurisprudencia-federal___buscar_precedentes | STJ: golpe Pix transferência fraudulenta falha de segurança instituição de pagamento conta recebedora
+mcp__claude_ai_Letra_da_Lei__acervo___consultar | jurisprudencia federal: STJ Tema Repetitivo 466
+mcp__claude_ai_Letra_da_Lei__jurisprudencia-federal___buscar_precedentes | STJ: responsabilidade da instituição que mantém conta do fraudador recebedora conta laranja Pix
+mcp__claude_ai_Letra_da_Lei__acervo___consultar | jurisprudencia federal: STJ Súmula 479
+mcp__claude_ai_Letra_da_Lei__acervo___consultar | legislacao Lei-12865-2013 art. 7 data_referencia 2026-10-24

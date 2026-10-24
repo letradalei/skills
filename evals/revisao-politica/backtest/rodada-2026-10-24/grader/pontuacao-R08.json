@@ -1,0 +1,156 @@
+{
+ "id": "R08",
+ "itens": {
+  "G1": {
+   "encontrado": true,
+   "clausula_ok": true,
+   "ato_artigo_ok": true,
+   "data_ok": true,
+   "achado_ids": [
+    "A4"
+   ],
+   "nota": "5.4, alta. Cita a Res. 142, art. 2º-A, caput e §§ 1º a 4º (Res. 501/2025), o prazo de 13/10/2025 vencido e a comunicação ao titular. Vigência 2025-09-11. Também cita os arts. 39, I, 39-B, § 1º e 39-C (ver B2)."
+  },
+  "G2": {
+   "encontrado": true,
+   "clausula_ok": true,
+   "ato_artigo_ok": true,
+   "data_ok": "parcial",
+   "achado_ids": [
+    "A16",
+    "A14"
+   ],
+   "nota": "A16 (10.3, alta) cita o art. 41-D, § 4º, o art. 41-E, II e III e o art. 78-N (Res. 493/2025), com débito da conta e devolução em nome próprio. A14 (10.1, média) cita os arts. 78-N e 41-E. Data parcial: não cita o art. 121, II nem o prazo de obrigatoriedade de 2/2/2026; esse prazo só aparece de forma indireta, na revogação do art. 78-H, parágrafo único, com efeitos em 2/2/2026. Situação vigente: correta."
+  },
+  "G3": {
+   "encontrado": true,
+   "clausula_ok": true,
+   "ato_artigo_ok": true,
+   "data_ok": true,
+   "achado_ids": [
+    "A15"
+   ],
+   "nota": "10.2, alta. Cita o art. 41-D, II e § 1º, I e II, com a Res. 559/2026, efeitos em 1º/7/2026 (art. 3º, I, a); prazo vencido, situação vigente. A18 nota corretamente a revogação dos §§ 2º e 3º."
+  },
+  "G4": {
+   "encontrado": true,
+   "clausula_ok": true,
+   "ato_artigo_ok": true,
+   "data_ok": true,
+   "achado_ids": [
+    "A11",
+    "A12"
+   ],
+   "nota": "A11 (8.2, alta; gabarito: média) cita o art. 56, § 3º, origem na Res. 506/2025 e redação atual da Res. 587/2026, e o § 2º. A12 (8.3, baixa) cita os arts. 68, § 2º e 70, § 2º, da Res. 506 com redação da 587 (confere no consolidado oficial). Vigência 2026-09-18 da redação atual, com a 506 identificada como origem."
+  },
+  "G5": {
+   "encontrado": true,
+   "clausula_ok": true,
+   "ato_artigo_ok": true,
+   "data_ok": true,
+   "achado_ids": [
+    "A19",
+    "A20",
+    "A21"
+   ],
+   "nota": "Cobertura completa. A19 (11.1, média) trata da restrição ao usuário como pagador ou recebedor (art. 89, § 2º) e da marcação (art. 78-HA), atribuídas à 506 com redação da 587. A20 (11.2, alta) traz os 7 dias, os fundamentos (78-HC, §§ 1º a 4º), os 5 anos (78-HD) e o art. 89, § 10. A21 (média, a vigorar) traz a comunicação ao usuário marcado (78-HB, parágrafo único) com efeitos em 1º/2/2027 (art. 5º, I, g)."
+  },
+  "B1": {
+   "encontrado": true,
+   "clausula_ok": true,
+   "ato_artigo_ok": true,
+   "data_ok": true,
+   "achado_ids": [
+    "A8"
+   ],
+   "nota": "13.2, média. Cita o art. 32, X, atribuído à Res. 597/2026, vigência 2026-09-30, e registra que a 587 fixa 1º/2/2027. Leitura alinhada à conferência oficial (DOU da 597: 2/10/2026); diverge da data do gabarito (ver divergência)."
+  },
+  "B2": {
+   "encontrado": true,
+   "clausula_ok": false,
+   "ato_artigo_ok": true,
+   "data_ok": true,
+   "achado_ids": [
+    "A4"
+   ],
+   "nota": "A4 cita o art. 39-C (Res. 506/2025, 2025-09-26), mas o vincula a 5.4 em vez de 5.1. A1 dá 5.1 como conforme."
+  },
+  "B3": {
+   "encontrado": true,
+   "clausula_ok": true,
+   "ato_artigo_ok": "parcial",
+   "data_ok": true,
+   "achado_ids": [
+    "A25"
+   ],
+   "nota": "14.1, baixa. Aponta a revisão de mar/2026 não feita e as alterações relevantes. Fundamenta na Res. BCB 80/2021, art. 6º, parágrafo único, II. O dispositivo confere (revisão a cada 2 anos), mas trata da política de governança da IP, não da política de prevenção a fraudes; B3 não exige regra externa."
+  }
+ },
+ "nao_casados": [
+  {
+   "achado_id": "A2",
+   "classe": "extra_valido",
+   "motivo": "5.2 (conforme no gabarito quanto ao art. 3º). A Res. 142, art. 2º, I e II e §§, e art. 3º, §§ 1º e 2º (limite noturno de R$1.000, 24h, documentação) conferem e faltam na Política. Prazo de implementação de 4/10/2021 (art. 7º, I): confere.",
+   "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=142"
+  },
+  {
+   "achado_id": "A10",
+   "classe": "extra_valido",
+   "motivo": "8.1. O art. 57, caput, I a III e § 4º, I e II (validar posse, consentimento e nome conforme CPF/CNPJ; registro só após abrir a conta e com CPF/CNPJ regular), com a Res. 457/2025 e efeitos de 1º/7/2025 para o caput e o § 4º, II, confere. A 457 é anterior à Política (6/3/2025), mas seus efeitos são posteriores; a Política não prevê essas validações.",
+   "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1"
+  },
+  {
+   "achado_id": "A23",
+   "classe": "extra_valido",
+   "motivo": "A guarda por 5 anos (Res. 142, art. 6º) confere e falta na Política. Baixa. O gabarito dá 12.1-12.2 como conformes: registrado como divergência.",
+   "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=142"
+  },
+  {
+   "achado_id": "A24",
+   "classe": "extra_valido",
+   "motivo": "Compartilhamento de indícios de fraude: os arts. 1º, 2º e 11 da Res. BCB 343/2023 (com as alterações das Res. 552 e 569/2026 no art. 2º) conferem no texto oficial e se aplicam a IP. A Política é omissa.",
+   "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=343"
+  }
+ ],
+ "proveniencia_amostra": {
+  "ok": 5,
+  "total": 5,
+  "problemas": [
+   "Os links são oficiais (bcb.gov.br/estabilidadefinanceira/exibenormativo); conferidos pela API oficial do BCB. A amostra: A4 (art. 39-C, link da Res. 506), A8 (art. 32, X, Res. 597), A12 (arts. 68, § 2º e 70, § 2º, redação da Res. 587), A20 (arts. 78-HC e 78-HD, Res. 587), A25 (Res. 80, art. 6º, parágrafo único, II).",
+   "A8: vigência 2026-09-30 é a data do ato; DOU de 2/10/2026.",
+   "A25: dispositivo e data conferem, mas a regra trata da política de governança da IP (aplicação forçada à política de fraudes)."
+  ]
+ },
+ "divergencias_com_gabarito": [
+  {
+   "item": "clausula 5.2",
+   "o_que": "Gabarito dá 5.2 como conforme (Res. 142, art. 3º). A Res. BCB 142/2021, art. 2º, I e II (limite de R$1.000 entre 20h e 6h entre pessoas naturais; 24h para efetivar aumento de limite) e art. 3º, § 1º (24h para o cadastro prévio) são obrigações vigentes que a Política não prevê. A lacuna é real.",
+   "evidencia_url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=142"
+  },
+  {
+   "item": "clausula 12.1-12.2",
+   "o_que": "Gabarito dá 12.1-12.2 como conformes. A Res. BCB 142/2021, art. 6º (registros, relatórios e documentos à disposição do BCB por 5 anos) não está na Política. É uma omissão real, de baixa materialidade, que o gabarito não registra.",
+   "evidencia_url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=142"
+  },
+  {
+   "item": "G5",
+   "o_que": "A conferência (passo 1) mostra que a extensão do art. 89, § 2º ao usuário como pagador ou recebedor e o art. 78-HA vêm da Res. BCB 506/2025 (26/9/2025; DOU 30/9/2025). A Res. 587/2026 só deu a redação atual ('fundada suspeita') e incluiu 78-HB, 78-HC e 78-HD. Parte da lacuna de 11.1 vige desde set/2025, não desde 18/9/2026.",
+   "evidencia_url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=1"
+  },
+  {
+   "item": "B1",
+   "o_que": "O gabarito dá 1º/2/2027 (Res. 587, art. 5º, I, c) para o art. 32, X. O consolidado oficial atribui o inciso à Res. BCB 597/2026 (30/9/2026; DOU 2/10/2026), que entra em vigor na publicação. A exigibilidade desde out/2026 é plausível e o ponto é ambíguo.",
+   "evidencia_url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=597"
+  },
+  {
+   "item": "fora do gabarito",
+   "o_que": "O dever de registrar e compartilhar indícios de fraude (Res. Conjunta 6/2023, art. 2º; Res. BCB 343/2023, art. 4º, prazo de 24h) aplica-se a instituições de pagamento e não está na Política nem no gabarito.",
+   "evidencia_url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20Conjunta&p2=6"
+  },
+  {
+   "item": "G1/G2/G4",
+   "o_que": "Diferença menor de datas, conforme a conferência: a vigência é a da publicação no DOU (501: 12/9/2025; 493: 29/8/2025; 506: 30/9/2025), e o gabarito usa a data do ato. Não altera prazos nem situação na data de referência.",
+   "evidencia_url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=506"
+  }
+ ]
+}

@@ -1,0 +1,1145 @@
+{
+  "versao_esquema": "1.0",
+  "exemplo": true,
+  "politica": {
+    "titulo": "Política de Prevenção a Fraudes",
+    "instituicao": "Exemplo Pagamentos IP S.A. (instituição fictícia)",
+    "arquivo": "politica.docx",
+    "versao": "3.0",
+    "data_revisao": "2025-03-18",
+    "fonte_data_revisao": "Aprovada pelo Conselho de Administração em 18 de março de 2025"
+  },
+  "revisao": {
+    "modo": "atual",
+    "data_base": "2025-03-18",
+    "data_referencia": "2026-10-24",
+    "gerado_em": "2026-10-24",
+    "conformidade_disponivel": true
+  },
+  "resumo": "Revisão da Política de Prevenção a Fraudes v3.0 (aprovada em 18/03/2025) contra a regulação vigente em 24/10/2026: 21 cláusulas conferidas, com 4 achados altos, 7 médios, 5 baixos e 5 conformes; dois dos achados (A7 e A14) só passam a valer em 2027. Os altos estão todos com prazo vencido: rejeição de transações para contas com fundada suspeita (Res. 142, art. 2º-A, prazo 13/10/2025), recuperação de valores/MED 2.0 obrigatória desde 02/02/2026, bloqueio imediato e complementar no MED desde 01/07/2026 (Res. 559/2026) e revisão da marcação em até 7 dias desde 18/09/2026 (Res. 587/2026). Vêm a seguir, a partir de 01/02/2027, a comunicação da marcação ao usuário e a nova redação do art. 32 (Res. 587/2026), e, a partir de 01/01/2027, as mudanças da Res. 584/2026 na Res. 142. O bloqueio cautelar, o dispositivo cadastrado, o aviso de cuidados no canal Pix, a abertura de contas e a cláusula contratual de bloqueios parciais estão conformes.",
+  "achados": [
+    {
+      "id": "A1",
+      "conceito": "Rejeição por fundada suspeita de fraude na conta de destino (lado recebedor)",
+      "clausula": {
+        "ref": "5.4",
+        "trecho": "A avaliação de fraude concentra-se nas transações iniciadas pelos clientes da Instituição, segundo o perfil do pagador. A conta de destino é considerada apenas pela quantidade de notificações de infração vinculadas ao recebedor no DICT, como um dos fatores de pontuação."
+      },
+      "exige_hoje": "A instituição deve rejeitar transações de pagamento (Pix, TED, transferências internas, boletos etc.) destinadas a contas mantidas nela sobre as quais tenha fundada suspeita de envolvimento em fraude, com avaliação por fatores próprios e bases públicas/privadas, comunicando o titular (prazo de implementação: 13/10/2025). No Pix, o PSP do recebedor deve rejeitar a transação com fundada suspeita de fraude e adotar, no mínimo, os critérios de avaliação divulgados pelo BCB; a avaliação de suspeita para bloqueio cautelar deve incluir, além das notificações de infração, o tempo desde a abertura da conta, horário/dia e o perfil do pagador e a recorrência entre os usuários.",
+      "fontes": [
+        {
+          "citacao": "Res. BCB 142/2021, art. 2º-A, caput e §§ 1º a 4º",
+          "ato_alterador": "Res. BCB 501/2025, de 11/09/2025",
+          "vigencia": "2025-09-11",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=142",
+          "search_id": "1baWctsTQHCGTmat"
+        },
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 39, I",
+          "ato_alterador": "Res. BCB 181/2022, de 25/01/2022",
+          "vigencia": "2022-02-01",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "KHFSh8eidBr3OETO"
+        },
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 39-C",
+          "ato_alterador": "Res. BCB 506/2025, de 26/09/2025",
+          "vigencia": "2025-09-26",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "1Z3m7hsCgyH5ilWH"
+        },
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 39-B, § 1º, I a V",
+          "ato_alterador": "Res. BCB 147/2021 (inciso I com redação da Res. BCB 269/2022)",
+          "vigencia": "2021-11-16",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "5iVdGtMilRkWFT6l"
+        }
+      ],
+      "severidade": "alta",
+      "situacao": "vigente",
+      "prazo": {
+        "data": "2025-10-13",
+        "base": "Res. BCB 142/2021, art. 2º-A, § 4º (incluído pela Res. BCB 501/2025)",
+        "vencido": true
+      },
+      "nova_redacao": "5.4 A avaliação de fraude abrange as transações iniciadas e as recebidas pelos clientes da Instituição. A Instituição rejeita as transações de pagamento (inclusive Pix, TED, transferências entre contas e boletos) destinadas a contas nela mantidas sobre as quais haja fundada suspeita de envolvimento em fraude, com base em fatores próprios e em informações de bases públicas e privadas, e comunica a medida ao titular da conta. Na avaliação de transações Pix recebidas, a Instituição adota, no mínimo, os critérios divulgados pelo Banco Central do Brasil e considera a quantidade de notificações de infração vinculadas ao recebedor, o tempo desde a abertura da conta, o horário e o dia da transação e o perfil do pagador, inclusive a recorrência de transações entre os usuários."
+    },
+    {
+      "id": "A2",
+      "conceito": "MED 2.0 / funcionalidade de recuperação de valores (rastreamento além da primeira conta)",
+      "clausula": {
+        "ref": "10.3",
+        "trecho": "O MED alcança exclusivamente a conta que recebeu diretamente a transação contestada. Recursos já transferidos pelo recebedor a outras contas não são objeto de bloqueio ou de devolução pela Instituição."
+      },
+      "exige_hoje": "Desde 02/02/2026 a funcionalidade de recuperação de valores é obrigatória para provedores de conta transacional: o rastreamento das transações (algoritmo do DICT) alcança contas para as quais os recursos foram repassados, com criação automática de notificações de infração para as transações selecionadas; nas devoluções de transações identificadas no rastreamento, o PSP do recebedor deve debitar a conta do recebedor e efetuar a transação ao pagador em nome próprio; o Manual do DICT disciplina múltiplos bloqueios e devoluções parciais.",
+      "fontes": [
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 121, II",
+          "ato_alterador": "Res. BCB 493/2025, de 28/08/2025",
+          "vigencia": "2025-08-28",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "K716TDayS9WEhHMR"
+        },
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 41-E, II e III",
+          "ato_alterador": "Res. BCB 493/2025, de 28/08/2025",
+          "vigencia": "2025-08-28",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "dkD1QCBZqCvJwmdJ"
+        },
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 41-D, § 4º",
+          "ato_alterador": "Res. BCB 493/2025, de 28/08/2025",
+          "vigencia": "2025-08-28",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "byFBCpjXiJbXExBO"
+        },
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 78-F, § 2º",
+          "ato_alterador": "Res. BCB 559/2026, de 23/04/2026",
+          "vigencia": "2026-04-23",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "18NGDHIYGwjzTUr6"
+        },
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 54, XII",
+          "ato_alterador": "Res. BCB 493/2025, de 28/08/2025",
+          "vigencia": "2025-08-28",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "Y5jVxJjMMDeq5J2r"
+        }
+      ],
+      "severidade": "alta",
+      "situacao": "vigente",
+      "prazo": {
+        "data": "2026-02-02",
+        "base": "Res. BCB 1/2020, Regulamento anexo, art. 121, II (incluído pela Res. BCB 493/2025)",
+        "vencido": true
+      },
+      "nova_redacao": "10.3 O MED abrange a funcionalidade de recuperação de valores do DICT. Quando a Instituição for a prestadora de contas para as quais os recursos foram repassados, identificadas no rastreamento do DICT, ela trata as notificações de infração geradas automaticamente, bloqueia os recursos e, aceita a notificação, debita a conta do recebedor e efetua a devolução ao pagador em nome próprio, admitidos múltiplos bloqueios e devoluções parciais, nos prazos do Manual Operacional do DICT."
+    },
+    {
+      "id": "A3",
+      "conceito": "Bloqueio de recursos no MED (imediato e complementar)",
+      "clausula": {
+        "ref": "10.2",
+        "trecho": "Recebida notificação de infração na qualidade de prestadora do recebedor, a Instituição bloqueia o saldo disponível na conta do recebedor no momento do recebimento da notificação, até o valor solicitado, observados os prazos do Manual Operacional do DICT."
+      },
+      "exige_hoje": "O bloqueio deve ser feito imediatamente após o recebimento da notificação e complementado sempre que houver ingresso de recursos na conta do recebedor, até o limite do valor solicitado ou até o encerramento da notificação, o que ocorrer primeiro. Limitar o bloqueio ao saldo existente no momento da notificação deixou de atender à regra a partir de 01/07/2026.",
+      "fontes": [
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 41-D, II e § 1º, I e II",
+          "ato_alterador": "Res. BCB 559/2026, de 23/04/2026 (§ 1º); Res. BCB 493/2025 (inciso II)",
+          "vigencia": "2026-07-01",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "byFBCpjXiJbXExBO"
+        }
+      ],
+      "severidade": "alta",
+      "situacao": "vigente",
+      "prazo": {
+        "data": "2026-07-01",
+        "base": "Res. BCB 559/2026, art. 3º, I, 'a' (efeitos da nova redação do art. 41-D)",
+        "vencido": true
+      },
+      "nova_redacao": "10.2 Recebida notificação de infração na qualidade de prestadora do recebedor, a Instituição bloqueia imediatamente, na conta do recebedor, o valor solicitado ou, sendo menor, o saldo disponível, e complementa o bloqueio a cada ingresso de recursos na conta, até atingir o valor solicitado ou até o encerramento do procedimento de notificação de infração, o que ocorrer primeiro."
+    },
+    {
+      "id": "A4",
+      "conceito": "Início do procedimento de recuperação de valores pelo PSP do pagador",
+      "clausula": {
+        "ref": "10.1",
+        "trecho": "Recebida reclamação de cliente pagador com fundada suspeita de fraude, a Instituição abre notificação de infração e solicitação de devolução no DICT."
+      },
+      "exige_hoje": "Havendo fundada suspeita de fraude após reclamação do pagador, o PSP do pagador deve iniciar o procedimento de recuperação de valores (rastreamento, bloqueio e devolução), e não apenas a notificação de infração com solicitação de devolução sobre a primeira transação.",
+      "fontes": [
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 78-N, caput e parágrafo único",
+          "ato_alterador": "Res. BCB 493/2025, de 28/08/2025",
+          "vigencia": "2025-08-28",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "1TVUI5eLJEU4n5EB"
+        },
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 78-I",
+          "ato_alterador": "Res. BCB 493/2025, de 28/08/2025",
+          "vigencia": "2025-08-28",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "1bn0UD3TrEbZaWLP"
+        },
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 121, II",
+          "ato_alterador": "Res. BCB 493/2025, de 28/08/2025",
+          "vigencia": "2025-08-28",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "K716TDayS9WEhHMR"
+        }
+      ],
+      "severidade": "media",
+      "situacao": "vigente",
+      "prazo": {
+        "data": "2026-02-02",
+        "base": "Res. BCB 1/2020, Regulamento anexo, art. 121, II",
+        "vencido": true
+      },
+      "nova_redacao": "10.1 Recebida reclamação de cliente pagador e havendo fundada suspeita de que a transação Pix foi realizada de forma fraudulenta, a Instituição inicia, no DICT, o procedimento de recuperação de valores, com notificação de infração, rastreamento, bloqueio e solicitação de devolução, nos termos do Manual Operacional do DICT."
+    },
+    {
+      "id": "A5",
+      "conceito": "Revisão da marcação de fundada suspeita de fraude (pedido do cliente)",
+      "clausula": {
+        "ref": "11.2",
+        "trecho": "Pedidos de revisão de restrição apresentados pelo cliente são analisados pela área de Prevenção a Fraudes, sem prazo predeterminado."
+      },
+      "exige_hoje": "O participante responsável pela marcação deve assegurar ao usuário o pedido de cancelamento, decidir pela manutenção ou cancelamento em até 7 dias do recebimento do pedido, cancelar se não subsistirem elementos e manter registro dos fundamentos; a marcação vale por 5 anos. A restrição de movimentação deve ser avaliada em caso de reclamação e suspensa se a notificação aceita dever ser cancelada.",
+      "fontes": [
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 78-HC, §§ 1º a 4º",
+          "ato_alterador": "Res. BCB 587/2026, de 18/09/2026",
+          "vigencia": "2026-09-18",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "VQvkeighdq5jHmMG"
+        },
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 78-HD",
+          "ato_alterador": "Res. BCB 587/2026, de 18/09/2026",
+          "vigencia": "2026-09-18",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "VQvkeighdq5jHmMG"
+        },
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 89, § 10",
+          "ato_alterador": "Res. BCB 425/2024, de 16/10/2024",
+          "vigencia": "2024-11-01",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "1I6v4mg3vimnTf5G"
+        }
+      ],
+      "severidade": "alta",
+      "situacao": "vigente",
+      "prazo": {
+        "data": "2026-09-18",
+        "base": "Res. BCB 587/2026, art. 5º, III (vigência na publicação para o art. 78-HC)",
+        "vencido": true
+      },
+      "nova_redacao": "11.2 O cliente pode pedir o cancelamento da marcação de fundada suspeita de fraude e a revisão da restrição pelos canais de atendimento. A área de Prevenção a Fraudes decide pela manutenção ou pelo cancelamento em até sete dias do recebimento do pedido, cancela a marcação e suspende a restrição quando não subsistirem elementos que a justifiquem e registra os fundamentos da decisão."
+    },
+    {
+      "id": "A6",
+      "conceito": "Restrição de transações do usuário e da conta notificados",
+      "clausula": {
+        "ref": "11.1",
+        "trecho": "Aceita notificação de infração, a área de Operações restringe as transações Pix da conta envolvida, ressalvadas as devoluções."
+      },
+      "exige_hoje": "Quem aceitar notificação de infração ou criar notificação para marcação de fundada suspeita de fraude transacional deve rejeitar todas as transações Pix que tenham o usuário envolvido (CPF/CNPJ) como pagador ou recebedor, além da conta envolvida, salvo devoluções. A política não prevê a marcação transacional (art. 78-HA) nem a restrição pelo usuário.",
+      "fontes": [
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 89, § 2º",
+          "ato_alterador": "Res. BCB 587/2026, de 18/09/2026",
+          "vigencia": "2026-09-18",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "1I6v4mg3vimnTf5G"
+        },
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), arts. 78-HA e 78-HB, caput",
+          "ato_alterador": "Res. BCB 587/2026, de 18/09/2026",
+          "vigencia": "2026-09-18",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "VQvkeighdq5jHmMG"
+        }
+      ],
+      "severidade": "media",
+      "situacao": "vigente",
+      "prazo": null,
+      "nova_redacao": "11.1 Aceita notificação de infração, ou criada pela Instituição notificação para marcação de fundada suspeita de fraude transacional, a área de Operações rejeita todas as transações Pix que tenham o usuário envolvido como pagador ou como recebedor, bem como as da conta envolvida, ressalvadas as devoluções."
+    },
+    {
+      "id": "A7",
+      "conceito": "Comunicação ao usuário da marcação de fundada suspeita de fraude",
+      "clausula": {
+        "ref": "11.1",
+        "trecho": "Aceita notificação de infração, a área de Operações restringe as transações Pix da conta envolvida, ressalvadas as devoluções."
+      },
+      "exige_hoje": "A partir de 01/02/2027, o participante que criar a marcação deverá comunicar ao usuário a marcação, informando no mínimo a data, a possibilidade de revisão e o canal para esclarecimentos e revisão. A política não prevê comunicação.",
+      "fontes": [
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 78-HB, parágrafo único",
+          "ato_alterador": "Res. BCB 587/2026, de 18/09/2026",
+          "vigencia": "2027-02-01",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=587",
+          "search_id": "XICtGGAly0W5V4EV"
+        }
+      ],
+      "severidade": "media",
+      "situacao": "a_vigorar",
+      "prazo": {
+        "data": "2027-02-01",
+        "base": "Res. BCB 587/2026, art. 5º, I, 'g'",
+        "vencido": false
+      },
+      "nova_redacao": "11.3 Ao registrar marcação de fundada suspeita de fraude, a Instituição comunica ao usuário a data da marcação, a possibilidade de revisão e o canal para esclarecimentos e para o pedido de revisão."
+    },
+    {
+      "id": "A8",
+      "conceito": "Rejeição de registro de chave Pix de usuário notificado",
+      "clausula": {
+        "ref": "8.2",
+        "trecho": "A Instituição poderá rejeitar pedido de registro de chave Pix de cliente com notificação de infração armazenada no DICT, a critério da área de Prevenção a Fraudes, comunicando ao cliente o motivo da rejeição."
+      },
+      "exige_hoje": "A rejeição é facultativa só para notificações de outros participantes (§ 2º). É obrigatória quando o usuário ou a conta estiverem associados a notificação de infração aceita pela própria Instituição ou a marcação de fraude transacional criada por ela (§ 3º), com comunicação do motivo.",
+      "fontes": [
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 56, §§ 2º e 3º",
+          "ato_alterador": "Res. BCB 587/2026, de 18/09/2026 (§ 3º); Res. BCB 403/2024 (§ 2º)",
+          "vigencia": "2026-09-18",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "1bexqrWj8ZuTU6ub"
+        }
+      ],
+      "severidade": "media",
+      "situacao": "vigente",
+      "prazo": null,
+      "nova_redacao": "8.2 A Instituição rejeita o pedido de registro de chave Pix quando o usuário ou a conta estiverem associados a notificação de infração aceita pela Instituição ou a notificação para marcação de fundada suspeita de fraude transacional criada por ela, e pode rejeitá-lo, a critério da área de Prevenção a Fraudes, quando houver outra notificação de infração armazenada no DICT; em ambos os casos comunica ao cliente o motivo."
+    },
+    {
+      "id": "A9",
+      "conceito": "Portabilidade e reivindicação de posse de chave Pix por usuário notificado",
+      "clausula": {
+        "ref": "8.3",
+        "trecho": "Os pedidos de portabilidade e de reivindicação de posse de chave Pix são processados conforme o Manual Operacional do DICT."
+      },
+      "exige_hoje": "O participante não deve solicitar portabilidade nem reivindicar posse de chave quando o solicitante for usuário associado a notificação aceita por ele ou a marcação de fraude transacional criada por ele. A política remete só ao Manual.",
+      "fontes": [
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 68, § 2º",
+          "ato_alterador": "Res. BCB 587/2026, de 18/09/2026",
+          "vigencia": "2026-09-18",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "RXNAitHxz2tSqLmA"
+        },
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 70, § 2º",
+          "ato_alterador": "Res. BCB 587/2026, de 18/09/2026",
+          "vigencia": "2026-09-18",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "8a2KwWvMeKE6S02t"
+        }
+      ],
+      "severidade": "baixa",
+      "situacao": "vigente",
+      "prazo": null,
+      "nova_redacao": "8.3 Os pedidos de portabilidade e de reivindicação de posse de chave Pix são processados conforme o Manual Operacional do DICT, e a Instituição não os solicita quando o cliente estiver associado a notificação de infração aceita por ela ou a marcação de fundada suspeita de fraude transacional por ela criada."
+    },
+    {
+      "id": "A10",
+      "conceito": "Rejeição obrigatória pelo PSP do pagador",
+      "clausula": {
+        "ref": "5.3",
+        "trecho": "Transações iniciadas por clientes da Instituição com fundada suspeita de fraude podem ser rejeitadas, observado o limite de tempo diferenciado previsto no Manual de Tempos do Pix."
+      },
+      "exige_hoje": "A transação Pix com fundada suspeita de fraude deverá (não 'poderá') ser rejeitada pelo provedor da conta do pagador; o tempo diferenciado serve para análise de transação com suspeita.",
+      "fontes": [
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 38, II",
+          "ato_alterador": "Res. BCB 118/2021, de 22/07/2021",
+          "vigencia": "2021-08-02",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "wy3bEbV4VywfzoYE"
+        },
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 89, § 1º, I, 'a' e 'b'",
+          "ato_alterador": "Res. BCB 403/2024, de 22/07/2024",
+          "vigencia": "2024-11-01",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "1I6v4mg3vimnTf5G"
+        }
+      ],
+      "severidade": "media",
+      "situacao": "vigente",
+      "prazo": null,
+      "nova_redacao": "5.3 Transações iniciadas por clientes da Instituição com suspeita de fraude podem ser submetidas ao limite de tempo diferenciado previsto no Manual de Tempos do Pix; havendo fundada suspeita de fraude, a transação é rejeitada."
+    },
+    {
+      "id": "A11",
+      "conceito": "Limites de transações e cadastro prévio de contas",
+      "clausula": {
+        "ref": "5.2",
+        "trecho": "A Instituição faculta aos clientes o estabelecimento de limites por período e o cadastro prévio de contas autorizadas a receber valores acima desses limites."
+      },
+      "exige_hoje": "Além da faculdade (conforme), a Res. 142 impõe limite de R$ 1.000 entre 20h e 6h entre pessoas naturais distintas, prazo mínimo de 24h para aumento de limite e para efetividade do cadastro prévio feito em canal eletrônico, e documentação do exercício pelo cliente. Para IP enquadrada no art. 3º, § 9º, da Res. BCB 1/2020 ou conectada via PSTI, o limite de valor por transação Pix é de no máximo R$ 15.000 (salvo exceções do § 4º) [VERIFICAR enquadramento].",
+      "fontes": [
+        {
+          "citacao": "Res. BCB 142/2021, art. 2º, I e II, §§ 1º a 3º",
+          "ato_alterador": null,
+          "vigencia": "2021-09-24",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=142",
+          "search_id": "1aoJc1jO4OAExU4l"
+        },
+        {
+          "citacao": "Res. BCB 142/2021, art. 3º, §§ 1º e 2º",
+          "ato_alterador": null,
+          "vigencia": "2021-09-24",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=142",
+          "search_id": "XX4VmkpdeVQGWPi8"
+        },
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 37, §§ 3º a 6º",
+          "ato_alterador": "Res. BCB 496/2025, de 05/09/2025; Res. BCB 503/2025, de 18/09/2025",
+          "vigencia": "2025-09-18",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "Cp0q6F0SAX7B7Xg0"
+        }
+      ],
+      "severidade": "media",
+      "situacao": "vigente",
+      "prazo": null,
+      "nova_redacao": "5.2 A Instituição aplica limite de R$ 1.000,00 por conta, entre 20h e 6h, para transações entre pessoas naturais distintas (exceto empresários individuais); efetiva aumentos de limite e cadastros prévios solicitados em canal eletrônico no prazo mínimo de 24 horas; faculta aos clientes limites por período e o cadastro prévio de contas autorizadas a receber acima dos limites, documentando o exercício dessa faculdade; e observa, quando aplicável, o limite máximo por transação Pix do art. 37, § 3º, do Regulamento do Pix."
+    },
+    {
+      "id": "A12",
+      "conceito": "Compartilhamento de dados sobre indícios de fraude entre instituições",
+      "clausula": {
+        "ref": "12.1",
+        "trecho": "A área de Prevenção a Fraudes mantém registros diários das ocorrências de fraude e de tentativas de fraude, com as medidas corretivas adotadas."
+      },
+      "exige_hoje": "A instituição deve compartilhar dados sobre indícios de fraude por sistema eletrônico (registro, alteração, consulta), com conteúdo mínimo, consentimento do cliente em cláusula destacada, procedimentos documentados e guarda por dez anos. A política não trata do tema.",
+      "fontes": [
+        {
+          "citacao": "Res. Conj. BCB/CMN 6/2023, art. 2º, §§ 1º a 9º",
+          "ato_alterador": null,
+          "vigencia": "2023-05-23",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20Conjunta&numero=6",
+          "search_id": "n1sOuIdFd7hsgzCW"
+        },
+        {
+          "citacao": "Res. Conj. BCB/CMN 6/2023, art. 8º, II",
+          "ato_alterador": null,
+          "vigencia": "2023-05-23",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20Conjunta&numero=6",
+          "search_id": "mrnKywZABLNdr6iV"
+        }
+      ],
+      "severidade": "media",
+      "situacao": "vigente",
+      "prazo": null,
+      "nova_redacao": "12.3 A Instituição compartilha com as demais instituições, por sistema eletrônico, dados e informações sobre indícios de fraudes, com o conteúdo mínimo regulamentar, obtém o consentimento prévio do cliente em cláusula destacada do contrato e mantém os dados compartilhados por dez anos."
+    },
+    {
+      "id": "A13",
+      "conceito": "Relatório mensal e guarda de registros (Res. 142)",
+      "clausula": {
+        "ref": "12.2",
+        "trecho": "Mensalmente é elaborado relatório consolidado das ocorrências e das medidas preventivas e corretivas, encaminhado ao Comitê de Riscos, à Auditoria Interna, à Diretoria Executiva e ao Conselho de Administração."
+      },
+      "exige_hoje": "O relatório mensal deve ir também ao comitê de auditoria, se houver; registros, relatórios e documentos ficam à disposição do BCB por cinco anos. A partir de 01/01/2027, a Res. BCB 584/2026 amplia o art. 4º a serviços de ativos virtuais (só relevante se a Instituição os prestar).",
+      "fontes": [
+        {
+          "citacao": "Res. BCB 142/2021, art. 4º, caput e § 1º",
+          "ato_alterador": null,
+          "vigencia": "2021-09-24",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=142",
+          "search_id": "hwsAxKdPLZZ27XTN"
+        },
+        {
+          "citacao": "Res. BCB 142/2021, art. 6º",
+          "ato_alterador": null,
+          "vigencia": "2021-09-24",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=142",
+          "search_id": "177GQrZ25632XlWv"
+        }
+      ],
+      "severidade": "baixa",
+      "situacao": "vigente",
+      "prazo": null,
+      "nova_redacao": "12.2 Mensalmente é elaborado relatório consolidado das ocorrências e das medidas preventivas e corretivas, encaminhado ao comitê de auditoria (se houver), ao Comitê de Riscos, à Auditoria Interna, à Diretoria Executiva e ao Conselho de Administração. Registros, relatórios e demais documentos ficam à disposição do Banco Central do Brasil por cinco anos."
+    },
+    {
+      "id": "A14",
+      "conceito": "Divulgação do MED ao público vulnerável",
+      "clausula": {
+        "ref": "13.2",
+        "trecho": "A Instituição mantém campanhas periódicas de conscientização de clientes sobre golpes."
+      },
+      "exige_hoje": "O participante deve divulgar o MED, com foco no público vulnerável, em seus canais de publicidade e atendimento; a Res. BCB 587/2026 reescreve o art. 32 (inclui o inciso X com 'informação clara e acessível') com efeitos em 01/02/2027.",
+      "fontes": [
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 32, X",
+          "ato_alterador": "Res. BCB 587/2026, de 18/09/2026 (nova redação com efeitos em 01/02/2027)",
+          "vigencia": "2027-02-01",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "8ZKBuzYEbJmGrVmP"
+        }
+      ],
+      "severidade": "baixa",
+      "situacao": "a_vigorar",
+      "prazo": {
+        "data": "2027-02-01",
+        "base": "Res. BCB 587/2026, art. 5º, I, 'c'",
+        "vencido": false
+      },
+      "nova_redacao": "13.2 A Instituição mantém campanhas periódicas de conscientização de clientes sobre golpes e divulga o Mecanismo Especial de Devolução, com foco no público vulnerável, em seus canais de publicidade e de atendimento, por meio de informação clara e acessível."
+    },
+    {
+      "id": "A15",
+      "conceito": "Solução de gerenciamento de risco de fraude no Pix",
+      "clausula": {
+        "ref": "5.1",
+        "trecho": "A Instituição utiliza solução de gerenciamento de risco de fraude que contempla as informações de segurança armazenadas no DICT e identifica transações atípicas ou não compatíveis com o perfil do cliente."
+      },
+      "exige_hoje": "Conforme quanto ao § 1º, I. Faltam na política: base interna de informações de segurança atualizada ao menos a cada seis meses por consulta ao DICT (§ 3º) e documentação da solução à disposição do BCB (§ 4º).",
+      "fontes": [
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 89, § 1º, I, §§ 3º e 4º",
+          "ato_alterador": "Res. BCB 403/2024, de 22/07/2024",
+          "vigencia": "2024-11-01",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "1I6v4mg3vimnTf5G"
+        }
+      ],
+      "severidade": "baixa",
+      "situacao": "vigente",
+      "prazo": null,
+      "nova_redacao": "5.1 A Instituição utiliza solução de gerenciamento de risco de fraude que contempla as informações de segurança armazenadas no DICT e identifica transações atípicas ou não compatíveis com o perfil do cliente; mantém base de informações de segurança dos clientes atualizada ao menos a cada seis meses por consulta ao DICT; e mantém a documentação da solução à disposição do Banco Central do Brasil."
+    },
+    {
+      "id": "A16",
+      "conceito": "Bloqueio cautelar",
+      "clausula": {
+        "ref": "9.1",
+        "trecho": "Havendo suspeita de fraude, os recursos recebidos via Pix são bloqueados cautelarmente, simultaneamente ao crédito, pelo prazo máximo de 72 horas, com comunicação imediata ao cliente."
+      },
+      "exige_hoje": "Bloqueio simultâneo ao crédito, por até 72h, com comunicação imediata, avaliação dos indícios, devolução via MED ou cessação imediata e cláusula destacada no contrato. As cláusulas 9.1 a 9.3 refletem a regra (o § 7º do art. 39-B foi revogado pela Res. BCB 506/2025, sem impacto identificado no texto da política).",
+      "fontes": [
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 39-B, §§ 2º a 6º e 8º",
+          "ato_alterador": "Res. BCB 147/2021; § 7º revogado pela Res. BCB 506/2025, de 26/09/2025",
+          "vigencia": "2025-09-26",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "5iVdGtMilRkWFT6l"
+        }
+      ],
+      "severidade": "conforme",
+      "situacao": "vigente",
+      "prazo": null,
+      "nova_redacao": null
+    },
+    {
+      "id": "A17",
+      "conceito": "Dispositivo de acesso cadastrado",
+      "clausula": {
+        "ref": "6.1",
+        "trecho": "A iniciação de transações Pix e os processos relativos a chaves Pix por clientes pessoa natural somente são aceitos a partir de dispositivo de acesso previamente cadastrado."
+      },
+      "exige_hoje": "Iniciação de Pix e processos de chaves por pessoa natural somente a partir de dispositivo previamente cadastrado, com exceções (dispositivo não cadastrado em valor/condições do BCB; regra aplicável a dispositivos nunca usados para Pix). Conforme.",
+      "fontes": [
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 89, §§ 6º a 9º",
+          "ato_alterador": "Res. BCB 457/2025, de 06/03/2025",
+          "vigencia": "2025-03-06",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "1I6v4mg3vimnTf5G"
+        }
+      ],
+      "severidade": "conforme",
+      "situacao": "vigente",
+      "prazo": null,
+      "nova_redacao": null
+    },
+    {
+      "id": "A18",
+      "conceito": "Informações sobre cuidados contra fraudes no canal Pix",
+      "clausula": {
+        "ref": "6.3",
+        "trecho": "A Instituição disponibiliza no aplicativo informações sobre os cuidados que os clientes devem ter para evitar fraudes."
+      },
+      "exige_hoje": "Disponibilizar, no canal eletrônico em que o Pix pode ser iniciado, informações sobre cuidados para evitar fraudes. Conforme.",
+      "fontes": [
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 89, § 1º, II",
+          "ato_alterador": "Res. BCB 403/2024, de 22/07/2024",
+          "vigencia": "2024-11-01",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "1I6v4mg3vimnTf5G"
+        }
+      ],
+      "severidade": "conforme",
+      "situacao": "vigente",
+      "prazo": null,
+      "nova_redacao": null
+    },
+    {
+      "id": "A19",
+      "conceito": "Contrato: cláusula destacada de bloqueios e devoluções parciais",
+      "clausula": {
+        "ref": "10.5",
+        "trecho": "A possibilidade de bloqueios e devoluções, inclusive parciais, consta, em cláusula destacada, do contrato de conta."
+      },
+      "exige_hoje": "O rito do MED inclui múltiplos bloqueios e devoluções parciais (Manual do DICT). A cláusula é compatível; convém citar também a recuperação de valores (ver A2).",
+      "fontes": [
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 41-E, III",
+          "ato_alterador": "Res. BCB 493/2025, de 28/08/2025",
+          "vigencia": "2025-08-28",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "dkD1QCBZqCvJwmdJ"
+        }
+      ],
+      "severidade": "conforme",
+      "situacao": "vigente",
+      "prazo": null,
+      "nova_redacao": null
+    },
+    {
+      "id": "A20",
+      "conceito": "Segurança na abertura de contas",
+      "clausula": {
+        "ref": "7.1",
+        "trecho": "A abertura de conta exige validação de documento de identificação, biometria facial com prova de vida e consulta a bases públicas e privadas de dados cadastrais."
+      },
+      "exige_hoje": "Mecanismos robustos para a segurança da abertura de contas transacionais. A cláusula 7.1 (e o regime de limites reduzidos da 7.2) é compatível; o tempo desde a abertura também deve entrar na avaliação de suspeita (ver A1).",
+      "fontes": [
+        {
+          "citacao": "Res. BCB 1/2020 (Regulamento do Pix), art. 89, III",
+          "ato_alterador": "Res. BCB 403/2024, de 22/07/2024",
+          "vigencia": "2024-11-01",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=1",
+          "search_id": "1I6v4mg3vimnTf5G"
+        }
+      ],
+      "severidade": "conforme",
+      "situacao": "vigente",
+      "prazo": null,
+      "nova_redacao": null
+    },
+    {
+      "id": "A21",
+      "conceito": "Revisão periódica da política",
+      "clausula": {
+        "ref": "14.1",
+        "trecho": "Esta Política é revista anualmente ou sempre que houver alteração relevante da regulamentação aplicável."
+      },
+      "exige_hoje": "A própria política previa revisão em março de 2026, e entre 18/03/2025 e 24/10/2026 houve alterações relevantes (Res. BCB 493/2025, 501/2025, 506/2025, 559/2026, 587/2026). A versão 3.0 não foi revista. A obrigação de revisar decorre da própria política; nenhuma norma consultada fixa a periodicidade.",
+      "fontes": [
+        {
+          "citacao": "Res. BCB 142/2021, art. 2º-A (exemplo de alteração relevante não incorporada)",
+          "ato_alterador": "Res. BCB 501/2025, de 11/09/2025",
+          "vigencia": "2025-09-11",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=142",
+          "search_id": "1baWctsTQHCGTmat"
+        }
+      ],
+      "severidade": "baixa",
+      "situacao": "vigente",
+      "prazo": null,
+      "nova_redacao": "14.1 Esta Política é revista anualmente e sempre que houver alteração relevante da regulamentação aplicável, no prazo necessário para cumprir as datas de efeitos fixadas pela nova regra."
+    }
+  ],
+  "alteracoes": [
+    {
+      "data": "2025-08-28",
+      "tipo_data": "vigencia",
+      "tipo": "alterado/incluido",
+      "alvo": "Res. BCB 1/2020, Regulamento: arts. 41-D (II, § 4º), 41-E, 54 (X, XII), 78-F, 78-I, 78-J, 78-N, 121",
+      "ato_fonte": {
+        "citacao": "Res. BCB 493/2025",
+        "slug": "BCB-Res-493-2025",
+        "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=493"
+      },
+      "comentario": "Institui a funcionalidade de recuperação de valores (MED 2.0): rastreamento, bloqueio e devolução em múltiplas camadas; facultativa a partir de 23/11/2025 e obrigatória a partir de 02/02/2026 (art. 121).",
+      "origem": "conformidade-local (alteracoes/conceito) + acervo___consultar",
+      "achados": [
+        "A2",
+        "A4",
+        "A19"
+      ]
+    },
+    {
+      "data": "2026-02-02",
+      "tipo_data": "efeitos",
+      "tipo": "revogado",
+      "alvo": "Res. BCB 1/2020, Regulamento: parágrafo único do art. 78-H",
+      "ato_fonte": {
+        "citacao": "Res. BCB 493/2025, art. 3º",
+        "slug": "BCB-Res-493-2025",
+        "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=493"
+      },
+      "comentario": "Revogação com efeitos em 02/02/2026, na mesma data da obrigatoriedade da recuperação de valores.",
+      "origem": "conformidade-local (alteracoes/conceito) + acervo___consultar",
+      "achados": [
+        "A2"
+      ]
+    },
+    {
+      "data": "2025-09-05",
+      "tipo_data": "vigencia",
+      "tipo": "incluido",
+      "alvo": "Res. BCB 1/2020, Regulamento: art. 37, §§ 3º a 6º",
+      "ato_fonte": {
+        "citacao": "Res. BCB 496/2025",
+        "slug": "BCB-Res-496-2025",
+        "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=496"
+      },
+      "comentario": "Limite máximo de R$ 15.000 por transação Pix para IP do art. 3º, § 9º, ou participante conectado via PSTI.",
+      "origem": "conformidade-local (alteracoes/conceito) + acervo___consultar",
+      "achados": [
+        "A11"
+      ]
+    },
+    {
+      "data": "2025-09-18",
+      "tipo_data": "vigencia",
+      "tipo": "alterado",
+      "alvo": "Res. BCB 1/2020, Regulamento: art. 37, §§ 4º e 5º",
+      "ato_fonte": {
+        "citacao": "Res. BCB 503/2025",
+        "slug": "BCB-Res-503-2025",
+        "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=503"
+      },
+      "comentario": "Exceções ao limite de R$ 15.000 e dispensa temporária pelo BCB.",
+      "origem": "conformidade-local (alteracoes/conceito) + acervo___consultar",
+      "achados": [
+        "A11"
+      ]
+    },
+    {
+      "data": "2025-09-11",
+      "tipo_data": "vigencia",
+      "tipo": "incluido",
+      "alvo": "Res. BCB 142/2021: art. 2º-A",
+      "ato_fonte": {
+        "citacao": "Res. BCB 501/2025",
+        "slug": "BCB-Res-501-2025",
+        "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=501"
+      },
+      "comentario": "Dever de rejeitar transações destinadas a contas com fundada suspeita de envolvimento em fraude; implementação até 13/10/2025.",
+      "origem": "conformidade-local (alteracoes/conceito) + acervo___consultar",
+      "achados": [
+        "A1",
+        "A21"
+      ]
+    },
+    {
+      "data": "2025-09-26",
+      "tipo_data": "vigencia",
+      "tipo": "alterado/incluido/revogado",
+      "alvo": "Res. BCB 1/2020, Regulamento: art. 37 caput, art. 39-C (incluído), art. 39-B § 7º (revogado)",
+      "ato_fonte": {
+        "citacao": "Res. BCB 506/2025",
+        "slug": "BCB-Res-506-2025",
+        "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=506"
+      },
+      "comentario": "Critérios mínimos do BCB para avaliação de suspeita de fraude (art. 39-C); nova redação do art. 37.",
+      "origem": "conformidade-local (alteracoes/conceito) + acervo___consultar",
+      "achados": [
+        "A1",
+        "A16"
+      ]
+    },
+    {
+      "data": "2026-07-01",
+      "tipo_data": "efeitos",
+      "tipo": "alterado/revogado",
+      "alvo": "Res. BCB 1/2020, Regulamento: art. 41-D, § 1º (nova redação), §§ 2º e 3º (revogados); art. 78-F, § 2º (efeito imediato)",
+      "ato_fonte": {
+        "citacao": "Res. BCB 559/2026",
+        "slug": "BCB-Res-559-2026",
+        "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=559"
+      },
+      "comentario": "Bloqueio no MED imediato após a notificação e complementado a cada ingresso de recursos até o valor solicitado (efeitos em 01/07/2026); criação automática de notificações na recuperação de valores (art. 78-F, § 2º, efeito imediato em 23/04/2026).",
+      "origem": "conformidade-local (alteracoes/conceito) + acervo___consultar",
+      "achados": [
+        "A3",
+        "A2"
+      ]
+    },
+    {
+      "data": "2026-09-18",
+      "tipo_data": "vigencia",
+      "tipo": "alterado/incluido",
+      "alvo": "Res. BCB 1/2020, Regulamento: arts. 56 § 3º, 68 § 2º, 70 § 2º, 78-HA, 78-HB caput, 78-HC, 78-HD, 89 § 2º",
+      "ato_fonte": {
+        "citacao": "Res. BCB 587/2026",
+        "slug": "BCB-Res-587-2026",
+        "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=587"
+      },
+      "comentario": "Marcação de fundada suspeita de fraude transacional; restrição de todas as transações do usuário e da conta; revisão do pedido de cancelamento em até 7 dias; marcação por 5 anos.",
+      "origem": "conformidade-local (alteracoes/conceito) + acervo___consultar",
+      "achados": [
+        "A5",
+        "A6",
+        "A8",
+        "A9"
+      ]
+    },
+    {
+      "data": "2027-02-01",
+      "tipo_data": "efeitos",
+      "tipo": "alterado/incluido",
+      "alvo": "Res. BCB 1/2020, Regulamento: arts. 11-AA, 11-B, 32, 39, 40, 41-A, 78-HB parágrafo único",
+      "ato_fonte": {
+        "citacao": "Res. BCB 587/2026",
+        "slug": "BCB-Res-587-2026",
+        "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=587"
+      },
+      "comentario": "A vigorar: comunicação ao usuário da marcação de fraude (78-HB, p.ú.); nova redação do art. 32 (incl. divulgação do MED e comunicação de incidentes); cobrança híbrida.",
+      "origem": "conformidade-local (alteracoes/conceito) + acervo___consultar",
+      "achados": [
+        "A7",
+        "A14"
+      ]
+    },
+    {
+      "data": "2027-07-01",
+      "tipo_data": "efeitos",
+      "tipo": "alterado",
+      "alvo": "Res. BCB 1/2020, Regulamento: arts. 3º e 11-S",
+      "ato_fonte": {
+        "citacao": "Res. BCB 587/2026",
+        "slug": "BCB-Res-587-2026",
+        "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=587"
+      },
+      "comentario": "A vigorar: conta-salário e Pix Automático; sem impacto direto identificado na política.",
+      "origem": "conformidade-local (alteracoes/conceito) + acervo___consultar",
+      "achados": []
+    },
+    {
+      "data": "2027-01-01",
+      "tipo_data": "vigencia",
+      "tipo": "alterado/incluido",
+      "alvo": "Res. BCB 142/2021: ementa, art. 1º, art. 2º-A § 5º, art. 2º-B, art. 4º caput, art. 6º-A",
+      "ato_fonte": {
+        "citacao": "Res. BCB 584/2026",
+        "slug": "BCB-Res-584-2026",
+        "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=584"
+      },
+      "comentario": "A vigorar: estende a Res. 142 a serviços de ativos virtuais; § 5º do art. 2º-A exige avaliação compatível com o regulamento do arranjo.",
+      "origem": "conformidade-local (alteracoes/conceito) + acervo___consultar",
+      "achados": [
+        "A1",
+        "A13"
+      ]
+    },
+    {
+      "data": "2025-06-05",
+      "tipo_data": "vigencia",
+      "tipo": "alterado",
+      "alvo": "Res. BCB 1/2020, Regulamento: arts. 11-DA, 11-E, 11-I, 11-T, 12, 14, 15-C, 87-B",
+      "ato_fonte": {
+        "citacao": "Res. BCB 482/2025",
+        "slug": "BCB-Res-482-2025",
+        "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=482"
+      },
+      "comentario": "Alterações de produtos Pix sem relação identificada com as cláusulas de fraude.",
+      "origem": "conformidade-local (alteracoes/conceito) + acervo___consultar",
+      "achados": []
+    },
+    {
+      "data": "2026-01-22",
+      "tipo_data": "vigencia",
+      "tipo": "incluido",
+      "alvo": "Res. BCB 1/2020, Regulamento: art. 113-A",
+      "ato_fonte": {
+        "citacao": "Res. BCB 546/2026",
+        "slug": "BCB-Res-546-2026",
+        "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=546"
+      },
+      "comentario": "Sem relação identificada com as cláusulas (conteúdo não lido).",
+      "origem": "conformidade-local (alteracoes/conceito) + acervo___consultar",
+      "achados": []
+    },
+    {
+      "data": "2026-09-30",
+      "tipo_data": "assinatura",
+      "tipo": "alterado",
+      "alvo": "Res. BCB 1/2020 (dispositivos não identificados)",
+      "ato_fonte": {
+        "citacao": "Res. BCB 597/2026",
+        "slug": "BCB-Res-597-2026",
+        "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=597"
+      },
+      "comentario": "Conteúdo não lido; ver auditoria.nao_encontrado.",
+      "origem": "conformidade-local (alteracoes/conceito) + acervo___consultar",
+      "achados": []
+    },
+    {
+      "data": "2026-03-03",
+      "tipo_data": "assinatura",
+      "tipo": "alterado",
+      "alvo": "Res. BCB 343/2023: art. 2º, III a V; art. 13-A",
+      "ato_fonte": {
+        "citacao": "Res. BCB 552/2026",
+        "slug": "BCB-Res-552-2026",
+        "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=552"
+      },
+      "comentario": "Alteração no sistema de compartilhamento de indícios de fraude; conteúdo não lido.",
+      "origem": "conformidade-local (alteracoes/conceito) + acervo___consultar",
+      "achados": [
+        "A12"
+      ]
+    },
+    {
+      "data": "2026-05-19",
+      "tipo_data": "assinatura",
+      "tipo": "alterado",
+      "alvo": "Res. BCB 343/2023: arts. 1º-A, 2º, 3º § 4º, 13-A",
+      "ato_fonte": {
+        "citacao": "Res. BCB 569/2026",
+        "slug": "BCB-Res-569-2026",
+        "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=569"
+      },
+      "comentario": "Alteração no sistema de compartilhamento de indícios de fraude; conteúdo não lido.",
+      "origem": "conformidade-local (alteracoes/conceito) + acervo___consultar",
+      "achados": [
+        "A12"
+      ]
+    }
+  ],
+  "exposicao": [
+    {
+      "achados": [
+        "A1",
+        "A2",
+        "A3",
+        "A5"
+      ],
+      "tese": "Fraude praticada por terceiros no âmbito das operações é fortuito interno e gera responsabilidade objetiva da instituição. Falhas em detectar movimentação atípica ou na abertura/monitoramento da conta recebedora configuram defeito do serviço; a culpa exclusiva da vítima só afasta o dever de indenizar quando não há indício prévio de fraude na conta beneficiária.",
+      "precedentes": [
+        {
+          "citacao": "STJ, Súmula 479",
+          "autoridade": "STJ",
+          "tipo": "sumula",
+          "eficacia": "obrigatoria",
+          "data": "2012-06-27",
+          "trecho": "As instituições financeiras respondem objetivamente pelos danos gerados por fortuito interno relativo a fraudes e delitos praticados por terceiros no âmbito de operações bancárias.",
+          "source_url": "https://scon.stj.jus.br/SCON/pesquisar.jsp?b=SUMU&livre=%40num+%3D+%27479%27",
+          "search_id": "1P3qo3LW3EX6txpt"
+        },
+        {
+          "citacao": "STJ, Tema Repetitivo 466",
+          "autoridade": "STJ",
+          "tipo": "tema_repetitivo",
+          "eficacia": "vinculante",
+          "data": "2011-08-24",
+          "trecho": "As instituições financeiras respondem objetivamente pelos danos gerados por fortuito interno relativo a fraudes e delitos praticados por terceiros no âmbito de operações bancárias.",
+          "source_url": "https://processo.stj.jus.br/repetitivos/temas_repetitivos/pesquisa.jsp?novaConsulta=true&tipo_pesquisa=T&cod_tema_inicial=466&cod_tema_final=466",
+          "search_id": "f4rtktxooHEXYyqL"
+        },
+        {
+          "citacao": "STJ, REsp 2229245/RS",
+          "autoridade": "STJ",
+          "tipo": "acordao",
+          "eficacia": "persuasiva",
+          "data": "2025-10-13",
+          "trecho": "A responsabilidade da instituição financeira tem origem no defeito em alguma das etapas da prestação do serviço, a exemplo, (i) da guarda dos dados sigilosos do consumidor e (ii) do aprimoramento dos mecanismos de autenticação dos canais de relacionamento com o cliente e de verificação de anomalias nas operações que fujam do padrão do consumidor.",
+          "source_url": "https://processo.stj.jus.br/processo/pesquisa/?num_registro=202503134217",
+          "search_id": "M8W49Hsk47sK4Frb"
+        },
+        {
+          "citacao": "STJ, AgInt no REsp 2250402/SP",
+          "autoridade": "STJ",
+          "tipo": "acordao",
+          "eficacia": "persuasiva",
+          "data": "2026-06-15",
+          "trecho": "FRAUDE BANCÁRIA. GOLPE DA FALSA CENTRAL DE ATENDIMENTO. OPERAÇÕES ATÍPICAS. CONTRATAÇÃO DE CRÉDITO E TRANSFERÊNCIAS VIA PIX DE ELEVADO VALOR. RESPONSABILIDADE OBJETIVA DA INSTITUIÇÃO FINANCEIRA. CULPA EXCLUSIVA AFASTADA. FALHA NA PRESTAÇÃO DO SERVIÇO CONFIGURADA.",
+          "source_url": "https://processo.stj.jus.br/processo/pesquisa/?num_registro=202504953977",
+          "search_id": "zs6c8N5HKeA0ENzJ"
+        },
+        {
+          "citacao": "STJ, AREsp 3068917/MT",
+          "autoridade": "STJ",
+          "tipo": "acordao",
+          "eficacia": "persuasiva",
+          "data": "2026-05-04",
+          "trecho": "Golpe praticado por terceiro, com operações realizadas voluntariamente pela consumidora, sem indícios prévios de fraude nas contas beneficiárias e com comunicação tardia, caracteriza fortuito externo e culpa exclusiva da vítima, afastando o dever de restituição e de indenização.",
+          "source_url": "https://processo.stj.jus.br/processo/pesquisa/?num_registro=202503872909",
+          "search_id": "EAARnflRIvCmkDZq"
+        },
+        {
+          "citacao": "TJSP, Apelação 1005315-29.2023.8.26.0020",
+          "autoridade": "TJSP",
+          "tipo": "acordao",
+          "eficacia": "persuasiva",
+          "data": "2025-02-07",
+          "trecho": "FRAUDE EM TRANSAÇÕES BANCÁRIAS VIA PIX. RESPONSABILIDADE OBJETIVA DAS INSTITUIÇÕES FINANCEIRAS. DEVER DE SEGURANÇA. TRANSAÇÕES ATÍPICAS AO PERFIL DE GASTOS DA CONSUMIDORA. ABERTURA DE CONTA REALIZADA SEM AS CAUTELAS EXIGIDAS PELA LEI.",
+          "source_url": "https://esaj.tjsp.jus.br/cjsg/getArquivo.do?cdAcordao=18852658&cdForo=0",
+          "search_id": "ML0lnPUwJDGzPxst"
+        }
+      ]
+    },
+    {
+      "achados": [
+        "A2",
+        "A3",
+        "A5",
+        "A6",
+        "A8",
+        "A10"
+      ],
+      "tese": "Exposição regulatória: o Manual de Penalidades do Pix fixa multa-base de R$ 100 mil a R$ 300 mil (multiplicada pelo fator de ponderação) quando o participante não observa as regras de rejeição, bloqueio cautelar, MED (inclusive o bloqueio após a notificação) e chaves Pix, ou falha nos mecanismos de gerenciamento de risco de fraude.",
+      "precedentes": [
+        {
+          "citacao": "Res. BCB 507/2025, Anexo I, art. 18, II, 'd', 'e', 'f' e 'h'",
+          "autoridade": "BCB",
+          "tipo": "norma_sancionadora",
+          "eficacia": "vinculante",
+          "data": "2025-09-26",
+          "trecho": "não observar as exigências sobre o Mecanismo Especial de Devolução, inclusive rejeitar, sem justo motivo, notificações de infrações ou não realizar o bloqueio de recursos após o recebimento de uma notificação de infração",
+          "source_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=507",
+          "search_id": "1GFW6HGj2ww7CAih"
+        }
+      ]
+    }
+  ],
+  "tarefas": [
+    {
+      "responsavel": "ops",
+      "tarefa": "Implementar o bloqueio imediato e complementar a cada ingresso de recursos no MED, até o valor solicitado ou o fim da notificação",
+      "achados": [
+        "A3"
+      ],
+      "prazo": "2026-07-01",
+      "base_prazo": "Res. BCB 559/2026, art. 3º, I, 'a' (prazo vencido)"
+    },
+    {
+      "responsavel": "ops",
+      "tarefa": "Operar a funcionalidade de recuperação de valores (rastreamento, notificações automáticas, bloqueio e devolução em nome próprio) como PSP do pagador e do recebedor",
+      "achados": [
+        "A2",
+        "A4"
+      ],
+      "prazo": "2026-02-02",
+      "base_prazo": "Res. BCB 1/2020, Regulamento, art. 121, II (prazo vencido)"
+    },
+    {
+      "responsavel": "fraude_compliance",
+      "tarefa": "Incluir a avaliação da conta de destino e a rejeição de transações para contas com fundada suspeita, adotando os critérios mínimos do BCB e os fatores do art. 39-B, § 1º",
+      "achados": [
+        "A1"
+      ],
+      "prazo": "2025-10-13",
+      "base_prazo": "Res. BCB 142/2021, art. 2º-A, § 4º (prazo vencido)"
+    },
+    {
+      "responsavel": "fraude_compliance",
+      "tarefa": "Criar o fluxo de pedido de cancelamento da marcação, com decisão em até 7 dias e registro dos fundamentos",
+      "achados": [
+        "A5"
+      ],
+      "prazo": "2026-09-18",
+      "base_prazo": "Res. BCB 587/2026, art. 5º, III (vigência na publicação; prazo vencido)"
+    },
+    {
+      "responsavel": "ops",
+      "tarefa": "Estender a restrição a todas as transações Pix do usuário notificado (como pagador e recebedor) e tornar obrigatória a rejeição de registro, portabilidade e reivindicação de chaves",
+      "achados": [
+        "A6",
+        "A8",
+        "A9"
+      ],
+      "prazo": "2026-09-18",
+      "base_prazo": "Res. BCB 587/2026, art. 5º, III (prazo vencido)"
+    },
+    {
+      "responsavel": "ops",
+      "tarefa": "Implementar a comunicação ao usuário da marcação de fundada suspeita de fraude (data, possibilidade de revisão e canal)",
+      "achados": [
+        "A7"
+      ],
+      "prazo": "2027-02-01",
+      "base_prazo": "Res. BCB 587/2026, art. 5º, I, 'g'"
+    },
+    {
+      "responsavel": "fraude_compliance",
+      "tarefa": "Tornar obrigatória a rejeição de Pix com fundada suspeita no lado pagador",
+      "achados": [
+        "A10"
+      ],
+      "prazo": null,
+      "base_prazo": "sem prazo próprio"
+    },
+    {
+      "responsavel": "ops",
+      "tarefa": "Parametrizar o limite noturno de R$ 1.000, o prazo de 24h para aumento de limite e para cadastro prévio e, se aplicável, o teto de R$ 15.000 por Pix",
+      "achados": [
+        "A11"
+      ],
+      "prazo": null,
+      "base_prazo": "sem prazo próprio"
+    },
+    {
+      "responsavel": "juridico",
+      "tarefa": "Confirmar se a Instituição se enquadra no art. 3º, § 9º, da Res. BCB 1/2020 ou se conecta via PSTI (teto do art. 37, § 3º)",
+      "achados": [
+        "A11"
+      ],
+      "prazo": null,
+      "base_prazo": "sem prazo próprio"
+    },
+    {
+      "responsavel": "juridico",
+      "tarefa": "Incluir na política e no contrato o compartilhamento de indícios de fraude (Res. Conj. 6/2023), com cláusula destacada de consentimento",
+      "achados": [
+        "A12"
+      ],
+      "prazo": null,
+      "base_prazo": "sem prazo próprio"
+    },
+    {
+      "responsavel": "fraude_compliance",
+      "tarefa": "Incluir o comitê de auditoria (se houver) entre os destinatários do relatório mensal, a guarda por cinco anos, a atualização semestral da base de segurança e a documentação da solução de risco",
+      "achados": [
+        "A13",
+        "A15"
+      ],
+      "prazo": null,
+      "base_prazo": "sem prazo próprio"
+    },
+    {
+      "responsavel": "fraude_compliance",
+      "tarefa": "Adequar as campanhas para divulgar o MED ao público vulnerável",
+      "achados": [
+        "A14"
+      ],
+      "prazo": "2027-02-01",
+      "base_prazo": "Res. BCB 587/2026, art. 5º, I, 'c'"
+    },
+    {
+      "responsavel": "juridico",
+      "tarefa": "Aprovar a versão 4.0 da política com as novas redações propostas",
+      "achados": [
+        "A21"
+      ],
+      "prazo": null,
+      "base_prazo": "sem prazo próprio (a revisão de março de 2026 prevista na própria política está atrasada)"
+    }
+  ],
+  "auditoria": {
+    "verificacoes": [
+      "Política lida de sandbox/politica.txt (texto extraído do .docx) em 2026-10-24.",
+      "Conceitos do grafo consultados via conformidade-local (prodcopy) em 2026-10-24, com desde=2025-03-18 e data_referencia=2026-10-24: MED, instant-payment-fraud, fraud-suspect-accounts, pix, financial-institution-fraud-liability, fraud-data-sharing, payment-fraud; mais o histórico de alterações das normas BCB-Res-1-2020 e BCB-Res-142-2021 e de 13 dispositivos por search_id.",
+      "Texto integral lido via acervo___consultar (Letra da Lei) em 2026-10-24: Res. BCB 1/2020, Regulamento, arts. 37, 38, 39, 39-B, 39-C, 41-D, 41-E, 56, 78 (78-HA a 78-HD), 78-F, 78-N, 89, 121; Res. BCB 142/2021, arts. 2º, 2º-A, 3º, 4º, 6º; Res. BCB 584/2026, arts. 1º a 3º; Res. BCB 587/2026, arts. 1º a 5º; Res. BCB 507/2025, Anexo I, art. 18; Res. Conj. BCB/CMN 6/2023, art. 2º.",
+      "Jurisprudência: STJ Súmula 479 e Tema 466 (consultar); busca STJ e TJSP sobre responsabilidade por golpes via Pix."
+    ],
+    "nao_encontrado": [
+      "Conteúdo da Res. BCB 597/2026 (30/09/2026): o grafo registra uma alteração da Res. BCB 1/2020 sem citar dispositivos; não foi lido [VERIFICAR].",
+      "Conteúdo das Res. BCB 552/2026 e 569/2026 (alteram a Res. BCB 343/2023, sistema de compartilhamento de indícios de fraude): não lido [VERIFICAR impacto em A12].",
+      "Documento do BCB com os critérios mínimos de avaliação de fraude (art. 39-C) e o Manual Operacional do DICT (prazos de bloqueio e devolução do MED): não estão no acervo consultado [VERIFICAR].",
+      "Texto do § 7º do art. 39-B revogado pela Res. BCB 506/2025: não recuperado [VERIFICAR].",
+      "Redação anterior do art. 32, X e do art. 56, § 3º (antes da Res. 587/2026): não recuperada; o texto vigente do art. 32, X foi lido apenas no excerto do grafo.",
+      "Enquadramento da Instituição no art. 3º, § 9º, da Res. BCB 1/2020 (teto de R$ 15.000 do art. 37, § 3º) [VERIFICAR].",
+      "Lei 12.865/2013 (citada na cláusula 1.1): não foi revisada, porque o grafo não aponta alterações relevantes no período."
+    ],
+    "ferramentas": [
+      "conformidade-local.sh (conceito, alteracoes)",
+      "mcp__claude_ai_Letra_da_Lei__acervo___consultar",
+      "mcp__claude_ai_Letra_da_Lei__jurisprudencia-federal___buscar_precedentes",
+      "mcp__claude_ai_Letra_da_Lei__jurisprudencia-estadual___buscar_precedentes"
+    ],
+    "limitacoes": [
+      "A busca semântica do CLI de conformidade falhou ao gerar embeddings (sem credenciais Bedrock) e caiu para correspondência por nome/alias; o conceito 'bloqueio cautelar' não foi encontrado por consulta e foi coberto pelos vínculos do conceito MED/instant-payment-fraud.",
+      "O histórico por dispositivo do CLI repete as alterações em nível de ato (menciona_alvo=false); a atribuição a cada dispositivo foi confirmada pelas notas de redação no texto integral.",
+      "Os acórdãos citados têm eficácia persuasiva; os trechos foram tirados das ementas truncadas retornadas pela busca."
+    ]
+  }
+}
