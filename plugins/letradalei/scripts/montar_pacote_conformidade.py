@@ -37,6 +37,19 @@ RESPONSAVEIS = {
 }
 TIPO_DATA = {"vigencia": "vigência", "efeitos": "efeitos", "assinatura": "assinatura",
              "publicacao": "publicação", "julgamento": "julgamento"}
+# Critério de severidade (esquema 1.1): a regra da tabela de references/consultas.md, seção 5, que o agente
+# aplicou. O prefixo do código é a severidade, para que os mesmos fatos deem sempre a mesma classificação.
+CRITERIOS = {
+    "A-PRAZO": "prazo de implementação fixado pela regra já vencido, sem a cláusula aderir",
+    "A-RECURSOS": "obrigação vigente contrariada ou omitida que decide se o dinheiro do cliente circula ou volta",
+    "M-PARCIAL": "obrigação vigente parcialmente coberta, sem efeito sobre recursos na parte que falta",
+    "M-PROCEDIMENTO": "procedimento exigido (prazo de análise, registro, comunicação, chaves) sem efeito direto sobre recursos",
+    "M-FUTURO": "obrigação publicada com efeitos posteriores à data de referência",
+    "B-REFERENCIA": "referência desatualizada ou redação imprecisa sem efeito prático",
+    "B-GOVERNANCA": "governança interna da política (revisão vencida, papéis)",
+    "C-ADERENTE": "cláusula conferida contra o texto vigente na data de referência, aderente",
+}
+PREFIXO_SEV = {"A": "alta", "M": "media", "B": "baixa", "C": "conforme"}
 MARCADOR = re.compile(r"\[(?:VERIFICAR|CITAÇÃO PENDENTE|NÃO ENCONTRADO|FORA DO CORPUS|A REVISAR|ATENÇÃO)[^\]]*\]")
 
 
@@ -71,6 +84,7 @@ def validar(res: dict) -> list:
             date.fromisoformat(rev.get(c) or "")
         except ValueError:
             erros.append(f"revisao.{c} não é AAAA-MM-DD")
+    v11 = str(res.get("versao_esquema", "1.0")) >= "1.1"
     ids = set()
     for i, a in enumerate(res["achados"]):
         onde = f"achados[{i}]"
@@ -81,12 +95,27 @@ def validar(res: dict) -> list:
             erros.append(f"{onde}.severidade deve ser uma de {SEVERIDADES}")
         if not (a.get("clausula") or {}).get("ref"):
             erros.append(f"{onde}.clausula.ref vazio")
+        crit = a.get("criterio")
+        if v11 and crit not in CRITERIOS:
+            erros.append(f"{onde}.criterio deve ser um de {list(CRITERIOS)}")
+        elif crit and PREFIXO_SEV.get(crit[:1]) != a.get("severidade"):
+            erros.append(f"{onde}.criterio {crit} não corresponde à severidade {a.get('severidade')}")
         fontes = a.get("fontes") or []
         if not fontes:
             avisos.append(f"{a.get('id')}: sem fonte, marcado [CITAÇÃO PENDENTE]")
         for f in fontes:
             if not f.get("citacao") or not f.get("source_url"):
                 avisos.append(f"{a.get('id')}: fonte sem citacao/source_url, marcada [CITAÇÃO PENDENTE]")
+    if v11:
+        operativas = pol.get("clausulas_operativas") or []
+        if not operativas:
+            erros.append("politica.clausulas_operativas vazio (liste as cláusulas operativas da política)")
+        cobertas = set()
+        for a in res["achados"]:
+            cobertas |= refs_clausula((a.get("clausula") or {}).get("ref", ""))
+        faltam = [c for c in operativas if c not in cobertas]
+        if faltam:
+            erros.append(f"cláusulas operativas sem achado nem 'conforme': {faltam} (toda cláusula operativa termina num achado)")
     for t in res["tarefas"]:
         if t.get("responsavel") not in RESPONSAVEIS:
             erros.append(f"tarefa com responsavel inválido: {t.get('responsavel')} (use {list(RESPONSAVEIS)})")
@@ -96,6 +125,19 @@ def validar(res: dict) -> list:
 
 
 # ---------------------------------------------------------------- auxiliares
+
+def refs_clausula(ref: str) -> set:
+    """Itens numerados que uma referência de cláusula cobre: "10.2" -> {10.2}; "10.1 e 10.3" -> {10.1, 10.3};
+    "9.1 a 9.3" -> {9.1, 9.2, 9.3}; "12" -> {12}."""
+    out = set()
+    for ini, fim in re.findall(r"(\d+(?:\.\d+)*)(?:\s*a\s*(\d+(?:\.\d+)*))?", ref or ""):
+        out.add(ini)
+        if fim and "." in ini and "." in fim and ini.rsplit(".", 1)[0] == fim.rsplit(".", 1)[0]:
+            base = ini.rsplit(".", 1)[0]
+            for n in range(int(ini.rsplit(".", 1)[1]), int(fim.rsplit(".", 1)[1]) + 1):
+                out.add(f"{base}.{n}")
+    return out
+
 
 def data_br(iso):
     if not iso:
@@ -270,6 +312,8 @@ def gerar_pdf(res: dict, caminho: str) -> str:
             [p("O que a regra exige hoje", "celb"), p(a.get("exige_hoje", ""), "cel")],
             [p("Fontes", "celb"), [x for f in fontes for x in (p(fonte_txt(f), "cel"), link(f.get("source_url")))]],
             [p("Severidade", "celb"), sev(a["severidade"])],
+            *([[p("Critério", "celb"), p(f"{a['criterio']}: {CRITERIOS[a['criterio']]}", "cel")]]
+              if a.get("criterio") in CRITERIOS else []),
             [p("Situação da regra", "celb"),
              p("a vigorar" if a.get("situacao") == "a_vigorar" else "vigente na data de referência", "cel")],
             [p("Prazo", "celb"), p(prazo_txt(a.get("prazo"), ref_iso), "cel")],
@@ -420,6 +464,8 @@ def gerar_docx(res: dict, caminho: str) -> str:
         paragrafo(doc, "O que a regra exige hoje: " + a.get("exige_hoje", ""))
         for f in a.get("fontes") or [{}]:
             paragrafo(doc, "Fonte: " + fonte_txt(f) + (f" | {f['source_url']}" if f.get("source_url") else ""))
+        if a.get("criterio") in CRITERIOS:
+            paragrafo(doc, f"Critério: {a['criterio']}: {CRITERIOS[a['criterio']]}")
         paragrafo(doc, "Prazo: " + prazo_txt(a.get("prazo"), ref_iso))
         paragrafo(doc, "Nova redação proposta:", negrito=True)
         paragrafo(doc, a.get("nova_redacao") or "Sem alteração proposta.")

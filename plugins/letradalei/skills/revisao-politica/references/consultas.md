@@ -42,11 +42,19 @@ Quando um artigo não vier por número (aparece em `omitidos`), procure-o com `b
 - Texto vigente: lei federal com `data_referencia`; infralegal, reconstruído a partir das notas (o consolidado traz só a redação atual): diga isso na auditoria.
 - Jurisprudência: só decisões com data de julgamento até a data do replay.
 
-## 5. Severidade
+## 5. Severidade (critério obrigatório)
 
-| Severidade | Quando |
-|---|---|
-| `alta` | Obrigação vigente que a política contraria ou omite e que atinge o consumidor ou o fluxo de recursos (bloqueio, devolução, recusa de transação), ou prazo regulatório já vencido. Exposição a responsabilidade objetiva. |
-| `media` | Obrigação vigente parcialmente coberta, ou procedimento interno exigido (prazo de análise, registro, comunicação) sem efeito direto sobre recursos; ou obrigação com prazo futuro já publicado. |
-| `baixa` | Referência desatualizada, redação imprecisa sem efeito prático, governança interna (revisão vencida). |
-| `conforme` | Cláusula conferida contra o texto vigente, sem alteração desde a data-base, ou já aderente. Inclua as conformes relevantes: mostram o que foi checado. |
+Classifique cada cláusula operativa percorrendo as perguntas na ordem; a primeira que se aplica dá o `criterio` e a severidade. Os mesmos fatos dão sempre o mesmo critério: não pondere fora desta lista.
+
+1. A cláusula, lida contra o texto vigente na data de referência, já faz o que a regra exige? → `C-ADERENTE` (`conforme`). "Pode", "poderá", "a critério" onde a regra diz "deve", "rejeitará", "é vedado" **não** é aderente.
+2. A regra fixa prazo de implementação (no dispositivo ou na cláusula de vigência do ato) já vencido na data de referência, e a cláusula não adere? → `A-PRAZO` (`alta`).
+3. A parte que falta é o próprio ato que decide se o dinheiro do cliente circula ou volta (rejeitar ou bloquear transação, devolver recursos, restringir as transações de uma conta, limites de valor), ou a política o faz com alcance menor que o exigido? → `A-RECURSOS` (`alta`). Prazo de análise ou de decisão, comunicação ao cliente e registro **não** entram aqui, mesmo quando tratam de um bloqueio ou restrição: são `M-PROCEDIMENTO`.
+4. A regra só produz efeitos depois da data de referência? → `M-FUTURO` (`media`, `situacao: "a_vigorar"`).
+5. A cláusula cobre a obrigação em parte, e o que falta não tem efeito sobre recursos? → `M-PARCIAL` (`media`).
+6. Falta procedimento exigido sem efeito direto sobre recursos (prazo de análise, registro, guarda, comunicação, chaves Pix, portabilidade)? → `M-PROCEDIMENTO` (`media`).
+7. Referência desatualizada ou redação imprecisa sem efeito prático? → `B-REFERENCIA` (`baixa`).
+8. Governança interna da própria política (revisão vencida, papéis)? → `B-GOVERNANCA` (`baixa`).
+
+Quando a cláusula tem várias lacunas, a severidade é a da mais grave; cite as demais no mesmo achado.
+
+Grave o código em `achados[].criterio`. O renderizador recusa critério que não bata com a severidade.

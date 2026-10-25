@@ -51,7 +51,7 @@ PDF ou texto colado também servem: leia o conteúdo direto.
 
 - **Data de revisão:** a data de aprovação ou da última revisão declarada no documento (capa, "aprovada em", "vigência a partir de", histórico de versões). Havendo várias, use a mais recente aprovação. Guarde o trecho em `fonte_data_revisao`. Sem data no texto: use a data de modificação do arquivo e marque `[VERIFICAR: data de revisão não declarada no documento; usada a data do arquivo]`.
 - **Data-base** = data de revisão. **Data de referência** = hoje, ou a data do replay.
-- **Cláusulas:** liste cada item numerado com o texto literal. Separe as operativas (o que a instituição faz: monitorar, bloquear, devolver, registrar, reportar, prazos) das de governança (objetivo, abrangência, papéis). As operativas são o objeto da revisão; as de governança entram quando uma regra as alcança (aprovação pelo conselho, destinatários de relatório).
+- **Cláusulas:** liste cada item numerado com o texto literal. **Operativa é todo item numerado**, exceto os das seções cujo título é de objetivo, abrangência, definições, governança/aprovação, papéis/responsabilidades ou revisão da própria política. Não decida item a item: aplique a regra pelo título da seção e liste o resultado em `politica.clausulas_operativas`. As de governança entram como achado só quando uma regra as alcança (aprovação pelo conselho, destinatários de relatório, revisão vencida).
 
 ## Passo 2, mapear cláusulas a conceitos
 
@@ -70,7 +70,10 @@ Agrupe as cláusulas operativas por tema (ex.: numa política de fraudes de inst
 
 Para cada dispositivo vinculado a uma cláusula, leia o texto integral (`acervo · consultar`) na data de referência e compare com a cláusula:
 
-- A cláusula contraria, omite ou restringe o que a regra exige? É lacuna. Classifique pela tabela de severidade de `references/consultas.md`.
+- **Toda cláusula operativa termina num achado**, lacuna ou `conforme`; nenhuma fica de fora. Liste-as em `politica.clausulas_operativas` (ex.: `["5.1","5.2",...]`); o renderizador recusa o JSON se alguma não aparecer em `achados[].clausula.ref`.
+- Compare cada cláusula com **todos** os dispositivos de `regulacao` dos conceitos do seu tema (não só os que lembrar), no texto vigente na data de referência. Anote em `auditoria.verificacoes` uma linha por cláusula: cláusula → dispositivos lidos.
+- Percorra cada dispositivo **parágrafo a parágrafo** (caput, §§, incisos, alíneas) que trate do assunto da cláusula: cada dever do texto que a cláusula não traz (inclusive comunicar o cliente, prazos, alcance) é lacuna. Não pare no primeiro dever conferido.
+- A cláusula contraria, omite ou restringe o que a regra exige? É lacuna. Classifique pelas perguntas da seção 5 de `references/consultas.md`, na ordem, e grave o código em `criterio`.
 - A regra mudou depois da data-base? Diga qual ato mudou, quando passou a valer e qual o prazo de implementação, se houver.
 - Escreva `exige_hoje` em linguagem direta, fiel ao texto, sem acrescentar dever que o texto não traz.
 - Proponha `nova_redacao` no estilo e na numeração da política, sem copiar o regulamento palavra por palavra quando uma frase operacional basta.
@@ -85,7 +88,7 @@ Uma tarefa por entrega, atribuída a `ops` (Operações), `juridico` (Jurídico)
 
 ## Passo 7, montar o pacote
 
-1. Grave o resultado em `outputs/revisao-politica-<slug>-<data_referencia>.json`, no formato de `references/esquema-resultado.md`.
+1. Grave o resultado em `outputs/revisao-politica-<slug>-<data_referencia>.json`, no formato de `references/esquema-resultado.md` (`"versao_esquema": "1.1"`).
 2. Gere o PDF e o `.docx`:
    ```bash
    python "${CLAUDE_PLUGIN_ROOT}/scripts/montar_pacote_conformidade.py" outputs/revisao-politica-<slug>-<data>.json

@@ -4,12 +4,13 @@ O agente grava o resultado da revisão neste formato e chama `${CLAUDE_PLUGIN_RO
 
 ```jsonc
 {
-  "versao_esquema": "1.0",
+  "versao_esquema": "1.1",
   "exemplo": false,                       // true só para a política de exemplo (põe o aviso no PDF)
   "politica": {
     "titulo": "...", "instituicao": "...", "arquivo": "nome.docx", "versao": "3.0",
     "data_revisao": "AAAA-MM-DD",         // data de aprovação/revisão extraída do documento
-    "fonte_data_revisao": "trecho do documento de onde a data saiu"
+    "fonte_data_revisao": "trecho do documento de onde a data saiu",
+    "clausulas_operativas": ["5.1", "5.2", "10.2"]  // todas as operativas; cada uma termina num achado
   },
   "revisao": {
     "modo": "atual" | "replay",
@@ -33,6 +34,7 @@ O agente grava o resultado da revisão neste formato e chama `${CLAUDE_PLUGIN_RO
       "search_id": "handle do MCP"
     }],
     "severidade": "alta" | "media" | "baixa" | "conforme",
+    "criterio": "A-PRAZO | A-RECURSOS | M-FUTURO | M-PARCIAL | M-PROCEDIMENTO | B-REFERENCIA | B-GOVERNANCA | C-ADERENTE",  // consultas.md seção 5
     "situacao": "vigente" | "a_vigorar",
     "prazo": {"data": "AAAA-MM-DD", "base": "ato e dispositivo que fixam o prazo", "vencido": true} | null,
     "nova_redacao": "texto proposto para a cláusula" | null
@@ -65,6 +67,7 @@ O agente grava o resultado da revisão neste formato e chama `${CLAUDE_PLUGIN_RO
 ```
 
 Regras que o renderizador aplica:
+- Esquema 1.1: `criterio` fora da lista ou que não bate com a severidade, e cláusula de `clausulas_operativas` sem achado, recusam o JSON.
 - Falta de chave obrigatória, severidade fora da lista, responsável fora da lista, data fora de `AAAA-MM-DD` ou `conformidade_disponivel` ausente: o script recusa o JSON e lista os erros.
 - Fonte sem `citacao` ou `source_url`: sai `[CITAÇÃO PENDENTE]` em vermelho no PDF (aviso no terminal).
 - Prazo `vencido` ausente: calculado contra `data_referencia`.
